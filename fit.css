@@ -1,0 +1,376 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Header */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  .nav__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav__logo img {
+    height: 50px;
+  }
+  
+  .nav__menu__btn {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .nav__links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav__links li a {
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+  
+  .nav__links li a:hover {
+    color: #007bff;
+  }
+  
+  .nav__btns {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Header Content */
+  .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0;
+  }
+  
+  .header__content {
+    max-width: 50%;
+  }
+  
+  .header__content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .header__content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .header__content p {
+    margin-bottom: 20px;
+  }
+  
+  .header__image {
+    max-width: 40%;
+  }
+  
+  /* About Section */
+  .about__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0;
+  }
+  
+  .about__image {
+    max-width: 40%;
+  }
+  
+  .about__content {
+    max-width: 50%;
+  }
+  
+  .about__content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .about__content p {
+    margin-bottom: 20px;
+  }
+  
+  /* Service Section */
+  .service__container {
+    padding: 50px 0;
+  }
+  
+  .service__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .service__card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .service__card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .service__card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .service__card p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .service__image {
+    grid-column: span 2;
+    text-align: center;
+  }
+  
+  /* Popular Section */
+  .popular__container {
+    padding: 50px 0;
+  }
+  
+  .popular__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .popular__card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .popular__card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .popular__card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .popular__card p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .popular__card span {
+    font-size: 1.5rem;
+    color: #007bff;
+  }
+  
+  /* Mentor Section */
+  .mentor__container {
+    padding: 50px 0;
+  }
+  
+  .mentor__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .mentor__card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .mentor__card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .mentor__card img {
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+  
+  .mentor__card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .mentor__card p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0;
+  }
+  
+  .footer__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .footer__col {
+    flex: 1;
+  }
+  
+  .footer__logo img {
+    height: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .footer__links {
+    list-style: none;
+  }
+  
+  .footer__links li {
+    margin-bottom: 10px;
+  }
+  
+  .footer__links li a {
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+  
+  .footer__links li a:hover {
+    color: #007bff;
+  }
+  
+  .footer__bar {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .nav__menu__btn {
+      display: block;
+    }
+  
+    .nav__links {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  
+    .nav__links.active {
+      display: flex;
+    }
+  
+    .header__container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .header__content {
+      max-width: 100%;
+    }
+  
+    .header__image {
+      max-width: 100%;
+      margin-top: 20px;
+    }
+  
+    .about__container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .about__image {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .about__content {
+      max-width: 100%;
+    }
+  
+    .service__grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .service__image {
+      grid-column: span 1;
+    }
+  
+    .popular__grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .mentor__grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .footer__container {
+      flex-direction: column;
+      text-align: center;
+    }
+  }

@@ -1,0 +1,182 @@
+<!-- Add Swiper CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+/>
+
+<!-- Home Section with Swiper Slider for Telemedicine -->
+<section class="home" id="home">
+  <div class="swiper-container">
+    <!-- Video Background -->
+    <video autoplay muted loop class="background-video">
+      <source src="back.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="swiper-wrapper">
+      <!-- Slide 1: Online Consultations -->
+      <div class="swiper-slide">
+        <div class="content">
+          <h1>Online Consultations at Your Fingertips</h1>
+          <p>
+            Book virtual consultations with certified doctors from the comfort of your home. Get expert medical advice quickly and conveniently.
+          </p>
+          <a href="#appointments">
+            <button class="btn">Book an Appointment</button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 2: Remote Health Monitoring -->
+      <div class="swiper-slide">
+        <div class="content">
+          <h1>Remote Health Monitoring</h1>
+          <p>
+            Track your vital signs and health data remotely with our advanced monitoring tools, ensuring timely interventions and better health outcomes.
+          </p>
+          <a href="#health-monitoring">
+            <button class="btn">Learn More</button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 3: Expert Specialists -->
+      <div class="swiper-slide">
+        <div class="content">
+          <h1>Connect with Expert Specialists</h1>
+          <p>
+            Access top specialists across multiple disciplines, from cardiology to pediatrics, and get personalized treatment plans.
+          </p>
+          <a href="#specialties">
+            <button class="btn">Meet Our Specialists</button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 4: Easy Appointment Scheduling -->
+      <div class="swiper-slide">
+        <div class="content">
+          <h1>Easy Appointment Scheduling</h1>
+          <p>
+            Schedule, reschedule, and manage your appointments with ease using our user-friendly platform. Stay on top of your health with timely consultations.
+          </p>
+          <a href="#appointments">
+            <button class="btn">Manage Appointments</button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 5: Video Consultation Services -->
+      <div class="swiper-slide">
+        <div class="content">
+          <h1>Seamless Video Consultations</h1>
+          <p>
+            Our platform offers secure, high-quality video consultations so you can have a face-to-face conversation with your doctor from anywhere.
+          </p>
+          <a href="#video-consultation">
+            <button class="btn">Start a Consultation</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- Add Navigation Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
+<!-- Add SwiperJS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<!-- SwiperJS Initialization Script -->
+<script>
+  const swiper = new Swiper('.swiper-container', {
+    loop: true, // Loop through slides
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    autoplay: {
+      delay: 5000, // Auto slide every 5 seconds
+    },
+    effect: 'slide', // Default slide effect
+  });
+</script>
+
+<!-- CSS Styles for Swiper, Content, and Video -->
+<style>
+  .swiper-container {
+    width: 100%;
+    height: 100vh; /* Fullscreen slider */
+    position: relative;
+    overflow: hidden; /* Hide overflow to maintain layout */
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .content {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    z-index: 2; /* Ensure content stays on top of video */
+    position: relative;
+  }
+
+  .content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    background-color: #008cba;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .btn:hover {
+    background-color: #007bb5;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
+    z-index: 2;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #008cba;
+  }
+
+  /* Video background styling */
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+</style>

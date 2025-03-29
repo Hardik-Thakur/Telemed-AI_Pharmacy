@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeleMed Appointments</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-size: 200% 200%;
+            animation: gradientBG 5s ease infinite;
+        }
+
+        /* Background Animation */
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Appointments Section */
+        #appointments {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .appointment-button {
+            background-color: #000000;
+            color: #00eeff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1em;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .appointment-button:hover {
+            background-color: #5c9aff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .appointment-form, .payment-modal-content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .appointment-form form, .payment-modal-content form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .appointment-form label, .payment-modal-content label {
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: #002366;
+        }
+
+        .appointment-form input, .appointment-form select, .appointment-form textarea,
+        .payment-modal-content input, .payment-modal-content select, .payment-modal-content textarea {
+            margin-bottom: 15px;
+            padding: 8px;
+            font-size: 0.9em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .appointment-form button, .payment-modal-content button {
+            background-color: #74b9ff;
+            color: #002366;
+            padding: 10px;
+            font-size: 0.9em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .appointment-form button:hover, .payment-modal-content button:hover {
+            background-color: #5c9aff;
+            transform: translateY(-2px);
+        }
+
+        /* Payment Modal */
+        .payment-modal {
+            display: none;
+            position: fixed;
+            z-index: 2;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .payment-modal-content {
+            display: block;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Thank You Popup */
+        .thank-you-popup {
+            display: none;
+            position: fixed;
+            z-index: 3;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .thank-you-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            margin: 10% auto;
+            text-align: center;
+        }
+
+        #timer {
+            font-size: 1.2em;
+            color: #002366;
+            margin: 20px 0;
+        }
+
+        #startConsultationBtn, #instantConsultationBtn {
+            display: none;
+            margin-top: 20px;
+        }
+
+        /* Keyframes for fadeIn animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Payment Options */
+        .payment-options {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .payment-options button {
+            background-color: #74b9ff;
+            color: #002366;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .payment-options button:hover {
+            background-color: #5c9aff;
+            transform: translateY(-2px);
+        }
+
+        .qr-code {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Appointments Section -->
+    <section id="appointments">
+        <button class="appointment-button" onclick="toggleAppointmentForm()">Book an Appointment</button>
+        <div class="appointment-form" id="appointmentForm" style="display: none;">
+            <h2>Book a New Appointment</h2>
+            <form id="appointmentBookingForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+                
+                <label for="doctor">Select Doctor:</label>
+                <select id="doctor" name="doctor" required>
+                    <option value="dr_sharma">Dr. Sharma</option>
+                    <option value="dr_kapoor">Dr. Kapoor</option>
+                    <option value="dr_manzer">Dr. Manzer</option>
+                    <option value="dr_sumit">Dr. Sumit</option>
+                    <option value="dr_varshney">Dr. Varshney</option>
+                </select>
+                
+                <label for="reason">Reason for Appointment:</label>
+                <textarea id="reason" name="reason" required></textarea>
+                
+                <button type="submit">Proceed to Payment</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="payment-modal">
+        <div class="payment-modal-content">
+            <span class="close" onclick="closePaymentModal()">&times;</span>
+            <h2>Payment Information</h2>
+            <div class="payment-options">
+                <button onclick="showCreditCardForm()">Credit Card</button>
+                <button onclick="showUPIForm()">UPI</button>
+            </div>
+            <div id="creditCardForm" style="display: none;">
+                <form id="paymentForm">
+                    <label for="cardName">Cardholder Name:</label>
+                    <input type="text" id="cardName" name="cardName" required>
+                    
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" name="cardNumber" required oninput="formatCardNumber(this)">
+                    
+                    <label for="expiryDate">Expiry Date:</label>
+                    <input type="text" id="expiryDate" name="expiryDate" required placeholder="MM/YY" oninput="formatExpiryDate(this)">
+                    
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required maxlength="3">
+                    
+                    <button type="submit">Pay</button>
+                </form>
+            </div>
+            <div id="upiForm" style="display: none;">
+                <div class="qr-code">
+                    <img src="https://via.placeholder.com/150" alt="QR Code">
+                </div>
+                <p>Scan the QR code to pay via UPI</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thank You Popup -->
+    <div id="thankYouPopup" class="thank-you-popup">
+        <div class="thank-you-content">
+            <h2>Thank You!</h2>
+            <p>Your payment was successful. Please choose an option:</p>
+            <div id="timer">Please wait, your consultation will start in 5:00...</div>
+            <button id="instantConsultationBtn" onclick="startInstantConsultation()">Start Instant Consultation</button>
+            <button id="startConsultationBtn" onclick="startScheduledConsultation()">Start Consultation</button>
+        </div>
+    </div>
+
+    <script>
+        let countdown;
+        let appointmentData = {}; // To store appointment data temporarily
+
+        function toggleAppointmentForm() {
+            var form = document.getElementById('appointmentForm');
+            form.style.display = form.style.display === 'block' ? 'none' : 'block';
+        }
+
+        document.getElementById('appointmentBookingForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Store appointment data temporarily
+            appointmentData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                doctor: document.getElementById('doctor').value,
+                reason: document.getElementById('reason').value
+            };
+
+            // Validate data
+            if (appointmentData.name && appointmentData.email && appointmentData.date && appointmentData.time && appointmentData.doctor && appointmentData.reason) {
+                // Hide the appointment form
+                document.getElementById('appointmentForm').style.display = 'none';
+                // Show the payment modal
+                showPaymentModal();
+            } else {
+                alert('Please fill out all fields before submitting.');
+            }
+        });
+
+        function showPaymentModal() {
+            document.getElementById('paymentModal').style.display = 'block';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        function showCreditCardForm() {
+            document.getElementById('creditCardForm').style.display = 'block';
+            document.getElementById('upiForm').style.display = 'none';
+        }
+
+        function showUPIForm() {
+            document.getElementById('upiForm').style.display = 'block';
+            document.getElementById('creditCardForm').style.display = 'none';
+        }
+
+        function formatCardNumber(input) {
+            let value = input.value.replace(/\D/g, '');
+            value = value.replace(/(\d{4})/g, '$1 ').trim();
+            input.value = value;
+        }
+
+        function formatExpiryDate(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4);
+            }
+            input.value = value;
+        }
+
+        document.getElementById('paymentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const cardName = document.getElementById('cardName').value;
+            const cardNumber = document.getElementById('cardNumber').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+
+            if (cardName && cardNumber && expiryDate && cvv) {
+                // Payment successful
+                closePaymentModal();
+                confirmAppointment(); // Confirm the appointment after payment
+            } else {
+                alert('Please fill out all fields before submitting.');
+            }
+        });
+
+        function confirmAppointment() {
+            // Show confirmation message
+            alert(Appointment successfully booked with ${appointmentData.doctor} at ${appointmentData.time} on ${appointmentData.date}!);
+            // Show the "Thank You" popup
+            showThankYouPopup();
+            startCountdown();
+        }
+
+        function showThankYouPopup() {
+            document.getElementById('thankYouPopup').style.display = 'block';
+            document.getElementById('instantConsultationBtn').style.display = 'block'; // Show instant consultation button
+        }
+
+        function startCountdown() {
+            let timeLeft = 300; // 5 minutes in seconds
+            const timerElement = document.getElementById('timer');
+            const startConsultationBtn = document.getElementById('startConsultationBtn');
+
+            countdown = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerElement.textContent = Please wait, your consultation will start in ${minutes}:${seconds.toString().padStart(2, '0')}...;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdown);
+                    timerElement.textContent = "Your consultation is starting now...";
+                    startConsultationBtn.style.display = 'block';
+                }
+                timeLeft--;
+            }, 1000);
+        }
+
+        function startInstantConsultation() {
+            // Replace with your instant meeting link
+            window.location.href = 'http://localhost:3030/7eaaaaf0-293c-43a7-b60e-19517b78d598';
+        }
+
+        function startScheduledConsultation() {
+            // Replace with your scheduled meeting link
+            window.location.href = 'http://localhost:3030/7eaaaaf0-293c-43a7-b60e-19517b78d598';
+        }
+    </script>
+</body>
+</html>

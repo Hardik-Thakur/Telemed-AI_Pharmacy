@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Personal Dashboard</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"/>
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/styled.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="css/owl.carousel.min.css">
+      <link rel="stylesheet" href="css/owl.theme.default.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+   </head>
+   <body>
+      <!--header section start -->
+      <div class="header_section">
+         <div class="container-fluid">
+               <div class="main">
+                  <div class="logo"><a href="indexd.html"><p>TELEMED</p></a></div>
+                  <div class="menu_text">
+                     <ul>
+                        <div class="togle_">
+                           <div class="menu_main">
+                              <ul>
+                                 <li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div id="myNav" class="overlay">
+                           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                           <div class="overlay-content">
+                              <a href="indexd.html">Home</a>
+                              <a href="pharmacy.html">AI Pharmacy</a>
+                              <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Consultation</title>
+    <style>
+        /* Basic styles for the countdown message */
+        #countdownPopup {
+            display: none; /* Initially hidden */
+            position: fixed;
+            z-index: 1000; /* Ensure it's on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding-top: 20%;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li><a href="#" id="videoConsultationLink"> Consultation</a></li>
+        
+
+    </ul>
+
+    <!-- Countdown Popup -->
+    <div id="countdownPopup">
+        <h2>Your appointment is booked with Mr. Kapoor!</h2>
+        <p>Redirecting in <span id="countdown">5</span> seconds...</p>
+    </div>
+
+    <script>
+        document.getElementById('videoConsultationLink').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default anchor click behavior
+            
+            // Show the countdown popup
+            document.getElementById('countdownPopup').style.display = 'block';
+
+            // Start the countdown
+            let countdownTime = 5; // 5 seconds
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.innerText = countdownTime;
+
+            const countdownInterval = setInterval(() => {
+                countdownTime--;
+                countdownElement.innerText = countdownTime;
+
+                if (countdownTime <= 0) {
+                    clearInterval(countdownInterval);
+                    // Redirect to the video consultation link
+                    window.location.href = 'http://localhost:3030/7eaaaaf0-293c-43a7-b60e-19517b78d598'; // Replace with your video link
+                }
+            }, 1000); // Update every second
+        });
+    </script>
+
+</body>
+</html>
+                              <a href="symptom.html">Doctor Care</a>
+                              <a href="shaurya.html">Logout</a>
+                           </div>
+                        </div>
+                        <span class="navbar-toggler-icon"></span>
+                        <span onclick="openNav()"><img src="images/toogle-icon.png" class="toggle_menu"></span>
+                        <span onclick="openNav()"><img src="images/toogle-icon1.png" class="toggle_menu_1"></span>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+
+
+            
+      <!-- banner section start -->
+      <div class="banner_section layout_padding">
+         <div class="container">
+            <div id="my_slider" class="carousel slide" data-ride="carousel">
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="container">
+                              <h1 class="banner_taital">Welcome<br> Mr. Nikhil</h1>
+                              <p class="banner_text">Access your complete medical history and Prescriptions in one place</p>
+                              <div class="more_bt"><a href="#">Explore</a></div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="banner_img"><img src="images/bnn1.png" style="border-radius: 25px;"></div>
+                        </div>
+                     </div>
+                  </div>
+
+
+
+
+                  <div class="carousel-item">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="container">
+                              <h1 class="banner_taital">Your Appointments </h1>
+                        <p class="banner_text">Schedule all your appointments in one place, with your preffered practitioners.</p>
+
+                              <div class="more_bt"><a href="#">Read More</a></div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="banner_img"><img src="images/bnn2.png"style="border-radius: 25px;"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="container">
+                              <h1 class="banner_taital">Your Lab Tests</h1>
+                              <p class="banner_text">Book your lab tests, right when they are presribed. Ease of home collections of sample and all your reports tracked at one place  </p>
+                              
+                              <div class="more_bt"><a href="#">Proceed</a></div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="banner_img"><img src="images/bnn3.png" style="border-radius: 25px;"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+               <i class="fa fa-angle-left"></i>
+               </a>
+               <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+               <i class="fa fa-angle-right"></i>
+               </a>
+            </div>
+         </div>            
+      </div>
+
+
+      
+      <!-- banner section end -->
+      </div>
+      <!-- header section end -->
+      <!-- protect section start -->
+      <div class="protect_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="protect_taital">Your Personal Health space</h1>
+                  <p class="protect_text">Here's a completely Unique Space designed FOR YOU, BY YOU</p>
+               </div>
+            </div>
+            <div class="protect_section_2 layout_padding">
+               <div class="row">
+                  <div class="col-md-6">
+                     <h1 class="hands_text"><a href="#">Stay ahead with <br> scheduled consultations</a></h1>
+                     <h1 class="hands_text_2"><a href="#">Use video calls & <br>chat for instant advice.</a></h1>
+                     <h1 class="hands_text"><a href="#">Track symptoms, prescriptions,<br>and reports easily</a></h1>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="image_2"><img src="images/circleimg.jpg" style="border-radius: 50%;"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- protect section end -->
+      <!-- about section start -->
+      <div class="about_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="about_img"><img src="images/img-1.png"></div>
+               </div>
+               <div class="col-md-6">
+                  <h1 class="about_taital">Access Reports</span></h1>
+                  <p class="about_text">With <b>TeleMed</b>, patients can easily access their health reports, track their medical history, and manage prescriptions all through a seamless and structured platform. The system ensures secure and convenient access to vital health information anytime, anywhere.</p>
+
+                  <div class="read_bt"><a href="medical.html">Check Here</a></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="about_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <h1 class="about_taital">Book An appointment</span></h1>
+                  <p class="about_text">With <b>TeleMed</b>, You can easily book appointments, schedule consultations, and manage their healthcare needs through a seamless and structured platform. The system ensures secure and convenient access to appointment scheduling anytime, anywhere.</p>
+                  <div class="read_bt"><a href="appointment.html">Check Here</a></div>
+               </div>
+               <div class="col-md-6">
+                  <div class="about_img"><img src="bookapt.png"></div>
+               </div>
+               
+            </div>
+         </div>
+      </div>
+      <!-- about section end -->
+
+      <script>
+         (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Q0piBCrOOGOszmcGdD5gq";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+         </script>
+
+
+      
+      <!-- doctor section start -->
+     
+      <!-- <div class="doctors_section layout_padding">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-sm-12">
+                  <div class="taital_main">
+                     <div class="taital_left">
+                        <div class="play_icon"><img src="images/play-icon.png"></div>
+                     </div>
+                     <div class="taital_right">
+                        <h1 class="doctor_taital">What doctors say..</h1>
+                        <p class="doctor_text">It is a well-known fact that patients prefer seamless virtual healthcare. The point of using TeleMed is to ensure efficient consultations, remote monitoring, and easy digital prescriptions.</p>
+                        <div class="readmore_bt"><a href="#">Read More</a></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div> -->
+      <!-- doctor section end -->
+      <!-- news section start -->
+      <!-- <div class="news_section layout_padding">
+         <div class="container">
+            <div id="main_slider" class="carousel slide" data-ride="carousel">
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <h1 class="news_taital">Latest News</h1>
+                     <p class="news_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
+                     <div class="news_section_2 layout_padding">
+                        <div class="box_main">
+                           <div class="image_1"><img src="images/news-img.png"></div>
+                           <h2 class="design_text">Coronavirus is Very dangerous</h2>
+                           <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
+                           <div class="read_btn"><a href="#">Read More</a></div>
+                        </div>
+                     </div>
+                  </div> -->
+
+
+
+                  <!-- <div class="carousel-item">
+                     <h1 class="news_taital">Latest Updates</h1>
+                     <p class="news_text">TeleMed is transforming healthcare by making virtual consultations, remote monitoring, and digital prescriptions more accessible and efficient.</p>
+                     <div class="news_section_2 layout_padding">
+                         <div class="box_main">
+                             <div class="image_1"><img src="images/news-img.png" alt="TeleMed Update"></div>
+                             <h2 class="design_text">Telemedicine: The Future of Healthcare</h2>
+                             <p class="lorem_text">With TeleMed, patients can consult doctors from anywhere, receive instant prescriptions, and manage health records digitally. Experience seamless, on-demand healthcare like never before.</p>
+                             <div class="read_btn"><a href="#">Learn More</a></div>
+                         </div>
+                     </div>
+                 </div>
+                 
+                 <div class="carousel-item">
+                     <h1 class="news_taital">Latest Updates</h1>
+                     <p class="news_text">Stay informed with TeleMed’s latest advancements in digital healthcare and virtual medical services.</p>
+                     <div class="news_section_2 layout_padding">
+                         <div class="box_main">
+                             <div class="image_1"><img src="images/news-img.png" alt="Healthcare Innovation"></div>
+                             <h2 class="design_text">Breaking Barriers in Healthcare</h2>
+                             <p class="lorem_text">TeleMed ensures medical care is just a click away. From video consultations to AI-powered diagnostics, we bring healthcare closer to you, anytime, anywhere.</p>
+                             <div class="read_btn"><a href="#">Explore More</a></div>
+                         </div>
+                     </div>
+                 </div>
+                 
+                 <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+                     <i class="fa fa-angle-left"></i>
+                 </a>
+                 <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                     <i class="fa fa-angle-right"></i>
+                 </a> -->
+                 
+
+
+                 <section id="lab-tests" style="background: linear-gradient(135deg, #f7f7f7, #ffffff); padding: 60px 40px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); margin: 50px auto; max-width: 1200px; font-family: 'Arial', sans-serif; position: relative; overflow: hidden;">
+                  <!-- Animated Background Elements -->
+                  <div class="animated-bubbles"></div>
+                  <div class="animated-wave"></div>
+                  
+                  <div style="display: flex; flex-direction: column; align-items: flex-start; max-width: 600px; margin-bottom: 40px; position: relative; z-index: 2;">
+                      <h2 style="font-size: 48px; color: #333333; margin-bottom: 20px; font-weight: bold; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); letter-spacing: 1px; text-align: left;" class="pulse-animation">Lab Test Booking</h2>
+                      <p style="font-size: 22px; color: #555555; margin-bottom: 30px; font-style: italic; text-align: left;" class="slide-in-animation">Effortless and secure lab test booking at your fingertips.</p>
+                      <div class="underline-animation"></div>
+                  </div>
+                  
+                  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: stretch; gap: 50px; position: relative; z-index: 2;">
+                      <form id="labTestBookingForm" style="background: rgba(255, 255, 255, 0.95); padding: 50px; border-radius: 25px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); width: 100%; max-width: 450px;" class="form-animation">
+                          <div class="input-group">
+                              <label for="testName" style="font-weight: bold; color: #333333; font-size: 18px;">Test Name:</label>
+                              <input type="text" id="testName" name="testName" placeholder="e.g., Blood Test" required style="background: #f9f9f9; border: 2px solid #e0e0e0; color: #333333;">
+                              <span class="focus-border"></span>
+                          </div>
+                          
+                          <div class="input-group">
+                              <label for="testDate" style="font-weight: bold; color: #333333; font-size: 18px;">Preferred Date:</label>
+                              <input type="date" id="testDate" name="testDate" required style="background: #f9f9f9; border: 2px solid #e0e0e0; color: #333333;">
+                              <span class="focus-border"></span>
+                          </div>
+                          
+                          <div class="input-group">
+                              <label for="testTime" style="font-weight: bold; color: #333333; font-size: 18px;">Preferred Time:</label>
+                              <input type="time" id="testTime" name="testTime" required style="background: #f9f9f9; border: 2px solid #e0e0e0; color: #333333;">
+                              <span class="focus-border"></span>
+                          </div>
+                          
+                          <div class="input-group">
+                              <label for="lab" style="font-weight: bold; color: #333333; font-size: 18px;">Select Lab:</label>
+                              <select id="lab" name="lab" required style="background: #f9f9f9; border: 2px solid #e0e0e0; color: #333333;">
+                                  <option value="" disabled selected>Select a lab</option>
+                                  <option value="lab1">City Medical Lab</option>
+                                  <option value="lab2">HealthFirst Diagnostics</option>
+                                  <option value="lab3">Premier Pathology Center</option>
+                              </select>
+                              <span class="focus-border"></span>
+                          </div>
+                          
+                          <button type="submit" class="glow-button" style="background: linear-gradient(90deg, #007bff, #0056b3); color: white; font-size: 20px; padding: 20px;">Book Your Test</button>
+                          <p id="confirmationMessage" style="display: none; color: #28a745; font-weight: bold; margin-top: 25px; text-align: center;" class="pop-animation">Your test has been booked successfully!</p>
+                      </form>
+                      
+                      <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;" class="image-container">
+                          <img src="https://media-hosting.imagekit.io//ccb03b6eaa334aef/download.jfif?Expires=1836590875&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Q8oty69gYviuKArBgjukywpZ4viaymSEHblXw3ujKjOXJZwyN43dhL3fwgho1EJN7EpbDqknnUQpSKrEiG71pB-WwKKzTGJCCdvq5tfoW4KvXGgVsyZFl7okbbRvaJKJ4nHQ3Dlo9-uZuUdNvazxwa9PgW-CGB1i9Yc7nJqhkDLR4VfYHm7ovFxxfo~lKmk5cd414Pn3x5ydxxJOQzsf36Xx9YEtxZyxI9ZSUve0ZMAikmo0hUSQFChpqlwYUS4zG5U04sSapWsBuY98JRHo9~fCo9yjLDV7p-5Vgvrjn6SOED0Tjl~dvrB8bB4IBWUYYW3szuEIQbVKELE479FK5g__" alt="Lab Test Illustration" style="max-width: 100%; height: auto; border-radius: 25px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);" class="float-animation">
+                          <div class="card-info" style="background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 20px; margin-top: 30px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); width: 90%;">
+                              <h3 style="color: #333333; font-size: 22px; margin-bottom: 20px;">Why Choose Our Labs?</h3>
+                              <ul style="padding-left: 20px; margin-bottom: 20px;">
+                                  <li style="margin-bottom: 15px; color: #555555; font-size: 18px;">Fast & accurate results</li>
+                                  <li style="margin-bottom: 15px; color: #555555; font-size: 18px;">State-of-the-art equipment</li>
+                                  <li style="margin-bottom: 15px; color: #555555; font-size: 18px;">Home collection available</li>
+                              </ul>
+                              <p style="color: #777777; font-style: italic; margin-top: 10px; font-size: 16px;">Trusted by over 10,000+ patients</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div style="text-align: center; margin-top: 50px; position: relative; z-index: 2;" class="fade-in-animation">
+                      <p style="color: #333333; font-size: 20px; font-weight: bold;">Have Questions? Call us at: <span style="color: #007bff;">1-800-LAB-TEST</span></p>
+                  </div></section><style> /* Base Animations / @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } @keyframes slideIn { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } } @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } } / New Animations / @keyframes floatAnimation { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } } @keyframes pulseAnimation { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } } @keyframes glowEffect { 0% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); } 50% { box-shadow: 0 0 30px rgba(0, 123, 255, 0.8); } 100% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); } } @keyframes bubblesAnimation { 0% { transform: translateY(100%) scale(0); } 100% { transform: translateY(-100vh) scale(1); } } @keyframes waveAnimation { 0% { transform: translateX(-100%) scaleY(1); } 50% { transform: translateX(-50%) scaleY(0.8); } 100% { transform: translateX(0) scaleY(1); } } @keyframes underlineExpand { from { width: 0; } to { width: 100%; } } @keyframes popIn { 0% { transform: scale(0); opacity: 0; } 80% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: 1; } } / Background Elements / .animated-bubbles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1; } .animated-bubbles::before { content: ''; position: absolute; width: 25px; height: 25px; background: rgba(0, 123, 255, 0.2); border-radius: 50%; left: 15%; animation: bubblesAnimation 18s infinite linear; } .animated-bubbles::after { content: ''; position: absolute; width: 40px; height: 40px; background: rgba(0, 123, 255, 0.15); border-radius: 50%; left: 80%; animation: bubblesAnimation 22s infinite linear; animation-delay: 3s; } .animated-wave { position: absolute; bottom: 0; left: 0; width: 200%; height: 120px; background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(0,123,255,0.1)); border-radius: 50%; animation: waveAnimation 18s infinite linear; z-index: 1; } / Applied Animations / .float-animation { animation: floatAnimation 8s ease-in-out infinite; } .pulse-animation { animation: pulseAnimation 4s ease-in-out infinite; } .form-animation { animation: fadeIn 1.5s forwards, slideIn 1.5s forwards; } .slide-in-animation { animation: slideIn 1.5s forwards; } .fade-in-animation { animation: fadeIn 2.5s forwards; } .pop-animation { animation: popIn 0.6s forwards; } .underline-animation { height: 5px; background: linear-gradient(90deg, #007bff, #0056b3); width: 0; margin-top: -25px; animation: underlineExpand 2s forwards; } .glow-button { animation: glowEffect 3s infinite; } / Form Styling / .input-group { position: relative; margin-bottom: 30px; } input, select { width: 100%; padding: 20px; border: 2px solid #e0e0e0; border-radius: 15px; font-size: 18px; transition: 0.3s ease; background-color: #f9f9f9; color: #333333; } input:focus, select:focus { border-color: #007bff; box-shadow: 0 0 12px rgba(0, 123, 255, 0.5); outline: none; } .focus-border { position: absolute; bottom: 0; left: 50%; width: 0; height: 3px; background-color: #007bff; transition: 0.4s; } input:focus ~ .focus-border, select:focus ~ .focus-border { width: 100%; left: 0; } button { background: linear-gradient(90deg, #007bff, #0056b3); color: white; cursor: pointer; padding: 22px; margin-top: 30px; transition: background 0.3s ease, transform 0.2s ease; font-weight: bold; border: none; border-radius: 15px; width: 100%; font-size: 20px; position: relative; overflow: hidden; } button:hover { background: linear-gradient(90deg, #0056b3, #003d80); transform: scale(1.03); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); } button:active { transform: scale(0.99); } label { color: #333333; margin-top: 20px; display: block; margin-bottom: 10px; font-size: 18px; transition: color 0.3s ease; } / Card Info Animation / .card-info { animation: fadeIn 2s forwards; animation-delay: 0.5s; opacity: 0; } .card-info ul li { animation: slideIn 0.7s forwards; opacity: 0; } .card-info ul li:nth-child(1) { animation-delay: 1s; } .card-info ul li:nth-child(2) { animation-delay: 1.3s; } .card-info ul li:nth-child(3) { animation-delay: 1.6s; } / Media Queries for Responsiveness */ @media (max-width: 768px) { #lab-tests { padding: 40px 30px; max-width: 100%; } .image-container { margin-top: 30px; } } </style>
+                  <style>
+                     /* Base Animations */
+                     @keyframes unique-fadeIn {
+                         from { opacity: 0; }
+                         to { opacity: 1; }
+                     }
+                     @keyframes unique-slideIn {
+                         from { transform: translateY(-30px); opacity: 0; }
+                         to { transform: translateY(0); opacity: 1; }
+                     }
+                     @keyframes unique-zoomIn {
+                         from { transform: scale(0.9); opacity: 0; }
+                         to { transform: scale(1); opacity: 1; }
+                     }
+                     /* New Animations */
+                     @keyframes unique-floatAnimation {
+                         0% { transform: translateY(0px); }
+                         50% { transform: translateY(-15px); }
+                         100% { transform: translateY(0px); }
+                     }
+                     @keyframes unique-pulseAnimation {
+                         0% { transform: scale(1); }
+                         50% { transform: scale(1.05); }
+                         100% { transform: scale(1); }
+                     }
+                     @keyframes unique-glowEffect {
+                         0% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); }
+                         50% { box-shadow: 0 0 30px rgba(0, 123, 255, 0.8); }
+                         100% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); }
+                     }
+                     @keyframes unique-bubblesAnimation {
+                         0% { transform: translateY(100%) scale(0); }
+                         100% { transform: translateY(-100vh) scale(1); }
+                     }
+                     @keyframes unique-waveAnimation {
+                         0% { transform: translateX(-100%) scaleY(1); }
+                         50% { transform: translateX(-50%) scaleY(0.8); }
+                         100% { transform: translateX(0) scaleY(1); }
+                     }
+                     @keyframes unique-underlineExpand {
+                         from { width: 0; }
+                         to { width: 100%; }
+                     }
+                     @keyframes unique-popIn {
+                         0% { transform: scale(0); opacity: 0; }
+                         80% { transform: scale(1.1); opacity: 1; }
+                         100% { transform: scale(1); opacity: 1; }
+                     }
+                     /* Background Elements */
+                     .unique-animated-bubbles {
+                         position: absolute;
+                         top: 0;
+                         left: 0;
+                         width: 100%;
+                         height: 100%;
+                         overflow: hidden;
+                         z-index: 1;
+                     }
+                     .unique-animated-bubbles::before {
+                         content: '';
+                         position: absolute;
+                         width: 25px;
+                         height: 25px;
+                         background: rgba(0, 123, 255, 0.2);
+                         border-radius: 50%;
+                         left: 15%;
+                         animation: unique-bubblesAnimation 18s infinite linear;
+                     }
+                     .unique-animated-bubbles::after {
+                         content: '';
+                         position: absolute;
+                         width: 40px;
+                         height: 40px;
+                         background: rgba(0, 123, 255, 0.15);
+                         border-radius: 50%;
+                         left: 80%;
+                         animation: unique-bubblesAnimation 22s infinite linear;
+                         animation-delay: 3s;
+                     }
+                     .unique-animated-wave {
+                         position: absolute;
+                         bottom: 0;
+                         left: 0;
+                         width: 200%;
+                         height: 120px;
+                         background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(0,123,255,0.1));
+                         border-radius: 50%;
+                         animation: unique-waveAnimation 18s infinite linear;
+                         z-index: 1;
+                     }
+                     /* Applied Animations */
+                     .unique-float-animation {
+                         animation: unique-floatAnimation 8s ease-in-out infinite;
+                     }
+                     .unique-pulse-animation {
+                         animation: unique-pulseAnimation 4s ease-in-out infinite;
+                     }
+                     .unique-form-animation {
+                         animation: unique-fadeIn 1.5s forwards, unique-slideIn 1.5s forwards;
+                     }
+                     .unique-slide-in-animation {
+                         animation: unique-slideIn 1.5s forwards;
+                     }
+                     .unique-fade-in-animation {
+                         animation: unique-fadeIn 2.5s forwards;
+                     }
+                     .unique-pop-animation {
+                         animation: unique-popIn 0.6s forwards;
+                     }
+                     .unique-underline-animation {
+                         height: 5px;
+                         background: linear-gradient(90deg, #007bff, #0056b3);
+                         width: 0;
+                         margin-top: -25px;
+                         animation: unique-underlineExpand 2s forwards;
+                     }
+                     .unique-glow-button {
+                         animation: unique-glowEffect 3s infinite;
+                     }
+                     /* Form Styling */
+                     .unique-input-group {
+                         position: relative;
+                         margin-bottom: 30px;
+                     }
+                     input, select {
+                         width: 100%;
+                         padding: 20px;
+                         border: 2px solid #e0e0e0;
+                         border-radius: 15px;
+                         font-size: 18px;
+                         transition: 0.3s ease;
+                         background-color: #f9f9f9;
+                         color: #333333;
+                     }
+                     input:focus, select:focus {
+                         border-color: #007bff;
+                         box-shadow: 0 0 12px rgba(0, 123, 255, 0.5);
+                         outline: none;
+                     }
+                     .unique-focus-border {
+                         position: absolute;
+                         bottom: 0;
+                         left: 50%;
+                         width: 0;
+                         height: 3px;
+                         background-color: #007bff;
+                         transition: 0.4s;
+                     }
+                     input:focus ~ .unique-focus-border, select:focus ~ .unique-focus-border {
+                         width: 100%;
+                         left: 0;
+                     }
+                     button {
+                         background: linear-gradient(90deg, #007bff, #0056b3);
+                         color: white;
+                         cursor: pointer;
+                         padding: 22px;
+                         margin-top: 30px;
+                         transition: background 0.3s ease, transform 0.2s ease;
+                         font-weight: bold;
+                         border: none;
+                         border-radius: 15px;
+                         width: 100%;
+                         font-size: 20px;
+                         position: relative;
+                         overflow: hidden;
+                     }
+                     button:hover {
+                         background: linear-gradient(90deg, #0056b3, #003d80);
+                         transform: scale(1.03);
+                         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+                     }
+                     button:active {
+                         transform: scale(0.99);
+                     }
+                     label {
+                         color: #333333;
+                         margin-top: 20px;
+                         display: block;
+                         margin-bottom: 10px;
+                         font-size: 18px;
+                         transition: color 0.3s ease;
+                     }
+                     /* Card Info Animation */
+                     .unique-card-info {
+                         animation: unique-fadeIn 2s forwards;
+                         animation-delay: 0.5s;
+                         opacity: 0;
+                     }
+                     .unique-card-info ul li {
+                         animation: unique-slideIn 0.7s forwards;
+                         opacity: 0;
+                     }
+                     .unique-card-info ul li:nth-child(1) {
+                         animation-delay: 1s;
+                     }
+                     .unique-card-info ul li:nth-child(2) {
+                         animation-delay: 1.3s;
+                     }
+                     .unique-card-info ul li:nth-child(3) {
+                         animation-delay: 1.6s;
+                     }
+                     /* Media Queries for Responsiveness */
+                     @media (max-width: 768px) {
+                         #unique-lab-tests {
+                             padding: 40px 30px;
+                             max-width: 100%;
+                         }
+                         .unique-image-container {
+                             margin-top: 30px;
+                         }
+                     }
+                 </style>
+         
+         
+         
+         
+              
+              <script>
+                  // Add additional bubble elements dynamically
+                  document.addEventListener('DOMContentLoaded', function() {
+                      const bubblesContainer = document.querySelector('.animated-bubbles');
+                      
+                      for (let i = 0; i < 10; i++) {
+                          const bubble = document.createElement('div');
+                          bubble.style.position = 'absolute';
+                          bubble.style.width = Math.floor(
+              
+  
+                  document.getElementById('labTestBookingForm').addEventListener('submit', function(event) {
+                      event.preventDefault();
+                      document.getElementById('confirmationMessage').style.display = 'block';
+                  });   
+              </script>
+
+
+
+              </section>
+
+      <!-- news section end -->
+      <!-- update section start -->
+      <div class="update_section">
+         <div class="container">
+            <h1 class="update_taital">Get Every Update.... </h1>
+            <form action="/action_page.php">
+               <div class="form-group">
+                   <textarea class="update_mail" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+               </div>
+               <div class="subscribe_bt"><a href="#">Subscribe Now</a></div>
+            </form>
+         </div>
+      </div>
+      <!-- update section end -->
+      <!-- footer section start -->
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="footer_section_2">
+               <div class="row">
+                  <div class="col-lg-3 col-sm-6">
+                     <h2 class="useful_text">Quick Links</h2>
+                     <div class="footer_menu">
+                        <ul>
+                           <li><a href="#">About Us</a></li>
+                           <li><a href="#">Our Services</a></li>
+                           <li><a href="#">Appointments</a></li>
+                           <li><a href="#">TeleMed Blog</a></li>
+                           <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <h2 class="useful_text">About TeleMed</h2>
+                     <p class="footer_text">TeleMed is a leading digital healthcare platform providing virtual consultations, remote monitoring, and seamless access to medical care anytime, anywhere.</p>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <h2 class="useful_text">Contact Us</h2>
+                     <div class="location_text">
+                        <ul>
+                           <li>
+                              <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                              <span class="padding_15">New Delhi, India</span></a>
+                           </li>
+                           <li>
+                              <a href="#"><i class="fa fa-phone" aria-hidden="true"></i>
+                              <span class="padding_15">+91 9876543210</span></a>
+                           </li>
+                           <li>
+                              <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>
+                              <span class="padding_15">support@telemed.com</span></a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <h2 class="useful_text">Our Reach</h2>
+                     <div class="map_image"><img src="images/map-bg.png" alt="TeleMed Global Reach"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <p class="copyright_text">© 2025 TeleMed. All Rights Reserved. | Designed for seamless virtual healthcare.</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- copyright section end -->
+      
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- Sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- Javascript --> 
+      <script src="js/owl.carousel.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      
+      <script>
+         $(document).ready(function(){
+            $(".fancybox").fancybox({
+               openEffect: "none",
+               closeEffect: "none"
+            });
+      
+            $(".zoom").hover(function(){
+               $(this).addClass('transition');
+            }, function(){
+               $(this).removeClass('transition');
+            });
+         })
+      
+         function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+         }
+         function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+         }
+      </script>
+   </body>
+</html>

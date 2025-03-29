@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Consultation</title>
+    <style>
+        /* Basic styles for the countdown message */
+        #countdownPopup {
+            display: none; /* Initially hidden */
+            position: fixed;
+            z-index: 1000; /* Ensure it's on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding-top: 20%;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li><a href="#" id="videoConsultationLink"> Consultation</a></li>
+        
+
+    </ul>
+
+    <!-- Countdown Popup -->
+    <div id="countdownPopup">
+        <h2>Your appointment is booked with Mr. Kapoor!</h2>
+        <p>Redirecting in <span id="countdown">5</span> seconds...</p>
+    </div>
+
+    <script>
+        document.getElementById('videoConsultationLink').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default anchor click behavior
+            
+            // Show the countdown popup
+            document.getElementById('countdownPopup').style.display = 'block';
+
+            // Start the countdown
+            let countdownTime = 5; // 5 seconds
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.innerText = countdownTime;
+
+            const countdownInterval = setInterval(() => {
+                countdownTime--;
+                countdownElement.innerText = countdownTime;
+
+                if (countdownTime <= 0) {
+                    clearInterval(countdownInterval);
+                    // Redirect to the video consultation link
+                    window.location.href = 'http://localhost:3030/7eaaaaf0-293c-43a7-b60e-19517b78d598'; // Replace with your video link
+                }
+            }, 1000); // Update every second
+        });
+    </script>
+
+</body>
+</html>

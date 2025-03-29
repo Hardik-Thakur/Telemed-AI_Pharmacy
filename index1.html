@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeleMed User Dashboard</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>TeleMed</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#appointments" id="appointmentToggle">Appointments</a></li>
+                    <li><a href="pharmacy.html">AI-Pharmacy</a></li> <!-- New Pharmacy Link -->
+                   <li><a href="symptom.html">Dr.Care</a></li> 
+                    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Consultation</title>
+    <style>
+        /* Basic styles for the countdown message */
+        #countdownPopup {
+            display: none; /* Initially hidden */
+            position: fixed;
+            z-index: 1000; /* Ensure it's on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding-top: 20%;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li><a href="#" id="videoConsultationLink"> Consultation</a></li>
+        
+
+    </ul>
+
+    <!-- Countdown Popup -->
+    <div id="countdownPopup">
+        <h2>Your appointment is booked with Mr. Kapoor!</h2>
+        <p>Redirecting in <span id="countdown">5</span> seconds...</p>
+    </div>
+
+    <script>
+        document.getElementById('videoConsultationLink').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default anchor click behavior
+            
+            // Show the countdown popup
+            document.getElementById('countdownPopup').style.display = 'block';
+
+            // Start the countdown
+            let countdownTime = 5; // 5 seconds
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.innerText = countdownTime;
+
+            const countdownInterval = setInterval(() => {
+                countdownTime--;
+                countdownElement.innerText = countdownTime;
+
+                if (countdownTime <= 0) {
+                    clearInterval(countdownInterval);
+                    // Redirect to the video consultation link
+                    window.location.href = 'http://localhost:3030/7eaaaaf0-293c-43a7-b60e-19517b78d598'; // Replace with your video link
+                }
+            }, 1000); // Update every second
+        });
+    </script>
+
+</body>
+</html>
+
+                    <li><a href="http://127.0.0.1:5501/index.html#home" target="_blank">Logout</a></li>
+                    <li>
+                        <a href="#profile" class="profile-icon"> <style>
+                            nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f2f2f2; /* You can change the background color */
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Optional: Add hover effect */
+.profile-icon:hover {
+    background-color: #ddd;
+}
+
+.profile-icon img {
+    transition: transform 0.3s ease;
+}
+
+.profile-icon:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+                        </style>
+                            <img src="images/demn.jpeg" alt="Profile" class="profile-image">
+                        </a> <!-- Profile Section -->
+                    </li>
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+    
+    <!-- Referral Program Pop-Up -->
+    <div id="referralPopupContent" class="referral-popup">
+        <h2>Referral Program</h2>
+        <div class="referral-content">
+            <p>Invite your friends to join TeleMed and earn rewards! Share your unique referral link:</p>
+            <input type="text" id="referralLink" value="https://telemed.com/referral?user=Brioooo" readonly>
+            <button id="copyReferralLink">Copy Link</button>
+            <p>Or share it directly on social media:</p>
+            <div class="social-share">
+                <a href="#" id="shareFacebook"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#" id="shareTwitter"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#" id="shareLinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#" id="shareEmail"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+        </div>
+    </div>
+    
+<!-- Health Overview Section -->
+<div class="health-dashboard">
+    <div class="health-card">
+        <div class="progress-container">
+            <svg>
+                <circle class="bg-circle"></circle>
+                <circle class="progress-circle" data-value="78"></circle>
+            </svg>
+            <p class="progress-text">78%</p>
+        </div>
+        <div class="details">
+            <h2><i class="fas fa-heartbeat"></i> Heart Rate</h2>
+            <p><span class="count" data-value="78">73~84</span> BPM</p>
+        </div>
+    </div>
+
+    <div class="health-card">
+        <div class="progress-container">
+            <svg>
+                <circle class="bg-circle"></circle>
+                <circle class="progress-circle" data-value="65"></circle>
+            </svg>
+            <p class="progress-text">65%</p>
+        </div>
+        <div class="details">
+            <h2><i class="fas fa-running"></i> Daily Activity</h2>
+            <p><span class="count" data-value="5432">7594</span> Steps</p>
+        </div>
+    </div>
+
+    <div class="health-card">
+        <div class="progress-container">
+            <svg>
+                <circle class="bg-circle"></circle>
+                <circle class="progress-circle" data-value="55"></circle>
+            </svg>
+            <p class="progress-text">55%</p>
+        </div>
+        <div class="details">
+            <h2><i class="fas fa-weight"></i> Weight</h2>
+            <p><span class="count" data-value="72">74</span> kg</p>
+        </div>
+    </div>
+
+    <div class="health-card">
+        <div class="progress-container">
+            <svg>
+                <circle class="bg-circle"></circle>
+                <circle class="progress-circle" data-value="90"></circle>
+            </svg>
+            <p class="progress-text">90%</p>
+        </div>
+        <div class="details">
+            <h2><i class="fas fa-heart"></i> Health Status</h2>
+            <p>✅ <strong>Stable</strong></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemedicine Dashboard</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Add background image to the body */
+        body {
+    position: relative;
+    background: url(81.avif) no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+/* Glassmorphism Effect */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Light transparency */
+    backdrop-filter: blur(10px); /* Frosted Glass Effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari Support */
+    z-index: -1;
+}
+
+
+        /* Welcome Text Styling */
+        .welcome-text {
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .welcome-text h1 {
+            font-size: 40px;
+            color: #000000; /* Blue color */
+            margin-bottom: 15px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .welcome-text p {
+            font-size: 22px;
+            color: #000000;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container Layout */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Left Section - Cards */
+        .left-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 50%;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            width: 220px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for a clean effect */
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* Slight upward movement on hover */
+            box-shadow: 0 12px 24px rgba(33, 150, 243, 0.3); /* Glowing shadow on hover */
+        }
+
+        .card h3 {
+            font-size: 22px;
+            color: #000000; /* Blue text */
+            z-index: 2;
+        }
+
+        /* Right Top Corner Rounded & Glowing Outline for All Cards */
+        .card {
+            border-top-right-radius: 30px;  /* Rounded right top corner */
+        }
+
+        /* Card Background Images */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0; /* Image initially hidden */
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 20px;
+        }
+
+        .card:hover::before {
+            opacity: 1; /* Show image on hover */
+        }
+
+        /* Card Data Image Links */
+        .card[data-image="1"]::before { background-image: url('images/1-removebg-preview.png'); }
+        .card[data-image="3"]::before { background-image: url('images/3-removebg-preview.png'); }
+        .card[data-image="5"]::before { background-image: url('images/5-removebg-preview.png'); }
+        .card[data-image="7"]::before { background-image: url('images/7-removebg-preview.png'); }
+
+        /* Right Section */
+        .right-section {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Heart Image */
+        .heart-image {
+            width: 250px;
+            height: 250px;
+            background: url('images/heart-3d.png') no-repeat center;
+            background-size: contain;
+            margin-bottom: 20px;
+        }
+
+        /* Image Slot */
+        .image-slot {
+            width: 250px;
+            height: 250px;
+            border: 2px dashed #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #bbb;
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-text">
+        <h1>Welcome, Mrs. Thakur</h1>
+        <p>Your personalized telemedicine & AI-powered pharmacy dashboard</p>
+    </div>
+    <div class="container">
+        <div class="left-section" style="margin-left: 50px;">
+            <div class="card" data-image="1"><h3>Psychiatry</h3></div>
+            <div class="card" data-image="3"><h3>Gynecology</h3></div>
+            <div class="card" data-image="5"><h3>Pulmonology</h3></div>
+            <div class="card" data-image="7"><h3>Orthopedic</h3></div>
+        </div>
+        <div class="right-section" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; gap: 20px; position: relative;">
+    
+            <div class="video-container" style="width: 100%; max-width: 400px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); position: relative;">
+                
+               <!-- Blood Count Display -->
+<div class="blood-count-container">
+    <span class="blood-text">Blood Count:</span>
+    <span class="blood-value">120</span>
+</div>
+
+<style>
+/* Blood Count Container */
+.blood-count-container {
+    position: absolute;
+    top: 50px; /* Slightly lower */
+    right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: floatUpDown 2s infinite ease-in-out; /* Smooth floating animation */
+}
+
+/* Blood Count Value */
+.blood-value {
+    background: rgba(255, 0, 0, 0.9);
+    padding: 5px 12px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+/* Floating Animation */
+@keyframes floatUpDown {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+</style>
+
+                
+                <video autoplay loop muted playsinline style="width: 100%; border-radius: 10px; display: block;">
+                    <source src="istockphoto-1473544744-640_adpp_is.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+        
+              <!-- Temperature Display -->
+<div class="temperature-container">
+    <span class="temp-text">Temperature:</span>
+    <span class="temp-value">98.6°F</span>
+</div>
+
+<style>
+/* Temperature Container */
+.temperature-container {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: floatUpDown 2s infinite ease-in-out; /* Smooth floating animation */
+}
+
+/* Temperature Value */
+.temp-value {
+    background: rgba(255, 140, 0, 0.9); /* Warm orange color */
+    padding: 5px 12px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.7);
+}
+
+/* Floating Animation */
+@keyframes floatUpDown {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+</style>
+
+        
+            </div>
+        </div>
+        
+        
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+<div class="iframe-container">
+    <iframe src="appointment.html" width="600" height="400" style="border:none;" allowfullscreen></iframe>
+</div>
+<style>.iframe-container {
+    display: flex;
+    justify-content: center; /* Centers the iframe horizontally */
+    align-items: center; /* Centers the iframe vertically */
+    height: 100vh; /* Optional: makes the container take full viewport height */
+}
+
+iframe {
+    border: none; /* Ensures no border around the iframe */
+}</style>
+
+    
+
+
+
+<script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Q0piBCrOOGOszmcGdD5gq";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+
+        
+        <!-- Pharmacy Section -->
+        <!-- <section id="pharmacy">
+            <h2>Pharmacy Integration</h2>
+            <p>Connect with local pharmacies for medicine delivery or refill prescriptions.</p>
+            <div class="pharmacy-content">
+                <form id="prescriptionUploadForm">
+                    <label for="prescriptionFile">Upload Prescription:</label>
+                    <input type="file" id="prescriptionFile" name="prescriptionFile" accept=".jpg,.jpeg,.png,.pdf" required><br>
+
+                    <label for="pharmacy">Select Pharmacy:</label>
+                    <select id="pharmacy" name="pharmacy" required>
+                        <option value="pharmacy1">Local Pharmacy 1</option>
+                        <option value="pharmacy2">Local Pharmacy 2</option>
+                        <option value="pharmacy3">Local Pharmacy 3</option>
+                        <option value="pharmacy4">Local Pharmacy 4</option>
+                    </select><br>
+
+                    <button type="submit">Submit Prescription</button>
+                </form>
+
+                <div id="deliveryStatus">
+                    <h3>Delivery Status</h3>
+                    <ul id="deliveryUpdates">
+                        Delivery status updates will be inserted here -->
+                    <!-- </ul> -->
+                <!-- </div> -->
+            <!-- </div> -->
+        <!-- </section>  -->
+
+
+
+<!-- Lab test -->
+
+
+
+
+
+
+<section id="unique-lab-tests" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.534), rgba(255, 255, 255, 0.8)); padding: 60px 40px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); margin: 50px auto; max-width: 1200px; font-family: 'Arial', sans-serif; position: relative; overflow: hidden; backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.2);">
+    <!-- Animated Background Elements -->
+    <div class="unique-animated-bubbles"></div>
+    <div class="unique-animated-wave"></div>
+    
+    <div style="display: flex; flex-direction: column; align-items: flex-start; max-width: 600px; margin-bottom: 40px; position: relative; z-index: 2;">
+        <h2 style="font-size: 48px; color: #333333; margin-bottom: 20px; font-weight: bold; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); letter-spacing: 1px; text-align: left;" class="unique-pulse-animation">Lab Test Booking</h2>
+        <p style="font-size: 22px; color: #555555; margin-bottom: 30px; font-style: italic; text-align: left;" class="unique-slide-in-animation">Effortless and secure lab test booking at your fingertips.</p>
+        <div class="unique-underline-animation"></div>
+    </div>
+    
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: stretch; gap: 50px; position: relative; z-index: 2;">
+        <form id="unique-labTestBookingForm" style="background: rgba(255, 255, 255, 0.95); padding: 50px; border-radius: 25px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); width: 100%; max-width: 450px;" class="unique-form-animation">
+            <div class="unique-input-group">
+                <label for="unique-testName" style="font-weight: bold; color: #333333; font-size: 18px;">Test Name:</label>
+                <input type="text" id="unique-testName" name="unique-testName" placeholder="e.g., Blood Test" required style="background: #f9f9f9; border: 2px solid #e0e0e0; color: #333333;">
+                <span class="unique-focus-border"></span>
+            </div>
+            
+            <div class="unique-input-group">
+                <label for="unique-testDate" style="font-weight: bold; color: #333333; font-size: 18px;">Preferred Date:</label>
+                <input type="date" id="unique-testDate" name="unique-testDate" required style="background: #f9f9f9; border: 2px solid #e0e0e0; color: #333333;">
+                <span class="unique-focus-border"></span>
+            </div>
+            
+            <div class="unique-input-group">
+                <label for="unique-testTime" style="font-weight: bold; color: #333333; font-size: 18px;">Preferred Time:</label>
+                <input type="time" id="unique-testTime" name="unique-testTime" required style="background: #f9f9f9; border: 2px solid #e0e0e0; color: #333333;">
+                <span class="unique-focus-border"></span>
+            </div>
+            
+            <div class="unique-input-group">
+                <label for="unique-lab" style="font-weight: bold; color: #333333; font-size: 18px;">Select Lab:</label>
+                <select id="unique-lab" name="unique-lab" required style="background: #f9f9f9; border: 2px solid #e0e0e0; color: #333333;">
+                    <option value="" disabled selected>Select a lab</option>
+                    <option value="lab1">City Medical Lab</option>
+                    <option value="lab2">HealthFirst Diagnostics</option>
+                    <option value="lab3">Premier Pathology Center</option>
+                </select>
+                <span class="unique-focus-border"></span>
+            </div>
+            
+            <button type="submit" class="unique-glow-button" style="background: linear-gradient(90deg, #007bff, #0056b3); color: white; font-size: 20px; padding: 20px;">Book Your Test</button>
+            <p id="unique-confirmationMessage" style="display: none; color: #28a745; font-weight: bold; margin-top: 25px; text-align: center;" class="unique-pop-animation">Your test has been booked successfully!</p>
+        </form>
+        
+        <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;" class="unique-image-container">
+            <img src="https://media-hosting.imagekit.io//ccb03b6eaa334aef/download.jfif?Expires=1836590875&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Q8oty69gYviuKArBgjukywpZ4viaymSEHblXw3ujKjOXJZwyN43dhL3fwgho1EJN7EpbDqknnUQpSKrEiG71pB-WwKKzTGJCCdvq5tfoW4KvXGgVsyZFl7okbbRvaJKJ4nHQ3Dlo9-uZuUdNvazxwa9PgW-CGB1i9Yc7nJqhkDLR4VfYHm7ovFxxfo~lKmk5cd414Pn3x5ydxxJOQzsf36Xx9YEtxZyxI9ZSUve0ZMAikmo0hUSQFChpqlwYUS4zG5U04sSapWsBuY98JRHo9~fCo9yjLDV7p-5Vgvrjn6SOED0Tjl~dvrB8bB4IBWUYYW3szuEIQbVKELE479FK5g__" alt="Lab Test Illustration" style="max-width: 100%; height: auto; border-radius: 25px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);" class="unique-float-animation">
+            <div class="unique-card-info" style="background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 20px; margin-top: 30px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); width: 90%;">
+                <h3 style="color: #333333; font-size: 22px; margin-bottom: 20px;">Why Choose Our Labs?</h3>
+                <ul style="padding-left: 20px; margin-bottom: 20px;">
+                    <li style="margin-bottom: 15px; color: #555555; font-size: 18px;">Fast & accurate results</li>
+                    <li style="margin-bottom: 15px; color: #555555; font-size: 18px;">State-of-the-art equipment</li>
+                    <li style="margin-bottom: 15px; color: #555555; font-size: 18px;">Home collection available</li>
+                </ul>
+                <p style="color: #777777; font-style: italic; margin-top: 10px; font-size: 16px;">Trusted by over 10,000+ patients</p>
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 50px; position: relative; z-index: 2;" class="unique-fade-in-animation">
+        <p style="color: #333333; font-size: 20px; font-weight: bold;">Have Questions? Call us at: <span style="color: #007bff;">1-800-LAB-TEST</span></p>
+    </div>
+</section>
+
+<style>
+    /* Base Animations */
+    @keyframes unique-fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes unique-slideIn {
+        from { transform: translateY(-30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes unique-zoomIn {
+        from { transform: scale(0.9); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+    /* New Animations */
+    @keyframes unique-floatAnimation {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
+    }
+    @keyframes unique-pulseAnimation {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    @keyframes unique-glowEffect {
+        0% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); }
+        50% { box-shadow: 0 0 30px rgba(0, 123, 255, 0.8); }
+        100% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); }
+    }
+    @keyframes unique-bubblesAnimation {
+        0% { transform: translateY(100%) scale(0); }
+        100% { transform: translateY(-100vh) scale(1); }
+    }
+    @keyframes unique-waveAnimation {
+        0% { transform: translateX(-100%) scaleY(1); }
+        50% { transform: translateX(-50%) scaleY(0.8); }
+        100% { transform: translateX(0) scaleY(1); }
+    }
+    @keyframes unique-underlineExpand {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+    @keyframes unique-popIn {
+        0% { transform: scale(0); opacity: 0; }
+        80% { transform: scale(1.1); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    /* Background Elements */
+    .unique-animated-bubbles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+    }
+    .unique-animated-bubbles::before {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background: rgba(0, 123, 255, 0.2);
+        border-radius: 50%;
+        left: 15%;
+        animation: unique-bubblesAnimation 18s infinite linear;
+    }
+    .unique-animated-bubbles::after {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: rgba(0, 123, 255, 0.15);
+        border-radius: 50%;
+        left: 80%;
+        animation: unique-bubblesAnimation 22s infinite linear;
+        animation-delay: 3s;
+    }
+    .unique-animated-wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 200%;
+        height: 120px;
+        background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(0,123,255,0.1));
+        border-radius: 50%;
+        animation: unique-waveAnimation 18s infinite linear;
+        z-index: 1;
+    }
+    /* Applied Animations */
+    .unique-float-animation {
+        animation: unique-floatAnimation 8s ease-in-out infinite;
+    }
+    .unique-pulse-animation {
+        animation: unique-pulseAnimation 4s ease-in-out infinite;
+    }
+    .unique-form-animation {
+        animation: unique-fadeIn 1.5s forwards, unique-slideIn 1.5s forwards;
+    }
+    .unique-slide-in-animation {
+        animation: unique-slideIn 1.5s forwards;
+    }
+    .unique-fade-in-animation {
+        animation: unique-fadeIn 2.5s forwards;
+    }
+    .unique-pop-animation {
+        animation: unique-popIn 0.6s forwards;
+    }
+    .unique-underline-animation {
+        height: 5px;
+        background: linear-gradient(90deg, #007bff, #0056b3);
+        width: 0;
+        margin-top: -25px;
+        animation: unique-underlineExpand 2s forwards;
+    }
+    .unique-glow-button {
+        animation: unique-glowEffect 3s infinite;
+    }
+    /* Form Styling */
+    .unique-input-group {
+        position: relative;
+        margin-bottom: 30px;
+    }
+    input, select {
+        width: 100%;
+        padding: 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 15px;
+        font-size: 18px;
+        transition: 0.3s ease;
+        background-color: #f9f9f9;
+        color: #333333;
+    }
+    input:focus, select:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 12px rgba(0, 123, 255, 0.5);
+        outline: none;
+    }
+    .unique-focus-border {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background-color: #007bff;
+        transition: 0.4s;
+    }
+    input:focus ~ .unique-focus-border, select:focus ~ .unique-focus-border {
+        width: 100%;
+        left: 0;
+    }
+    button {
+        background: linear-gradient(90deg, #007bff, #0056b3);
+        color: white;
+        cursor: pointer;
+        padding: 22px;
+        margin-top: 30px;
+        transition: background 0.3s ease, transform 0.2s ease;
+        font-weight: bold;
+        border: none;
+        border-radius: 15px;
+        width: 100%;
+        font-size: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+    button:hover {
+        background: linear-gradient(90deg, #0056b3, #003d80);
+        transform: scale(1.03);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    button:active {
+        transform: scale(0.99);
+    }
+    label {
+        color: #333333;
+        margin-top: 20px;
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+        transition: color 0.3s ease;
+    }
+    /* Card Info Animation */
+    .unique-card-info {
+        animation: unique-fadeIn 2s forwards;
+        animation-delay: 0.5s;
+        opacity: 0;
+    }
+    .unique-card-info ul li {
+        animation: unique-slideIn 0.7s forwards;
+        opacity: 0;
+    }
+    .unique-card-info ul li:nth-child(1) {
+        animation-delay: 1s;
+    }
+    .unique-card-info ul li:nth-child(2) {
+        animation-delay: 1.3s;
+    }
+    .unique-card-info ul li:nth-child(3) {
+        animation-delay: 1.6s;
+    }
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+        #unique-lab-tests {
+            padding: 40px 30px;
+            max-width: 100%;
+        }
+        .unique-image-container {
+            margin-top: 30px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const bubblesContainer = document.querySelector('.unique-animated-bubbles');
+        
+        for (let i = 0; i < 10; i++) {
+            const bubble = document.createElement('div');
+            bubble.style.position = 'absolute';
+            bubble.style.width = Math.floor(Math.random() * 40 + 10) + 'px';
+            bubble.style.height = bubble.style.width;
+            bubble.style.background = `rgba(0, 123, 255, ${Math.random() * 0.2 + 0.1})`;
+            bubble.style.borderRadius = '50%';
+            bubble.style.left = Math.random() * 100 + '%';
+            bubble.style.animation = `unique-bubblesAnimation ${Math.random() * 20 + 10}s infinite linear`;
+            bubble.style.animationDelay = Math.random() * 5 + 's';
+            bubblesContainer.appendChild(bubble);
+        }
+
+        document.getElementById('unique-labTestBookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('unique-confirmationMessage').style.display = 'block';
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Interactive Symptom Maps Section -->
+<!-- <section id="symptom-maps">
+    <h2>Interactive Symptom Maps</h2>
+    <div class="map-container">
+        <div class="map" id="symptomMap">
+            <img src="map-image.png" alt="Symptom Map" id="mapImage"> -->
+            <!-- Interactive areas for symptoms -->
+            <!-- <div class="symptom-info" id="headache-info">Headache: Often related to stress or tension.</div>
+            <div class="symptom-info" id="fever-info">Fever: Can be a sign of infection or illness.</div>
+            <div class="symptom-info" id="cough-info">Cough: Commonly caused by respiratory issues.</div> -->
+            <!-- Add more interactive areas as needed -->
+        <!-- </div>
+        <div class="map-controls">
+            <button onclick="showSymptomInfo('headache')">Headache</button>
+            <button onclick="showSymptomInfo('fever')">Fever</button>
+            <button onclick="showSymptomInfo('cough')">Cough</button> -->
+            <!-- Add more buttons as needed -->
+        <!-- </div>
+    </div>
+</section> -->
+
+
+
+
+
+
+<!-- Emergency and Data Security Section -->
+<section style="display: flex; justify-content: space-between; gap: 20px; padding: 20px; background: #f9f9f9;">
+    <!-- Emergency Section -->
+    <div id="emergency" style="flex: 1; padding: 20px; background: linear-gradient(135deg, #ffecec, #ffcccc); border: 1px solid #ff4d4d; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #ff4d4d; margin-bottom: 15px; font-size: 24px; text-align: center; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Emergency</h2>
+        <div class="emergency-content" style="text-align: center;">
+            <p style="font-size: 16px; color: #333;">If you are experiencing a medical emergency, please dial your local emergency number immediately.</p>
+            <br><br> <br> <br>
+            <p style="font-size: 16px; color: #333;">For other urgent health concerns, you can contact the following services:</p>
+            <ul class="emergency-contacts" style="list-style-type: none; padding: 0; margin: 20px 0;">
+                <li style="margin: 10px 0; font-weight: bold; color: #333;"><strong>Emergency Medical Services:</strong> 911</li>
+                <li style="margin: 10px 0; font-weight: bold; color: #333;"><strong>Poison Control:</strong> 1-800-222-1222</li>
+                <li style="margin: 10px 0; font-weight: bold; color: #333;"><strong>Suicide Prevention Hotline:</strong> 1-800-273-8255</li>
+            </ul>
+            <br><br><br><br>
+            <button id="callEmergencyBtn" style="background-color: #ff4d4d; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); transition: transform 0.2s, box-shadow 0.2s;">Call Emergency Services</button>
+        </div>
+    </div>
+
+    <!-- Data Security Section -->
+    <div id="data-security" style="flex: 1; padding: 20px; background: linear-gradient(135deg, #e0ffff, #ccffff); border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #4a4a8c; margin-bottom: 15px; font-size: 24px; text-align: center; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Data Security</h2>
+        <div class="security-content" style="text-align: left; margin: 0 auto; max-width: 800px;">
+            <p style="font-size: 16px; color: #333;">Your privacy and security are our top priorities. We have implemented the following measures to ensure your data is protected:</p>
+            <ul class="security-features" style="list-style-type: none; padding: 0; margin: 20px 0;">
+                <li style="margin: 10px 0; font-weight: bold; background-color: #5b5b5bdb; padding: 10px; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s, box-shadow 0.2s;"><strong>End-to-End Encryption:</strong> All your communications, including video consultations, are encrypted.</li>
+                <li style="margin: 10px 0; font-weight: bold; background-color: #5b5b5bdb; padding: 10px; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s, box-shadow 0.2s;"><strong>Secure Authentication:</strong> Multi-factor authentication (MFA) is required to access your account.</li>
+                <li style="margin: 10px 0; font-weight: bold; background-color: #5b5b5bdb; padding: 10px; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s, box-shadow 0.2s;"><strong>Data Privacy:</strong> We adhere to strict data privacy regulations (e.g., HIPAA, GDPR) to protect your personal information.</li>
+                <li style="margin: 10px 0; font-weight: bold; background-color: #5b5b5bdb; padding: 10px; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s, box-shadow 0.2s;"><strong>Regular Security Audits:</strong> We conduct regular audits to identify and fix vulnerabilities.</li>
+                <li style="margin: 10px 0; font-weight: bold; background-color: #5b5b5bdb; padding: 10px; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s, box-shadow 0.2s;"><strong>Data Backup:</strong> Your data is regularly backed up to secure servers to prevent loss.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<!-- Reviews -->
+
+
+
+
+
+
+<section id="reviews" style=" padding: 50px 20px; text-align: center;">
+    <h2 style="font-size: 28px; margin-bottom: 30px; color: #000000;">What Our Users Say</h2>
+    <div class="review-slider">
+        <div class="review active">
+            <p>“TeleMed has transformed the way I manage my health. The video consultations are incredibly convenient.”</p>
+            <h4>- Aditi Sharma</h4>
+        </div>
+        <div class="review">
+            <p>“Booking ments and getting medicines delivered has never been this easy. I highly recommend TeleMed.”</p>
+            <h4>- Rohan Verma</h4>
+        </div>
+        <div class="review">
+            <p>“TeleMed’s service is exceptional! The platform is user-friendly and the support team is always helpful.”</p>
+            <h4>- Sneha Patel</h4>
+        </div>
+        <div class="review">
+            <p>“I love how TeleMed allows me to consult with top doctors from the comfort of my home.”</p>
+            <h4>- Arjun Singh</h4>
+        </div>
+    </div>
+</section>
+
+<style>
+    .review-slider {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+        overflow: hidden;
+        height: 120px; /* Adjusted height for reviews */
+    }
+
+    .review {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        transition: opacity 1s ease-in-out;
+        color: #000000; /* Set text color to black */
+    }
+
+    .review.active {
+        opacity: 1;
+        visibility: visible;
+        position: relative;
+    }
+</style>
+
+<script>
+    let currentReview = 0;
+    const reviews = document.querySelectorAll('.review');
+
+    function showReview(index) {
+        reviews.forEach((review) => review.classList.remove('active'));
+        reviews[index].classList.add('active');
+    }
+
+    function nextReview() {
+        currentReview = (currentReview + 1) % reviews.length;
+        showReview(currentReview);
+    }
+
+    // Auto-slide every 5 seconds
+    setInterval(nextReview, 5000);
+
+    // Initialize first review
+    showReview(currentReview);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+        <!-- Payment Section -->
+        <!-- Payment Modal -->
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closePaymentModal()">&times;</span>
+                <h3>Payment Information</h3>
+                <form id="paymentForm">
+                    <label for="cardName">Cardholder Name:</label>
+                    <input type="text" id="cardName" name="cardName" required><br>
+                    
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" name="cardNumber" required><br>
+                    
+                    <label for="expiryDate">Expiry Date:</label>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required><br>
+                    
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required><br>
+                    
+                    <button type="submit">Pay Now</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Thank You Popup -->
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Thank You Popup</title>
+            <style>
+                /* Basic styles for the popup */
+                .popup, .loading-popup {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: fixed;
+                    z-index: 999;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.7);
+                    transition: opacity 0.3s ease;
+                }
+        
+                .popup-content, .loading-content {
+                    background-color: white;
+                    padding: 20px;
+                    border-radius: 10px;
+                    text-align: center;
+                    position: relative;
+                }
+        
+                .close {
+                    cursor: pointer;
+                    font-size: 28px;
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                }
+        
+                .loader {
+                    border: 8px solid #f3f3f3; /* Light grey */
+                    border-top: 8px solid #3498db; /* Blue */
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    animation: spin 2s linear infinite;
+                    margin: 20px auto;
+                }
+        
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+        
+                /* Initially hide loading popup */
+                .loading-popup {
+                    display: none;
+                }
+            </style>
+        </head>
+        <body>
+        
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Thank You Popup Example</title>
+                <style>
+                    /* Basic styles for the popups */
+                    .popup, .loading-popup {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: fixed;
+                        z-index: 1000; /* Ensure the popup is on top */
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.7);
+                        transition: opacity 0.3s ease;
+                    }
+            
+                    .popup-content, .loading-content {
+                        background-color: white;
+                        padding: 20px;
+                        border-radius: 10px;
+                        text-align: center;
+                        position: relative;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+                    }
+            
+                    .close {
+                        cursor: pointer;
+                        font-size: 28px;
+                        position: absolute;
+                        right: 10px;
+                        top: 10px;
+                    }
+            
+                    .loader {
+                        border: 8px solid #f3f3f3; /* Light grey */
+                        border-top: 8px solid #3498db; /* Blue */
+                        border-radius: 50%;
+                        width: 50px;
+                        height: 50px;
+                        animation: spin 2s linear infinite;
+                        margin: 20px auto;
+                    }
+            
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+            
+                    /* Initially hide loading popup */
+                    .loading-popup {
+                        display: none;
+                    }
+                </style>
+            </head>
+            <body>
+            
+                <!-- Thank You Popup -->
+                <div id="thankYouPopup" class="popup" style="display:none;">
+                    <div class="popup-content">
+                        <span class="close" onclick="closeThankYouPopup()">&times;</span>
+                        <h2>Thank You!</h2>
+                        <p>Your appointment is successfully booked.</p>
+                        <button onclick="showLoading()">Start Consultation</button>
+                    </div>
+                </div>
+            
+                <!-- Loading Popup -->
+                <div id="loadingPopup" class="loading-popup">
+                    <div class="loading-content">
+                        <h2>Connecting You To The Doctor...</h2>
+                        <div class="loader"></div>
+                    </div>
+                </div>
+            
+                <script>
+                    function closeThankYouPopup() {
+                        document.getElementById('thankYouPopup').style.display = 'none';
+                    }
+            
+                    function showLoading() {
+                        // Hide the thank you popup
+                        closeThankYouPopup();
+                        
+                        // Show the loading popup
+                        document.getElementById('loadingPopup').style.display = 'flex';
+            
+                        // Simulate a 4-second loading time before redirecting
+                        setTimeout(() => {
+                            // Redirect to the video consultation link
+                            window.location.href = 'http://localhost:3030/7eaaaaf0-293c-43a7-b60e-19517b78d598'; // Replace with your video link
+                        }, 4000);
+                    }
+            
+                    // Example function to show the thank you popup after booking
+                    function bookAppointment() {
+                        // Logic for booking the appointment goes here...
+                        
+                        // Then show the thank you popup
+                        document.getElementById('thankYouPopup').style.display = 'flex';
+                    }
+                </script>
+            
+                <!-- <button onclick="bookAppointment()">Book Appointment</button> Simulated booking button -->
+            
+            </body>
+            </html>
+            
+        
+
+        <!-- Consultation Dashboard Section -->
+        <section id="consultation-dashboard">
+            <div id="consultations">
+                <!-- Consultation list will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:contact@website.com">contact@website.com</a></p>
+                <p>Tel: <a href="tel:+0029129102320">0029129102320</a></p>
+                <p>Mobile: <a href="tel:+0029129102320">0029129102320</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#appointments">Book Appointments</a></li>
+                    <li><a href="#pharmacy">Pharmacy</a></li> <!-- New Pharmacy Link in Footer -->
+                    <li><a href="#consultation-dashboard">Video Consultation</a></li>
+                    <li><a href="#payment">Make Payments</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+
+    <script src="script1.js"></script>
+</body>
+</html>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+      /* Chatbot styles */
+      .chatbot-icon {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background-color: #007bff;
+          color: white;
+          border-radius: 50%;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          cursor: pointer;
+          z-index: 1000;
+      }
+
+      .chatbot-window {
+          position: fixed;
+          bottom: 90px;
+          right: 20px;
+          width: 300px;
+          height: 400px;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          display: none;
+          flex-direction: column;
+          z-index: 999;
+      }
+
+      .chatbot-header {
+          background-color: #007bff;
+          color: white;
+          padding: 10px;
+          text-align: center;
+          border-radius: 10px 10px 0 0;
+          font-size: 18px;
+          font-weight: bold;
+      }
+
+      .chatbot-body {
+          padding: 10px;
+          overflow-y: auto;
+          flex-grow: 1;
+      }
+
+      .chatbot-footer {
+          padding: 10px;
+          background-color: #f4f4f4;
+          border-top: 1px solid #ddd;
+      }
+
+      .chatbot-input {
+          width: 95%;
+          padding: 8px;
+          border-radius: 4px;
+          border: 1px solid #ddd;
+      }
+
+      .close-chatbot {
+          color: white;
+          float: right;
+          cursor: pointer;
+      }
+
+      .chatbot-response {
+          background-color: #f1f1f1;
+          padding: 10px;
+          border-radius: 5px;
+          margin: 5px 0;
+      }
+  </style>
+
+ 
+
+  <!-- Chatbot Icon -->
+  
+
+  <!-- Chatbot Window -->
+  <div class="chatbot-window" id="chatbotWindow">
+      <div class="chatbot-header">
+          Chatbot
+          <span class="close-chatbot" id="closeChatbot">&times;</span>
+      </div>
+      <div class="chatbot-body" id="chatbotBody">
+          <p>Hi! Feel free to ask me anything related to the platform. I'll do my best to help!</p>
+      </div>
+      <div class="chatbot-footer">
+          <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Ask a question..." />
+      </div>
+  </div>
+
+  <script>
+      // Get elements
+      const chatbotIcon = document.getElementById('chatbotIcon');
+      const chatbotWindow = document.getElementById('chatbotWindow');
+      const closeChatbot = document.getElementById('closeChatbot');
+      const chatbotInput = document.getElementById('chatbotInput');
+      const chatbotBody = document.getElementById('chatbotBody');
+
+      // Dynamic responses with keyword matching
+      const keywordResponses = [
+          { keywords: ["book", "appointment"], response: "To book an appointment, select a doctor from the 'Doctors' section and pick your preferred time." },
+          { keywords: ["upcoming", "appointments"], response: "You can view your upcoming appointments in the 'My Appointments' section." },
+          { keywords: ["prescription", "refill"], response: "You can request a prescription refill after consulting a doctor via the 'Pharmacy' section." },
+          { keywords: ["ai", "pharmacy", "recommend", "medications"], response: "The AI pharmacy suggests medications based on your symptoms, medical history, and consultation data." },
+          { keywords: ["video", "consultation", "specialist"], response: "Yes, you can schedule a video consultation with a specialist directly from the app." },
+          { keywords: ["medical", "records"], response: "Your medical records are available in the 'Medical Records' section." },
+          { keywords: ["doctors", "specializations"], response: "Our platform covers specializations like General Medicine, Pediatrics, Dermatology, and more." },
+          { keywords: ["ai", "diagnose", "conditions"], response: "Our AI helps in diagnosing conditions by analyzing your symptoms and medical history." },
+          { keywords: ["reschedule", "appointment"], response: "You can reschedule appointments from the 'My Appointments' section by selecting a new time." },
+          { keywords: ["symptoms", "disease"], response: "Please specify the disease name, and I'll provide the symptoms." },
+          { keywords: ["support", "issues"], response: "Contact support via the 'Help' section, or call our support line at 1-800-123-4567." },
+          { keywords: ["medication", "condition"], response: "Please specify the condition, and I can provide medication recommendations." },
+          { keywords: ["ai", "personalized", "medication"], response: "Yes, the AI pharmacy personalizes medication based on your profile and history." },
+          { keywords: ["consultation", "history"], response: "Your past consultations can be viewed in the 'Consultation History' section." }
+      ];
+
+      // Show chatbot window on icon click
+      chatbotIcon.onclick = function() {
+          chatbotWindow.style.display = 'flex';
+      };
+
+      // Close chatbot window
+      closeChatbot.onclick = function() {
+          chatbotWindow.style.display = 'none';
+      };
+
+      // Function to handle user input and dynamic responses
+      chatbotInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+              const userInput = chatbotInput.value.trim().toLowerCase();
+              let chatbotResponse = document.createElement('div');
+              chatbotResponse.classList.add('chatbot-response');
+
+              let matched = false;
+
+              // Check if user input matches any keyword combination
+              keywordResponses.forEach(pair => {
+                  if (pair.keywords.some(keyword => userInput.includes(keyword))) {
+                      chatbotResponse.innerHTML = `<strong>User:</strong> ${chatbotInput.value}<br><strong>Bot:</strong> ${pair.response}`;
+                      matched = true;
+                  }
+              });
+
+              // If no match found, provide default response
+              if (!matched) {
+                  chatbotResponse.innerHTML = `<strong>User:</strong> ${chatbotInput.value}<br><strong>Bot:</strong> Sorry, I don't understand that. Can you please ask something else?`;
+              }
+
+              chatbotBody.appendChild(chatbotResponse);
+              chatbotInput.value = ''; // Clear the input field
+              chatbotBody.scrollTop = chatbotBody.scrollHeight; // Scroll to the bottom
+          }
+      });
+
+
+
+
+
+
+       // Add interactivity to disease containers
+       const containers = document.querySelectorAll('[class^="disease-container"]');
+
+containers.forEach(container => {
+    container.addEventListener('click', () => {
+        const diseaseName = container.querySelector('.disease-name').textContent;
+        alert(`You selected ${diseaseName}. Redirecting to ${diseaseName} page...`);
+        // Add navigation logic here
+    });
+
+    container.addEventListener('mouseenter', () => {
+        container.style.transform = 'scale(1.05)';
+    });
+
+    container.addEventListener('mouseleave', () => {
+        container.style.transform = 'scale(1)';
+    });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const progressCircles = document.querySelectorAll(".progress-circle");
+    progressCircles.forEach(circle => {
+        let value = circle.getAttribute("data-value");
+        let percent = (value / 100) * 251.2; // Adjust stroke-dashoffset
+        circle.style.strokeDashoffset = 251.2 - percent;
+    });
+
+    // Number Counting Animation
+    const counters = document.querySelectorAll(".count");
+    counters.forEach(counter => {
+        let target = +counter.getAttribute("data-value");
+        let count = 0;
+        let step = Math.ceil(target / 100);
+        let interval = setInterval(() => {
+            count += step;
+            if (count >= target) {
+                counter.innerText = target;
+                clearInterval(interval);
+            } else {
+                counter.innerText = count;
+            }
+        }, 10);
+    });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    function setProgress(circle, percentage) {
+        const circumference = 251.2; // 2 * π * r
+        const offset = circumference - (percentage / 100) * circumference;
+        circle.style.strokeDashoffset = offset;
+    }
+
+    // Apply progress to each circle
+    document.querySelectorAll(".health-card").forEach((card) => {
+        const circle = card.querySelector(".progress-circle");
+        const percentageText = card.querySelector(".progress-text").innerText;
+        const percentage = parseInt(percentageText.replace("%", "").trim());
+
+        if (!isNaN(percentage)) {
+            setProgress(circle, percentage);
+        }
+    });
+});
+// JavaScript to control the slider
+document.addEventListener("DOMContentLoaded", function() {
+    const reviews = document.querySelectorAll('.review');
+    let currentIndex = 0;
+
+    // Function to show the current review and hide the others
+    function showReview(index) {
+        reviews.forEach((review, i) => {
+            review.classList.remove('active');
+            if (i === index) {
+                review.classList.add('active');
+            }
+        });
+    }
+
+    // Handle the "next" button click
+    document.getElementById('next-btn').addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % reviews.length; // Loop back to the first review
+        showReview(currentIndex);
+    });
+
+    // Handle the "previous" button click
+    document.getElementById('prev-btn').addEventListener('click', function() {
+        currentIndex = (currentIndex - 1 + reviews.length) % reviews.length; // Loop to the last review
+        showReview(currentIndex);
+    });
+
+    // Initially show the first review
+    showReview(currentIndex);
+});
+
+
+  </script>
+</body>
+</html>
+</body>
+</html>

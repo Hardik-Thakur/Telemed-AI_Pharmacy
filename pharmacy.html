@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Integration - Enhanced Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+               body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        section#pharmacy {
+            max-width: 90%;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff5722;
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="file"],
+        select {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+            transition: border 0.3s ease-in-out;
+        }
+
+        input[type="file"]:focus,
+        select:focus {
+            border-color: #ff5722;
+        }
+
+        button {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s;
+        }
+
+        button:hover {
+            background-color: #e64a19;
+            transform: translateY(-2px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #medicineInfo {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .medicine-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            background: #f9f9f9;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .medicine-item:hover {
+            background-color: #ffe0b2;
+        }
+
+        #pharmacyList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .pharmacy-item {
+            width: 30%;
+            margin: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background: #f1f1f1;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .pharmacy-item:hover {
+            background-color: #ffe0b2;
+        }
+
+        .alternate-medicine-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ffcc80;
+            background: #fff3e0;
+            border-radius: 10px;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .alternate-medicine-item:hover {
+            background-color: #ffd54f;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #loadingSpinner {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            color: #ff5722;
+        }
+
+
+
+        #alternateMedicineInfo {
+    margin-top: 20px;
+    display: none;
+}
+
+.alternate-medicine-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #000000;
+    background: #ffc4c4;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.alternate-medicine-item:hover {
+    background-color: #ffe0b2;
+}
+
+    </style>
+</head>
+
+<body>
+   
+    <section id="pharmacy">
+        <h2><i class="fas fa-prescription-bottle-alt"></i>Your Ai Pharmacy </h2>
+        <p>Upload your prescription to find out what medicines are prescribed and locate nearby pharmacies.</p>
+
+        <form id="prescriptionUploadForm">
+            <label for="prescriptionFile">Upload Prescription</label>
+            <input type="file" id="prescriptionFile" name="prescriptionFile" accept=".jpg,.jpeg,.png,.pdf"><br>
+            <button type="submit"><i class="fas fa-upload"></i> Submit</button>
+        </form>
+
+        <div id="loadingSpinner">
+            <i class="fas fa-spinner fa-spin"></i> Processing your prescription...
+        </div>
+
+        <div id="medicineInfo">
+            <h3>prescribed Medicines and Their Purposes</h3>
+            <div id="medicineList"></div>
+        </div>
+
+        <div id="pharmacyList" class="pharmacy-list">
+            <h3>Available Pharmacies</h3>
+            <!-- Pharmacies will be dynamically added here -->
+        </div>
+        <!-- New Section for Alternate Medicine Options -->
+<div id="alternateMedicineInfo">
+    <h3>Alternate Medicines</h3>
+    <div id="alternateMedicineList"></div>
+</div>
+
+        <div id="map"></div>
+    </section>
+
+    <div id="pharmacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalPharmacyName"></h3>
+            <p id="modalPharmacyLocation"></p>
+            <p id="modalMedicinePrice"></p>
+            <p id="modalDeliveryTime"></p>
+            <div id="modalMap" style="height: 300px; width: 100%; border-radius: 15px;"></div>
+        </div>
+    </div>
+
+    <script>
+        const fileToMedicineData = {
+           
+  'prescription 1': {
+    medicines: {
+      'Atenolol 50mg': {
+        description: 'Used to treat high blood pressure and heart disease.',
+        alternate: 'Metoprolol 50mg'
+      },
+      'Simvastatin 20mg': {
+        description: 'Used to lower cholesterol and triglycerides.',
+        alternate: 'Atorvastatin 20mg'
+      },
+      'Paracetamol 500mg': {
+        description: 'Used to treat fever and mild to moderate pain.',
+        alternate: 'Ibuprofen 400mg'
+      }
+    },
+    pharmacies: [
+      { name: 'Nikhil Arogya Pharmacy', location: 'Deoil, Devli Rd, New Delhi, Delhi', price: '₹120', deliveryTime: '2 hours' },
+      { name: 'DP Chemist', location: 'Sector 42, Faridabad, Haryana', price: '₹115', deliveryTime: '1.5 hours' }
+    ]
+  },
+  'prescription 2': {
+    medicines: {
+      'Losartan 50mg': {
+        description: 'Used to treat high blood pressure and protect kidneys from damage due to diabetes.',
+        alternate: 'Telmisartan 40mg'
+      },
+      'Metformin 500mg': {
+        description: 'Used to control high blood sugar in type 2 diabetes.',
+        alternate: 'Glipizide 5mg'
+      }
+    },
+    pharmacies: [
+      { name: 'Apollo Pharmacy', location: 'Saket, New Delhi', price: '₹120', deliveryTime: '50-60 Min' },
+      { name: 'MAHADEV PHARMACY', location: 'Rohini, New Delhi', price: '₹159', deliveryTime: '30-35 min' }
+    ]
+  },
+  '20241019_094743': {
+    medicines: {
+      'Amlodipine 5mg': {
+        description: 'Used to treat high blood pressure and chest pain.',
+        alternate: 'Nifedipine 10mg'
+      },
+      'Gliclazide 60mg': {
+        description: 'Used to control blood sugar levels in type 2 diabetes.',
+        alternate: 'Glimepiride 2mg'
+      }
+    },
+    pharmacies: [
+      { name: 'HealthFirst Pharmacy', location: 'Main St, New Delhi', price: '₹122', deliveryTime: '2 hours' },
+      { name: 'QuickMed Store', location: 'Park Ave, New Delhi', price: '₹118', deliveryTime: '1.5 hours' }
+    ]
+  },
+  '20241019_094746': {
+    medicines: {
+      'Clopidogrel 75mg': {
+        description: 'Used to prevent strokes, heart attacks, and other heart problems.',
+        alternate: 'Ticagrelor 90mg'
+      },
+      'Bisoprolol 5mg': {
+        description: 'Used to treat high blood pressure and heart-related chest pain.',
+        alternate: 'Carvedilol 6.25mg'
+      }
+    },
+    pharmacies: [
+      { name: 'Wellness Pharmacy', location: 'High St, New Delhi', price: '₹119', deliveryTime: '2 hours' },
+      { name: 'PharmaCare', location: 'South St, New Delhi', price: '₹117', deliveryTime: '1.5 hours' }
+    ]
+  },
+  'download pic': {
+    medicines: {
+      'Omeprazole 20mg': {
+        description: 'Used to treat acid reflux and stomach ulcers.',
+        alternate: 'Pantoprazole 40mg'
+      },
+      'Captopril 25mg': {
+        description: 'Used to treat high blood pressure and heart failure.',
+        alternate: 'Enalapril 10mg'
+      }
+    },
+    pharmacies: [
+      { name: 'MedLife Pharmacy', location: 'Connaught Place, New Delhi', price: '₹110', deliveryTime: '1 hour' },
+      { name: 'Express Pharmacy', location: 'Karol Bagh, New Delhi', price: '₹105', deliveryTime: '1.5 hours' }
+    ]
+  },
+  'med': {
+    medicines: {
+      'Paracetamol 650mg':{
+        description: 'Used to treat Fever.',
+        alternate: 'Zerodol 25mg '
+      },
+      'Seradom 50mg': {
+        description: 'Used to treat Headache.',
+        alternate: 'Domstal 50mg'
+      }
+    },
+    pharmacies: [
+      { name: 'Medicine Buddha Pharmacy', location: 'Vill - Gejha, Choudhary Market, opp. Supertech, Sec 93, Noida, Uttar Pradesh 201304', price: '₹25', deliveryTime: '45 Min' },
+      
+    ]
+  },
+  'prescription 7': {
+    medicines: {
+      'Rosuvastatin 10mg': {
+        description: 'Used to lower cholesterol and prevent heart disease.',
+        alternate: 'Pravastatin 10mg'
+      },
+      'Allopurinol 300mg': {
+        description: 'Used to reduce uric acid and prevent gout.',
+        alternate: 'Febuxostat 40mg'
+      }
+    },
+    pharmacies: [
+      { name: 'Medico Pharmacy', location: 'Lajpat Nagar, New Delhi', price: '₹130', deliveryTime: '2 hours' },
+      { name: 'HealthPlus Pharmacy', location: 'Shalimar Bagh, New Delhi', price: '₹125', deliveryTime: '1.5 hours' }
+    ]
+  },
+  'prescription 8': {
+    medicines: {
+      'Lisinopril 10mg': {
+        description: 'Used to treat high blood pressure and heart failure.',
+        alternate: 'Ramipril 5mg'
+      },
+      'Aspirin 75mg': {
+        description: 'Used to reduce the risk of heart attack and stroke.',
+        alternate: 'Clopidogrel 75mg'
+      }
+    },
+    pharmacies: [
+      { name: 'CarePlus Pharmacy', location: 'Vasant Kunj, New Delhi', price: '₹115', deliveryTime: '2 hours' },
+      { name: 'EasyPharm', location: 'Dwarka, New Delhi', price: '₹110', deliveryTime: '1 hour' }
+    ]
+  },
+  'prescription 9': {
+    medicines: {
+      'Warfarin 5mg': {
+        description: 'Used to prevent blood clots.',
+        alternate: 'Dabigatran 110mg'
+      },
+      'Digoxin 0.25mg': {
+        description: 'Used to treat heart failure and abnormal heart rhythms.',
+        alternate: 'Amiodarone 200mg'
+      }
+    },
+    pharmacies: [
+      { name: 'PharmCare', location: 'Saket, New Delhi', price: '₹140', deliveryTime: '2 hours' },
+      { name: 'Urban Pharmacy', location: 'Green Park, New Delhi', price: '₹135', deliveryTime: '1.5 hours' }
+    ]
+  },
+  'prescription 10': {
+    medicines: {
+      'Carvedilol 12.5mg': {
+        description: 'Used to treat high blood pressure and heart failure.',
+        alternate: 'Bisoprolol 5mg'
+      },
+      'Insulin Glargine 100IU': {
+        description: 'Used to control blood sugar in diabetes.',
+        alternate: 'Insulin Aspart 100IU'
+      }
+    },
+    pharmacies: [
+      { name: 'GoodHealth Pharmacy', location: 'Jangpura, New Delhi', price: '₹145', deliveryTime: '1.5 hours' },
+      { name: 'MyMeds', location: 'Rajouri Garden, New Delhi', price: '₹140', deliveryTime: '2 hours' }
+    ]
+  },
+  'prescription 11': {
+    medicines: {
+      'Diltiazem 90mg': {
+        description: 'Used to treat high blood pressure and chest pain.',
+        alternate: 'Verapamil 80mg'
+      },
+      'Atorvastatin 40mg': {
+        description: 'Used to lower cholesterol and triglycerides.',
+        alternate: 'Simvastatin 40mg'
+      }
+    },
+    pharmacies: [
+      { name: 'MediQuick', location: 'Kalkaji, New Delhi', price: '₹130', deliveryTime: '1 hour' },
+      { name: 'FastMed Pharmacy', location: 'Saket, New Delhi', price: '₹125', deliveryTime: '1.5 hours' }
+    ]
+  },
+  'prescription 12': {
+    medicines: {
+      'Glimepiride 2mg': {
+        description: 'Used to control blood sugar in type 2 diabetes.',
+        alternate: 'Gliclazide 80mg'
+      },
+      'Furosemide 40mg': {
+        description: 'Used to reduce extra fluid caused by heart failure or liver disease.',
+        alternate: 'Torsemide 10mg'
+      }
+    },
+    pharmacies: [
+      { name: 'HealthMart', location: 'Malviya Nagar, New Delhi', price: '₹135', deliveryTime: '2 hours' },
+      { name: 'PharmaDirect', location: 'Janakpuri, New Delhi', price: '₹130', deliveryTime: '1 hour' }
+    ]
+  },
+  'prescription 13': {
+    medicines: {
+      'Prednisone 20mg': {
+        description: 'Used to treat inflammation and immune system disorders.',
+        alternate: 'Methylprednisolone 16mg'
+      },
+      'Baclofen 10mg': {
+        description: 'Used to treat muscle spasms.',
+        alternate: 'Tizanidine 2mg'
+      }
+    },
+    pharmacies: [
+      { name: 'GreenLife Pharmacy', location: 'Greater Kailash, New Delhi', price: '₹140', deliveryTime: '1.5 hours' },
+      { name: 'HealthHub', location: 'South Extension, New Delhi', price: '₹135', deliveryTime: '2 hours' }
+    ]
+  },
+  'prescription 14': {
+    medicines: {
+      'Tamsulosin 0.4mg': {
+        description: 'Used to treat urinary problems in men.',
+        alternate: 'Alfuzosin 10mg'
+      },
+      'Propranolol 40mg': {
+        description: 'Used to treat high blood pressure, angina, and irregular heart rhythms.',
+        alternate: 'Atenolol 50mg'
+      }
+    },
+    pharmacies: [
+      { name: 'MediStore', location: 'Vasant Vihar, New Delhi', price: '₹150', deliveryTime: '1 hour' },
+      { name: 'FastMed', location: 'South City, New Delhi', price: '₹145', deliveryTime: '2 hours' }
+    ]
+  },
+  'prescription 15': {
+    medicines: {
+      'Gabapentin 300mg': {
+        description: 'Used to treat nerve pain and seizures.',
+        alternate: 'Pregabalin 75mg'
+      },
+      'Levothyroxine 100mcg': {
+        description: 'Used to treat hypothyroidism.',
+        alternate: 'Thyroxine Sodium 100mcg'
+      }
+    },
+    pharmacies: [
+      { name: 'PharmaPlus', location: 'Rohini, New Delhi', price: '₹155', deliveryTime: '1.5 hours' },
+      { name: 'QuickMeds', location: 'Gurgaon, Haryana', price: '₹150', deliveryTime: '2 hours' }
+    ]
+  }
+};
+
+
+
+    
+        // Event listener for prescription upload form submission
+        document.getElementById('prescriptionUploadForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+    
+            // Show loading spinner
+            document.getElementById('loadingSpinner').style.display = 'block';
+    
+            const prescriptionFile = document.getElementById('prescriptionFile');
+            const fileName = prescriptionFile.value.split('\\').pop().split('.')[0];
+    
+            setTimeout(() => {
+                document.getElementById('loadingSpinner').style.display = 'none';
+    
+                if (fileToMedicineData[fileName]) {
+                    const { medicines, pharmacies } = fileToMedicineData[fileName];
+                    displayMedicines(medicines);
+                    displayPharmacies(pharmacies);
+                } else {
+                    alert("Unable to process this prescription. Please upload a valid prescription.");
+                }
+            }, 2000); // Simulated loading delay
+        });
+    
+        // Function to display prescribed medicines
+        function displayMedicines(medicines) {
+            const medicineList = document.getElementById('medicineList');
+            medicineList.innerHTML = '';
+    
+            const alternateMedicineList = document.getElementById('alternateMedicineList');
+            alternateMedicineList.innerHTML = '';
+    
+            let alternativesDisplayed = false;
+    
+            for (let medicine in medicines) {
+                const medicineDiv = document.createElement('div');
+                medicineDiv.classList.add('medicine-item');
+                medicineDiv.innerHTML = `<strong>${medicine}</strong>: ${medicines[medicine].description}`;
+                medicineList.appendChild(medicineDiv);
+    
+                // Display alternative medicines if available and valid for this specific medicine
+                if (medicines[medicine].alternate) {
+                    displayAlternateMedicine(medicine, medicines[medicine].alternate);
+                    alternativesDisplayed = true;
+                }
+            }
+    
+            // If no alternatives were displayed, suggest any general alternate if available
+            if (!alternativesDisplayed) {
+                alternateMedicineList.innerHTML = '<p>No alternative medicines available for the listed prescription.</p>';
+            }
+    
+            document.getElementById('medicineInfo').style.display = 'block';
+            document.getElementById('alternateMedicineInfo').style.display = 'block';
+        }
+    
+        // Function to display the correct alternative medicine
+        function displayAlternateMedicine(medicine, alternate) {
+            const alternateMedicineList = document.getElementById('alternateMedicineList');
+            const alternateDiv = document.createElement('div');
+            alternateDiv.classList.add('alternate-medicine-item');
+            alternateDiv.innerHTML = `<strong>Alternate for ${medicine}:</strong> ${alternate}`;
+            alternateMedicineList.appendChild(alternateDiv);
+        }
+    
+        // Function to display pharmacies
+        function displayPharmacies(pharmacies) {
+            const pharmacyList = document.getElementById('pharmacyList');
+            pharmacyList.innerHTML = '';
+            pharmacies.forEach(pharmacy => {
+                const pharmacyDiv = document.createElement('div');
+                pharmacyDiv.classList.add('pharmacy-item');
+                pharmacyDiv.innerHTML = `
+                    <h4>${pharmacy.name}</h4>
+                    <p>${pharmacy.location}</p>
+                    <p>Price: ${pharmacy.price}</p>
+                    <p>Delivery Time: ${pharmacy.deliveryTime}</p>
+                `;
+                pharmacyDiv.addEventListener('click', () => {
+                    showPharmacyModal(pharmacy);
+                });
+                pharmacyList.appendChild(pharmacyDiv);
+            });
+        }
+    
+        // Function to show pharmacy modal
+        function showPharmacyModal(pharmacy) {
+            document.getElementById('modalPharmacyName').textContent = pharmacy.name;
+            document.getElementById('modalPharmacyLocation').textContent = pharmacy.location;
+            document.getElementById('modalMedicinePrice').textContent = `Price: ${pharmacy.price}`;
+            document.getElementById('modalDeliveryTime').textContent = `Delivery Time: ${pharmacy.deliveryTime}`;
+            document.getElementById('pharmacyModal').style.display = 'block';
+        }
+    
+        // Close modal
+        document.querySelector('.close').addEventListener('click', function () {
+            document.getElementById('pharmacyModal').style.display = 'none';
+        });
+    
+        window.onclick = function (event) {
+            if (event.target == document.getElementById('pharmacyModal')) {
+                document.getElementById('pharmacyModal').style.display = 'none';
+            }
+        };
+    </script>
+    <script>
+      (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="k95mE0M-9w3P61PKzaWZL";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+      </script>

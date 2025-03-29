@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Symptom Checker</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #007bff;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            margin: 0 0 20px;
+            font-size: 1.5rem;
+        }
+
+        .sidebar button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #0056b3;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar button:hover {
+            background-color: #004080;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        /* Welcome Message */
+        #welcome-message {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 20px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Chat Container */
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        body.dark-mode .chat-container {
+            background-color: #1e1e1e;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .header p {
+            margin: 5px 0 0;
+            color: #6c757d;
+        }
+
+        /* Chat Box */
+        .chat-box {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f1f1;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        body.dark-mode .chat-box {
+            background-color: #333;
+            border-color: #444;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .doctor-message {
+            align-self: flex-start;
+            background-color: #e9ecef;
+            color: black;
+        }
+
+        body.dark-mode .doctor-message {
+            background-color: #444;
+            color: white;
+        }
+
+        .avatar {
+            margin-right: 10px;
+        }
+
+        /* Input Container */
+        .input-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        #user-input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        #send-btn, #voice-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #send-btn:hover, #voice-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        #send-btn:active, #voice-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Symptom Buttons */
+        .symptom-buttons {
+            text-align: center;
+        }
+
+        .symptom-buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .symptom-buttons button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .symptom-buttons button:active {
+            transform: scale(0.95);
+        }
+
+        /* Consultation Button */
+        .consultation-button {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .consultation-button:hover {
+            background-color: #e64a19;
+            transform: scale(1.05);
+        }
+
+        .consultation-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #007bff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Community Chat */
+        .community-chat {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .community-chat.active {
+            display: block;
+        }
+
+        .community-chat .chat-box {
+            height: 300px;
+        }
+
+        .community-chat .input-container {
+            margin-top: 10px;
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+     <!-- Sidebar -->
+     <div class="sidebar">
+        <h2>Community</h2>
+        <button onclick="showChat('doctor')">
+            <i>👩‍⚕</i> Doctor Community
+        </button>
+        <button onclick="showChat('public')">
+            <i>👥</i> Public Community
+        </button>
+        <button onclick="showChat('symptom')">
+            <i>🤒</i> Symptom Checker
+        </button>
+        <button onclick="toggleDarkMode()">
+            <i>🌙</i> Dark Mode
+        </button>
+        <button onclick="logout()">
+            <i>🚪</i> Logout
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Welcome Message -->
+        <!-- <div id="welcome-message" class="welcome-animation">
+            Uhmmm, Kar li na tabet kharab? 🤒<br> Chalo koi nahi, aao! 😎
+        </div> -->
+
+        <!-- Symptom Checker Chat -->
+        <div id="symptom-chat" class="chat-container">
+            <div class="header">
+                <h2>Meet Dr. Care</h2>
+                <p>Your AI Symptom Assistant</p>
+            </div>
+            <div id="chat-box" class="chat-box">
+                <div class="message doctor-message">
+                    <span class="avatar">👩‍⚕</span>
+                    <p>Hi! I'm Dr. Care. How can I help you today?</p>
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Describe how you're feeling..." autocomplete="off">
+                <button id="send-btn">
+                    <span>→</span>
+                </button>
+                <button id="voice-btn">
+                    🎤
+                </button>
+            </div>
+            <div class="symptom-buttons">
+                <h3>Select Your Symptom</h3>
+                <div id="main-buttons">
+                    <button onclick="handleSymptom('fever')">🌡 Fever</button>
+                    <button onclick="handleSymptom('cough')">🤧 Cough</button>
+                    <button onclick="handleSymptom('headache')">🤕 Headache</button>
+                    <button onclick="handleSymptom('nausea')">🤢 Nausea</button>
+                </div>
+                <div id="more-options" style="display: none;">
+                    <button onclick="handleSymptom('fatigue')">😴 Fatigue</button>
+                    <button onclick="handleSymptom('sore throat')">🦠 Sore Throat</button>
+                    <button onclick="handleSymptom('shortness of breath')">😮‍💨 Shortness of Breath</button>
+                    <button onclick="handleSymptom('chest pain')">💔 Chest Pain</button>
+                    <button onclick="handleSymptom('dizziness')">🌀 Dizziness</button>
+                    <button onclick="handleSymptom('muscle pain')">💪 Muscle Pain</button>
+                    <button onclick="handleSymptom('rash')">🔴 Rash</button>
+                    <button onclick="handleSymptom('vomiting')">🤮 Vomiting</button>
+                    <button onclick="handleSymptom('diarrhea')">🚽 Diarrhea</button>
+                </div>
+                <button id="more-options-btn" onclick="toggleMoreOptions()">More Options</button>
+            </div>
+        </div>
+
+        <!-- Doctor Community Chat -->
+        <div id="doctor-chat" class="community-chat">
+            <div class="header">
+                <h2>Doctor Community</h2>
+                <p>Discuss with medical professionals</p>
+            </div>
+            <div class="chat-box" id="doctor-chat-box"></div>
+            <div class="input-container">
+                <input type="text" id="doctor-input" placeholder="Type your message...">
+                <button id="doctor-send-btn">Send</button>
+            </div>
+        </div>
+
+        <!-- Public Community Chat -->
+        <div id="public-chat" class="community-chat">
+            <div class="header">
+                <h2>Public Community</h2>
+                <p>Chat with other users</p>
+            </div>
+            <div class="chat-box" id="public-chat-box"></div>
+            <div class="input-container">
+                <input type="text" id="public-input" placeholder="Type your message...">
+                <button id="public-send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+
+    <script>
+       let messageCount = 0; // Track the number of user messages
+
+// Welcome Message Animation
+window.onload = function () {
+    const welcomeMessage = document.getElementById('welcome-message');
+    if (welcomeMessage) {
+        welcomeMessage.style.display = 'block';
+
+        setTimeout(function () {
+            welcomeMessage.style.animation = 'fadeOut 1s forwards';
+        }, 3000);
+    }
+};
+
+// Toggle More Options
+function toggleMoreOptions() {
+    const moreOptions = document.getElementById('more-options');
+    const moreOptionsBtn = document.getElementById('more-options-btn');
+    if (moreOptions.style.display === 'none') {
+        moreOptions.style.display = 'block';
+        moreOptionsBtn.textContent = 'Fewer Options';
+    } else {
+        moreOptions.style.display = 'none';
+        moreOptionsBtn.textContent = 'More Options';
+    }
+}
+
+// Handle Symptom Selection
+function handleSymptom(symptom) {
+    const chatBox = document.getElementById('chat-box');
+    const userMessage = document.createElement('div');
+    userMessage.classList.add('message', 'user-message');
+    userMessage.innerHTML = `<p>I have ${symptom}.</p>`; // Use backticks for template literals
+    chatBox.appendChild(userMessage);
+
+    messageCount++; // Increment message count
+    if (messageCount >= 3) {
+        suggestConsultation();
+    }
+
+    showLoading();
+    setTimeout(() => {
+        hideLoading();
+        const doctorMessage = document.createElement('div');
+        doctorMessage.classList.add('message', 'doctor-message');
+        doctorMessage.innerHTML = `<span class="avatar">👩‍⚕</span><p>${getSolutionForSymptom(symptom)}</p>`;
+        chatBox.appendChild(doctorMessage);
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        // Check for critical symptoms
+        if (['chest pain', 'shortness of breath'].includes(symptom)) {
+            const emergencyAlert = document.createElement('div');
+            emergencyAlert.classList.add('emergency-alert');
+            emergencyAlert.innerHTML = `<p>⚠ This could be serious. Please seek immediate medical attention!</p>`;
+            chatBox.appendChild(emergencyAlert);
+        }
+    }, 2000);
+}
+
+// Suggest Consultation
+function suggestConsultation() {
+    const chatBox = document.getElementById('chat-box');
+    const doctorMessage = document.createElement('div');
+    doctorMessage.classList.add('message', 'doctor-message');
+    doctorMessage.innerHTML = `
+        <span class="avatar">👩‍⚕</span>
+        <p>I think you need a consultation. Let's connect through a consultation.</p>
+        <button class="consultation-button" onclick="startConsultation()">Start Consultation</button>
+    `;
+    chatBox.appendChild(doctorMessage);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Start Consultation
+function startConsultation() {
+    alert("Consultation feature is under development. Stay tuned!");
+}
+
+// Get Solutions for Symptoms
+function getSolutionForSymptom(symptom) {
+    const solutions = {
+        fever: "For fever, drink plenty of fluids, rest, and take paracetamol if needed.",
+        cough: "For cough, stay hydrated, use a humidifier, and consider cough syrup.",
+        headache: "For headaches, rest in a dark room, apply a cold compress, and take painkillers if necessary.",
+        nausea: "For nausea, sip ginger tea, avoid heavy meals, and rest.",
+        fatigue: "For fatigue, ensure adequate sleep, eat a balanced diet, and stay hydrated.",
+        "sore throat": "For sore throat, gargle with warm salt water, drink warm liquids, and rest your voice.",
+        "shortness of breath": "For shortness of breath, sit upright, practice deep breathing, and seek medical help if severe.",
+        "chest pain": "For chest pain, seek immediate medical attention as it could be serious.",
+        dizziness: "For dizziness, sit or lie down, avoid sudden movements, and stay hydrated.",
+        "muscle pain": "For muscle pain, apply a warm compress, stretch gently, and take painkillers if needed.",
+        rash: "For rashes, avoid scratching, apply a soothing lotion, and consult a doctor if it worsens.",
+        vomiting: "For vomiting, sip clear fluids, avoid solid food, and rest.",
+        diarrhea: "For diarrhea, stay hydrated, eat bland foods, and avoid dairy.",
+    };
+    return solutions[symptom] || "I recommend consulting a doctor for further advice.";
+}
+
+// Loading Animation
+function showLoading() {
+    const loading = document.createElement('div');
+    loading.id = 'loading';
+    loading.className = 'loading';
+    loading.innerHTML = `<div class="loader"></div><p>Dr. Care is analyzing your symptoms...</p>`;
+    document.body.appendChild(loading);
+}
+
+function hideLoading() {
+    const loading = document.getElementById('loading');
+    if (loading) loading.remove();
+}
+
+// Send Button Functionality
+document.getElementById('send-btn').addEventListener('click', function () {
+    sendMessage();
+});
+
+// Allow Enter key to send message
+document.getElementById('user-input').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        sendMessage();
+    }
+});
+
+function sendMessage() {
+    const userInput = document.getElementById('user-input');
+    const userText = userInput.value.trim();
+    if (userText) {
+        const chatBox = document.getElementById('chat-box');
+        const userMessage = document.createElement('div');
+        userMessage.classList.add('message', 'user-message');
+        userMessage.innerHTML = `<p>${userText}</p>`;
+        chatBox.appendChild(userMessage);
+
+        messageCount++; // Increment message count
+        if (messageCount >= 3) {
+            suggestConsultation();
+        }
+
+        showLoading();
+        setTimeout(() => {
+            hideLoading();
+            const doctorMessage = document.createElement('div');
+            doctorMessage.classList.add('message', 'doctor-message');
+            doctorMessage.innerHTML = `<span class="avatar">👩‍⚕</span><p>${getResponseForUserInput(userText)}</p>`;
+            chatBox.appendChild(doctorMessage);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }, 2000);
+
+        userInput.value = ''; // Clear input
+    }
+}
+
+// Get Response for User Input
+function getResponseForUserInput(input) {
+    const responses = {
+        fever: "For fever, drink plenty of fluids, rest, and take paracetamol if needed.",
+        cough: "For cough, stay hydrated, use a humidifier, and consider cough syrup.",
+        headache: "For headaches, rest in a dark room, apply a cold compress, and take painkillers if necessary.",
+        nausea: "For nausea, sip ginger tea, avoid heavy meals, and rest.",
+        fatigue: "For fatigue, ensure adequate sleep, eat a balanced diet, and stay hydrated.",
+        "sore throat": "For sore throat, gargle with warm salt water, drink warm liquids, and rest your voice.",
+        "shortness of breath": "For shortness of breath, sit upright, practice deep breathing, and seek medical help if severe.",
+        "chest pain": "For chest pain, seek immediate medical attention as it could be serious.",
+        dizziness: "For dizziness, sit or lie down, avoid sudden movements, and stay hydrated.",
+        "muscle pain": "For muscle pain, apply a warm compress, stretch gently, and take painkillers if needed.",
+        rash: "For rashes, avoid scratching, apply a soothing lotion, and consult a doctor if it worsens.",
+        vomiting: "For vomiting, sip clear fluids, avoid solid food, and rest.",
+        diarrhea: "For diarrhea, stay hydrated, eat bland foods, and avoid dairy.",
+    };
+
+    // Check if input matches any symptom
+    for (const symptom in responses) {
+        if (input.toLowerCase().includes(symptom)) {
+            return responses[symptom];
+        }
+    }
+
+    return "I recommend consulting a doctor for further advice.";
+}
+
+// Show Chat
+function showChat(type) {
+    const symptomChat = document.getElementById('symptom-chat');
+    const doctorChat = document.getElementById('doctor-chat');
+    const publicChat = document.getElementById('public-chat');
+
+    symptomChat.style.display = 'none';
+    doctorChat.style.display = 'none';
+    publicChat.style.display = 'none';
+
+    if (type === 'symptom') {
+        symptomChat.style.display = 'block';
+    } else if (type === 'doctor') {
+        doctorChat.style.display = 'block';
+    } else if (type === 'public') {
+        publicChat.style.display = 'block';
+    }
+}
+
+// Toggle Dark Mode
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}
+
+// Doctor Community Chat
+document.getElementById('doctor-send-btn').addEventListener('click', function () {
+    const input = document.getElementById('doctor-input');
+    const chatBox = document.getElementById('doctor-chat-box');
+    if (input.value.trim()) {
+        const message = document.createElement('div');
+        message.classList.add('message', 'user-message');
+        message.innerHTML = `<p>${input.value}</p>`;
+        chatBox.appendChild(message);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        input.value = '';
+    }
+});
+
+// Public Community Chat
+document.getElementById('public-send-btn').addEventListener('click', function () {
+    const input = document.getElementById('public-input');
+    const chatBox = document.getElementById('public-chat-box');
+    if (input.value.trim()) {
+        const message = document.createElement('div');
+        message.classList.add('message', 'user-message');
+        message.innerHTML = `<p>${input.value}</p>`;
+        chatBox.appendChild(message);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        input.value = '';
+    }
+});
+    </script>
+</body>
+</html> 

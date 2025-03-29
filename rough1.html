@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Integration - Enhanced Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+        
+    <style>
+               body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        section#pharmacy {
+            max-width: 90%;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff5722;
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="file"],
+        select {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+            transition: border 0.3s ease-in-out;
+        }
+
+        input[type="file"]:focus,
+        select:focus {
+            border-color: #ff5722;
+        }
+
+        button {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s;
+        }
+
+        button:hover {
+            background-color: #e64a19;
+            transform: translateY(-2px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #medicineInfo {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .medicine-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            background: #f9f9f9;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .medicine-item:hover {
+            background-color: #ffe0b2;
+        }
+
+        #pharmacyList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .pharmacy-item {
+            width: 30%;
+            margin: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background: #f1f1f1;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .pharmacy-item:hover {
+            background-color: #ffe0b2;
+        }
+
+        .alternate-medicine-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ffcc80;
+            background: #fff3e0;
+            border-radius: 10px;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .alternate-medicine-item:hover {
+            background-color: #ffd54f;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #loadingSpinner {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            color: #ff5722;
+        }
+
+
+
+        #alternateMedicineInfo {
+    margin-top: 20px;
+    display: none;
+}
+
+.alternate-medicine-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #000000;
+    background: #ffc4c4;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.alternate-medicine-item:hover {
+    background-color: #ffe0b2;
+}
+
+    </style>
+</head>
+
+<body>
+   
+    <section id="pharmacy">
+        <h2><i class="fas fa-prescription-bottle-alt"></i>Your Ai Pharmacy </h2>
+        <p>Upload your prescription to find out what medicines are prescribed and locate nearby pharmacies.</p>
+
+        <form id="prescriptionUploadForm">
+            <label for="prescriptionFile">Upload Prescription</label>
+            <input type="file" id="prescriptionFile" name="prescriptionFile" accept=".jpg,.jpeg,.png,.pdf"><br>
+            <button type="submit"><i class="fas fa-upload"></i> Submit</button>
+        </form>
+
+        <div id="loadingSpinner">
+            <i class="fas fa-spinner fa-spin"></i> Processing your prescription...
+        </div>
+
+        <div id="medicineInfo">
+            <h3>prescribed Medicines and Their Purposes</h3>
+            <div id="medicineList"></div>
+        </div>
+
+        <div id="pharmacyList" class="pharmacy-list">
+            <h3>Available Pharmacies</h3>
+            <!-- Pharmacies will be dynamically added here -->
+        </div>
+        <!-- New Section for Alternate Medicine Options -->
+<div id="alternateMedicineInfo">
+    <h3>Alternate Medicines</h3>
+    <div id="alternateMedicineList"></div>
+</div>
+
+        <div id="map"></div>
+    </section>
+
+    <div id="pharmacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalPharmacyName"></h3>
+            <p id="modalPharmacyLocation"></p>
+            <p id="modalMedicinePrice"></p>
+            <p id="modalDeliveryTime"></p>
+            <div id="modalMap" style="height: 300px; width: 100%; border-radius: 15px;"></div>
+        </div>
+    </div>
+
+    <script>
+        const fileToMedicineData = {
+    'prescription 1': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'Nikhil Arogya Pharmacy', location: 'No D258, Ground Floor Deoil, Devli Rd, Krishna Park Colony, Khanpur, New Delhi, Delhi 110062', price: '₹120', deliveryTime: '2 hours', lat: 12.9716, lng: 77.5946 },
+            { name: 'DP Chemist', location: 'Shop No UGF 20 Green valley Plaza, RPS Green Valley, Sector 42, Faridabad, Haryana 121010', price: '₹115', deliveryTime: '1.5 hours', lat: 12.9734, lng: 77.6060 }
+        ]
+    },
+    'prescription 2': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            
+            }
+        },
+        pharmacies: [
+            { name: 'Apollo Pharmacy Saket Block J', location: '14/879 · 098911 03847', price: '₹120', deliveryTime: '50-60 Min', lat: 12.9716, lng: 77.5946 },
+            { name: 'MAHADEV PHARMACY', location: '| MEDICINE AVAILABLE IN ROHINI, NEW DELHI |', price: '₹159', deliveryTime: '30-35 min', lat: 12.9734, lng: 77.6060 }
+        ]
+    },
+    'prescription 3': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'HealthFirst Pharmacy', location: '123 Main St, New Delhi, Delhi 110001', price: '₹122', deliveryTime: '2 hours', lat: 12.9711, lng: 77.5945 },
+            { name: 'QuickMed Store', location: '456 Park Ave, New Delhi, Delhi 110002', price: '₹118', deliveryTime: '1.5 hours', lat: 12.9722, lng: 77.5960 }
+        ]
+    },
+    'prescription 4': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'Wellness Pharmacy', location: '789 High St, New Delhi, Delhi 110003', price: '₹119', deliveryTime: '2 hours', lat: 12.9733, lng: 77.5960 },
+            { name: 'PharmaCare', location: '101 South St, New Delhi, Delhi 110004', price: '₹117', deliveryTime: '1.5 hours', lat: 12.9744, lng: 77.5970 }
+        ]
+    },
+    'prescription 5': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'MediCare Pharmacy', location: '234 West St, New Delhi, Delhi 110005', price: '₹120', deliveryTime: '2 hours', lat: 12.9755, lng: 77.5980 },
+            { name: 'LifePharma', location: '345 North Ave, New Delhi, Delhi 110006', price: '₹116', deliveryTime: '1.5 hours', lat: 12.9766, lng: 77.5990 }
+        ]
+    },
+    'prescription 6': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'SmartMed Pharmacy', location: '456 East Ave, New Delhi, Delhi 110007', price: '115', deliveryTime: '2 hours', lat: 12.9777, lng: 77.6000 },
+            { name: 'Cure Pharma', location: '567 Central St, New Delhi, Delhi 110008', price: '119', deliveryTime: '1.5 hours', lat: 12.9788, lng: 77.6010 }
+        ]
+    },
+    'prescription 7': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'Trust Pharmacy', location: '678 South St, New Delhi, Delhi 110009', price: '121', deliveryTime: '2 hours', lat: 12.9799, lng: 77.6020 },
+            { name: 'Health Hub', location: '789 Elm St, New Delhi, Delhi 110010', price: '118', deliveryTime: '1.5 hours', lat: 12.9800, lng: 77.6030 }
+        ]
+    },
+    'prescription 8': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'SafeMed Pharmacy', location: '890 Pine St, New Delhi, Delhi 110011', price: '124', deliveryTime: '2 hours', lat: 12.9811, lng: 77.6040 },
+            { name: 'Global Health', location: '901 Maple St, New Delhi, Delhi 110012', price: '120', deliveryTime: '1.5 hours', lat: 12.9822, lng: 77.6050 }
+        ]
+    },
+    'prescription 9': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'HealthPoint Pharmacy', location: '123 Birch St, New Delhi, Delhi 110013', price: '123', deliveryTime: '2 hours', lat: 12.9833, lng: 77.6060 },
+            { name: 'PharmaNest', location: '234 Cedar St, New Delhi, Delhi 110014', price: '119', deliveryTime: '1.5 hours', lat: 12.9844, lng: 77.6070 }
+        ]
+    },
+    'prescription 10': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'MedEx Pharmacy', location: '345 Ash St, New Delhi, Delhi 110015', price: '115', deliveryTime: '2 hours', lat: 12.9855, lng: 77.6080 },
+            { name: 'CareWell Pharmacy', location: '456 Elmwood St, New Delhi, Delhi 110016', price: '114', deliveryTime: '1.5 hours', lat: 12.9866, lng: 77.6090 }
+        ]
+    },
+    'prescription 11': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'PharmaCare Plus', location: '567 Pine St, New Delhi, Delhi 110017', price: '123', deliveryTime: '2 hours', lat: 12.9877, lng: 77.6100 },
+            { name: 'TotalHealth Pharmacy', location: '678 Spruce St, New Delhi, Delhi 110018', price: '119', deliveryTime: '1.5 hours', lat: 12.9888, lng: 77.6110 }
+        ]
+    },
+    'prescription 12': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'SmartCare Pharmacy', location: '789 Willow St, New Delhi, Delhi 110019', price: '124', deliveryTime: '2 hours', lat: 12.9899, lng: 77.6120 },
+            { name: 'CarePlus Pharmacy', location: '890 Maplewood St, New Delhi, Delhi 110020', price: '115', deliveryTime: '1.5 hours', lat: 12.9900, lng: 77.6130 }
+        ]
+    },
+    'prescription 13': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'PharmaTrust', location: '901 Cedar St, New Delhi, Delhi 110021', price: '120', deliveryTime: '2 hours', lat: 12.9911, lng: 77.6140 },
+            { name: 'HealthFirst Plus', location: '102 Oak St, New Delhi, Delhi 110022', price: '116', deliveryTime: '1.5 hours', lat: 12.9922, lng: 77.6150 }
+        ]
+    },
+    'prescription 14': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'Family Care Pharmacy', location: '213 Birch St, New Delhi, Delhi 110023', price: '122', deliveryTime: '2 hours', lat: 12.9933, lng: 77.6160 },
+            { name: 'Wellness Hub', location: '324 Palm St, New Delhi, Delhi 110024', price: '118', deliveryTime: '1.5 hours', lat: 12.9944, lng: 77.6170 }
+        ]
+    },
+    'prescription 15': {
+        medicines: {
+            'Atenolol 50mg': {
+                description: 'Used to treat high blood pressure and heart disease.',
+                alternate: 'Metoprolol 50mg'
+            },
+            'Simvastatin 20mg': {
+                description: 'Used to lower cholesterol and triglycerides.',
+                alternate: 'Atorvastatin 20mg'
+            },
+            'Nitroglycerin 0.4mg': {
+                description: 'Used to prevent chest pain (angina) in people with heart disease.',
+                alternate: 'Isosorbide Dinitrate 5mg'
+            },
+            'Amoxicillin 500mg': {
+                description: 'Used to treat bacterial infections.',
+                alternate: 'Ciprofloxacin 500mg'
+            }
+        },
+        pharmacies: [
+            { name: 'CurePlus Pharmacy', location: '567 Willow St, New Delhi, Delhi 110025', price: '119', deliveryTime: '2 hours', lat: 12.9955, lng: 77.6180 },
+            { name: 'TrustMed Pharmacy', location: '678 Maple St, New Delhi, Delhi 110026', price: '115', deliveryTime: '1.5 hours', lat: 12.9966, lng: 77.6190 }
+        ]
+    }
+};
+
+
+    
+
+
+    // Event listener for prescription upload form submission
+    document.getElementById('prescriptionUploadForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Show loading spinner
+        document.getElementById('loadingSpinner').style.display = 'block';
+
+        const prescriptionFile = document.getElementById('prescriptionFile').files[0];
+
+        if (!prescriptionFile) {
+            alert("Please upload an image.");
+            document.getElementById('loadingSpinner').style.display = 'none';
+            return;
+        }
+
+        const reader = new FileReader();
+
+        // Once the file is read, send it to Tesseract.js for text extraction
+        reader.onload = function (event) {
+            const imageSrc = event.target.result;
+
+            // Use Tesseract.js to extract text from the image
+            Tesseract.recognize(
+                imageSrc,
+                'eng', // Specify language
+                {
+                    logger: (m) => console.log(m) // Optional logger to see progress
+                }
+            ).then(({ data: { text } }) => {
+                console.log('Extracted Text:', text);
+
+                // Hide the spinner once text is extracted
+                document.getElementById('loadingSpinner').style.display = 'none';
+
+                // Process the extracted text (example using fileName logic)
+                if (text) {
+                    const fileName = text.trim().split(' ')[0]; // Simplified processing
+                    if (fileToMedicineData[fileName]) {
+                        const { medicines, pharmacies } = fileToMedicineData[fileName];
+                        displayMedicines(medicines);
+                        displayPharmacies(pharmacies);
+                    } else {
+                        alert("Unable to find relevant data for the extracted prescription text.");
+                    }
+                } else {
+                    alert("Unable to extract text from the image. Please try again with a clear prescription.");
+                }
+            }).catch((error) => {
+                console.error('OCR Error:', error);
+                alert("An error occurred while processing the image.");
+                document.getElementById('loadingSpinner').style.display = 'none';
+            });
+        };
+
+        // Read the uploaded image file as a data URL
+        reader.readAsDataURL(prescriptionFile);
+    });
+
+    // Function to display prescribed medicines
+    function displayMedicines(medicines) {
+        const medicineList = document.getElementById('medicineList');
+        medicineList.innerHTML = '';
+
+        const alternateMedicineList = document.getElementById('alternateMedicineList');
+        alternateMedicineList.innerHTML = '';
+
+        let alternativesDisplayed = false;
+
+        for (let medicine in medicines) {
+            const medicineDiv = document.createElement('div');
+            medicineDiv.classList.add('medicine-item');
+            medicineDiv.innerHTML = `<strong>${medicine}</strong>: ${medicines[medicine].description}`;
+            medicineList.appendChild(medicineDiv);
+
+            // Display alternative medicines if available and valid for this specific medicine
+            if (medicines[medicine].alternate) {
+                displayAlternateMedicine(medicine, medicines[medicine].alternate);
+                alternativesDisplayed = true;
+            }
+        }
+
+        // If no alternatives were displayed, suggest any general alternate if available
+        if (!alternativesDisplayed) {
+            alternateMedicineList.innerHTML = '<p>No alternative medicines available for the listed prescription.</p>';
+        }
+
+        document.getElementById('medicineInfo').style.display = 'block';
+        document.getElementById('alternateMedicineInfo').style.display = 'block';
+    }
+
+    // Function to display the correct alternative medicine
+    function displayAlternateMedicine(medicine, alternate) {
+        const alternateMedicineList = document.getElementById('alternateMedicineList');
+        const alternateDiv = document.createElement('div');
+        alternateDiv.classList.add('alternate-medicine-item');
+        alternateDiv.innerHTML = `<strong>Alternate for ${medicine}:</strong> ${alternate}`;
+        alternateMedicineList.appendChild(alternateDiv);
+    }
+
+    // Function to display pharmacies
+    function displayPharmacies(pharmacies) {
+        const pharmacyList = document.getElementById('pharmacyList');
+        pharmacyList.innerHTML = '';
+        pharmacies.forEach(pharmacy => {
+            const pharmacyDiv = document.createElement('div');
+            pharmacyDiv.classList.add('pharmacy-item');
+            pharmacyDiv.innerHTML = `
+                <h4>${pharmacy.name}</h4>
+                <p>${pharmacy.location}</p>
+                <p>Price: ${pharmacy.price}</p>
+                <p>Delivery Time: ${pharmacy.deliveryTime}</p>
+            `;
+            pharmacyDiv.addEventListener('click', () => {
+                showPharmacyModal(pharmacy);
+            });
+            pharmacyList.appendChild(pharmacyDiv);
+        });
+    }
+
+    // Function to show pharmacy modal
+    function showPharmacyModal(pharmacy) {
+        document.getElementById('modalPharmacyName').textContent = pharmacy.name;
+        document.getElementById('modalPharmacyLocation').textContent = pharmacy.location;
+        document.getElementById('modalMedicinePrice').textContent = `Price: ${pharmacy.price}`;
+        document.getElementById('modalDeliveryTime').textContent = `Delivery Time: ${pharmacy.deliveryTime}`;
+        document.getElementById('pharmacyModal').style.display = 'block';
+    }
+
+    // Close modal
+    document.querySelector('.close').addEventListener('click', function () {
+        document.getElementById('pharmacyModal').style.display = 'none';
+    });
+
+    window.onclick = function (event) {
+        if (event.target == document.getElementById('pharmacyModal')) {
+            document.getElementById('pharmacyModal').style.display = 'none';
+        }
+    };
+</script>
+
+

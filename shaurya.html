@@ -1,0 +1,2998 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>TeleMed | Landing, Responsive &amp; Business Templatee</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="assets/css/theme.css" rel="stylesheet" />
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container"><a class="navbar-brand" href="shaurya.html"><img src="assets/img/gallery/logo.png" width="118" alt="logo" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="#home">Home</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="#departments">Departments</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="#doctors">Doctors</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="pharmacy.html">AI-Pharmacy</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="#findUs">Contact Us</a></li>
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="#about">About Us</a></li>
+            <!-- Sign In Button -->
+<ul>
+  <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="#" onclick="document.getElementById('loginForm').style.display='flex';">Sign In</a>
+</ul>
+
+<!-- Login Form (hidden initially) -->
+<div id="loginForm" style="display:none; 
+                       position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                       background-color: rgba(0, 0, 0, 0.5); z-index: 1000;">
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                       background-color: #fff; padding: 30px; border-radius: 8px; 
+                       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px;">
+      <form id="login" onsubmit="event.preventDefault(); validateLogin();" style="display: flex; flex-direction: column; gap: 15px;">
+          <h2 style="text-align: center; color: #333;">Sign In</h2>
+          <label for="username" style="font-size: 16px;">ID:</label>
+          <input type="text" id="username" name="username" required style="padding: 10px; font-size: 16px; border-radius: 4px; border: 1px solid #ddd;">
+          
+          <label for="password" style="font-size: 16px;">Password:</label>
+          <input type="password" id="password" name="password" required style="padding: 10px; font-size: 16px; border-radius: 4px; border: 1px solid #ddd;">
+          
+          <button type="submit" style="padding: 12px; background-color: #007bff; color: white; font-size: 16px; border: none; border-radius: 4px; cursor: pointer;">Submit</button>
+      </form>
+  </div>
+</div>
+
+<script>
+  function validateLogin() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Example validation (replace with your actual logic)
+      if (username === "nikhil" && password === "1234") {
+          window.location.href = 'indexd.html'; // Redirect to the desired page
+      } else {
+          alert("Invalid ID or Password");
+      }
+  }
+</script>
+          </div>
+        </div>
+      </nav>
+      <section class="py-xxl-10 pb-0" id="home">
+        <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/hero-bg.png);background-position:top center;background-size:cover;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row min-vh-xl-100 min-vh-xxl-25">
+            <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="assets/img/gallery/hero.png" alt="hero-header" /></div>
+            <div class="col-md-75 col-xl-6 col-xxl-5 text-md-start text-center py-6">
+              <h1 class="fw-light font-base fs-6 fs-xxl-7">We're <strong>determined</strong> for<br />your <strong>better life with TeleMed</strong>.</h1>
+              <p class="fs-1 mb-5">You can get the care you need 24/7 – be it online or in <br />person. You will be treated by caring specialist doctors through TeleMed.</p>
+              <a class="btn btn-lg btn-primary rounded-pill" href="#!" role="button">Get Started</a>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-5" id="departments">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/bg-departments.png);background-position:top center;background-size:contain;">
+              </div>
+              <!--/.bg-holder-->
+
+              <h1 class="text-center">OUR DEPARTMENTS</h1>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-0">
+
+        <div class="container">
+          <div class="row py-5 align-items-center justify-content-center justify-content-lg-evenly">
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="assets/img/icons/neurology.png" alt="..." /><img class="mb-3 deparment-icon-hover" src="assets/img/icons/neurology.svg" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Neurology</p>
+                  </a></div>
+              </div>
+            </div>
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="assets/img/icons/eye-care.png" alt="..." /><img class="mb-3 deparment-icon-hover" src="assets/img/icons/eye-care.svg" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Eye care</p>
+                  </a></div>
+              </div>
+            </div>
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="assets/img/icons/cardiac.png" alt="..." /><img class="mb-3 deparment-icon-hover" src="assets/img/icons/cardiac.svg" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Cardiac care</p>
+                  </a></div>
+              </div>
+            </div>
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="assets/img/icons/heart.png" alt="..." /><img class="mb-3 deparment-icon-hover" src="assets/img/icons/heart.svg" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Heart care</p>
+                  </a></div>
+              </div>
+            </div>
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="assets/img/icons/osteoporosis.png" alt="..." /><img class="mb-3 deparment-icon-hover" src="assets/img/icons/osteoporosis.svg" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Osteoporosis</p>
+                  </a></div>
+              </div>
+            </div>
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="assets/img/icons/ent.png" alt="..." /><img class="mb-3 deparment-icon-hover" src="assets/img/icons/ent.svg" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">ENT</p>
+                  </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section class="bg-secondary">
+        <div class="bg-holder" style="background-image:url(assets/img/gallery/bg-eye-care.png);background-position:center;background-size:contain;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-5 col-xxl-6"><img class="img-fluid" src="https://thumbs.dreamstime.com/b/doctor-indian-38175869.jpg" alt="..." /></div>
+            <div class="col-md-7 col-xxl-6 text-center text-md-start">
+              <h2 class="fw-bold text-light mb-4 mt-4 mt-lg-0">Quality Care with Top Professionals<br class="d-none d-sm-block" />At Affordable Prices</h2>
+              <p class="text-light">We’ve created a healthcare system that prioritizes your needs.<br class="d-none d-sm-block" />For us, your health and the well-being of your loved ones are our top priority.</p>
+              
+              <div class="py-3"><a class="btn btn-lg btn-light rounded-pill" href="#!" role="button">Learn more </a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pb-0" id="about">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/about-us.png);background-position:top center;background-size:contain;">
+              </div>
+              <!--/.bg-holder-->
+
+              <h1 class="text-center">ABOUT US</h1>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section class="py-5">
+        <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/about-bg.png);background-position:top center;background-size:contain;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 order-lg-1 mb-5 mb-lg-0"><img class="fit-cover rounded-circle w-100" src="assets/img/gallery/health-care.png" alt="..." /></div>
+            <div class="col-md-6 text-center text-md-start">
+              <h2 class="fw-bold mb-4">We are building a healthcare system designed around you</h2>
+              <p>At TeleMed, we believe everyone deserves easy access to top-quality healthcare. Our goal is to simplify the process for our patients and offer reliable treatment, whether in-person or through convenient virtual consultations.</p>
+              
+              <div class="py-3">
+                <button class="btn btn-lg btn-outline-primary rounded-pill" type="submit">Learn more </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    <!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="pb-0" id="doctors">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 py-3">
+        <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/doctors-us.png);background-position:top center;background-size:contain;">
+        </div>
+        <!--/.bg-holder-->
+        <h1 class="text-center">OUR DOCTORS</h1>
+      </div>
+    </div>
+  </div>
+  <!-- end of .container-->
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
+
+<!-- Carousel Section -->
+<section class="py-5" style="position: relative;">
+  <div style="background-image: url('assets/img/gallery/doctors-bg.png'); background-position: top center; background-size: contain; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10 px-0">
+        <div id="doctorsCarousel" class="carousel slide" data-bs-ride="carousel">
+          
+          <!-- Carousel Inner -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row g-4 justify-content-center">
+                <!-- Doctor 1 -->
+                <div class="col-md-4">
+                  <div class="card text-center p-3 shadow-lg" style="border-radius: 10px;">
+                    <img src="images/Doctor-1.avif" width="128" class="mx-auto rounded-circle" alt="Dr. Anjali Mehta">
+                    <h5 class="mt-3 fw-bold">Dr. Anjali Mehta</h5>
+                    <p class="mb-0 text-muted">Cardiology</p>
+                    <p class="text-muted">Delhi, India</p>
+                    <p class="text-muted">💼 Patients: <b>15,000+</b></p>
+                    <button class="btn btn-outline-secondary rounded-pill mt-2" data-bs-toggle="modal" data-bs-target="#doctorModal1">View Profile</button>
+                  </div>
+                </div>
+
+                <!-- Doctor 2 -->
+                <div class="col-md-4">
+                  <div class="card text-center p-3 shadow-lg" style="border-radius: 10px;">
+                    <img src="images/Doctor-2.png" width="128" class="mx-auto rounded-circle" alt="Dr. Rajesh Khanna">
+                    <h5 class="mt-3 fw-bold">Dr. Rajesh Khanna</h5>
+                    <p class="mb-0 text-muted">Neurology</p>
+                    <p class="text-muted">Chennai, India</p>
+                    <p class="text-muted">💼 Patients: <b>9,500+</b></p>
+                    <button class="btn btn-outline-secondary rounded-pill mt-2" data-bs-toggle="modal" data-bs-target="#doctorModal2">View Profile</button>
+                  </div>
+                </div>
+
+                <!-- Doctor 3 -->
+                <div class="col-md-4">
+                  <div class="card text-center p-3 shadow-lg" style="border-radius: 10px;">
+                    <img src="images/doctor-3.jpeg" width="128" class="mx-auto rounded-circle" alt="Dr. Neha Gupta">
+                    <h5 class="mt-3 fw-bold">Dr. Neha Gupta</h5>
+                    <p class="mb-0 text-muted">Dermatology</p>
+                    <p class="text-muted">Hyderabad, India</p>
+                    <p class="text-muted">💼 Patients: <b>11,000+</b></p>
+                    <button class="btn btn-outline-secondary rounded-pill mt-2" data-bs-toggle="modal" data-bs-target="#doctorModal3">View Profile</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="carousel-item">
+              <div class="row g-4 justify-content-center">
+                <!-- Doctor 4 -->
+                <div class="col-md-4">
+                  <div class="card text-center p-3 shadow-lg" style="border-radius: 10px;">
+                    <img src="images/doctor-4.avif" width="128" class="mx-auto rounded-circle" alt="Dr. Vikram Singh">
+                    <h5 class="mt-3 fw-bold">Dr. Vikram Singh</h5>
+                    <p class="mb-0 text-muted">Oncology</p>
+                    <p class="text-muted">Pune, India</p>
+                    <p class="text-muted">💼 Patients: <b>7,800+</b></p>
+                    <button class="btn btn-outline-secondary rounded-pill mt-2" data-bs-toggle="modal" data-bs-target="#doctorModal4">View Profile</button>
+                  </div>
+                </div>
+
+                <!-- Doctor 5 -->
+                <div class="col-md-4">
+                  <div class="card text-center p-3 shadow-lg" style="border-radius: 10px;">
+                    <img src="images/doctor-5.png" width="128" class="mx-auto rounded-circle" alt="Dr. Sunita Reddy">
+                    <h5 class="mt-3 fw-bold">Dr. Sunita Reddy</h5>
+                    <p class="mb-0 text-muted">Gynecology</p>
+                    <p class="text-muted">Kolkata, India</p>
+                    <p class="text-muted">💼 Patients: <b>13,200+</b></p>
+                    <button class="btn btn-outline-secondary rounded-pill mt-2" data-bs-toggle="modal" data-bs-target="#doctorModal5">View Profile</button>
+                  </div>
+                </div>
+
+                <!-- Doctor 6 -->
+                <div class="col-md-4">
+                  <div class="card text-center p-3 shadow-lg" style="border-radius: 10px;">
+                    <img src="images/doctor-6.png" width="128" class="mx-auto rounded-circle" alt="Dr. Arjun Patel">
+                    <h5 class="mt-3 fw-bold">Dr. Arjun Patel</h5>
+                    <p class="mb-0 text-muted">Psychiatry</p>
+                    <p class="text-muted">Ahmedabad, India</p>
+                    <p class="text-muted">💼 Patients: <b>8,300+</b></p>
+                    <button class="btn btn-outline-secondary rounded-pill mt-2" data-bs-toggle="modal" data-bs-target="#doctorModal6">View Profile</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Carousel Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#doctorsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#doctorsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Doctor Modals -->
+<div class="modal fade" id="doctorModal1" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Dr. Anjali Mehta - Cardiology Specialist</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="images/Doctor-1.avif" width="150" class="rounded-circle">
+        <p class="mt-3 text-muted">Delhi, India | 12+ Years of Experience</p>
+        <p class="text-muted">💼 Patients Treated: <b>15,000+</b> via TeleMed</p>
+        <hr>
+        <h6 class="fw-bold">About</h6>
+        <p>Expert cardiologist with 12+ years of experience in treating heart diseases and performing angioplasties.</p>
+        <h6 class="fw-bold">Education</h6>
+        <p>MBBS, MD - Cardiology, AIIMS</p>
+        <h6 class="fw-bold">Consultation Details</h6>
+        <p>💰 Fees: ₹1,000 per session</p>
+        <p>🕒 Available: 9 AM - 5 PM (Mon-Sat)</p>
+        <a href="appointment.html" class="btn btn-primary rounded-pill">📅 Book Appointment</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="doctorModal2" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Dr. Rajesh Khanna - Neurology Specialist</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="images/Doctor-2.png" width="150" class="rounded-circle">
+        <p class="mt-3 text-muted">Chennai, India | 14+ Years of Experience</p>
+        <p class="text-muted">💼 Patients Treated: <b>9,500+</b> via TeleMed</p>
+        <hr>
+        <h6 class="fw-bold">About</h6>
+        <p>Expert neurologist with 14+ years of experience in treating stroke, epilepsy, and migraines.</p>
+        <h6 class="fw-bold">Education</h6>
+        <p>MBBS, DM - Neurology, CMC Vellore</p>
+        <h6 class="fw-bold">Consultation Details</h6>
+        <p>💰 Fees: ₹1,500 per session</p>
+        <p>🕒 Available: 10 AM - 6 PM (Mon-Fri)</p>
+        <a href="appointment.html" class="btn btn-primary rounded-pill">📅 Book Appointment</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="doctorModal3" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Dr. Neha Gupta - Dermatology Specialist</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="images/doctor-3.jpeg" width="150" class="rounded-circle">
+        <p class="mt-3 text-muted">Hyderabad, India | 8+ Years of Experience</p>
+        <p class="text-muted">💼 Patients Treated: <b>11,000+</b> via TeleMed</p>
+        <hr>
+        <h6 class="fw-bold">About</h6>
+        <p>Expert dermatologist with 8+ years of experience in treating skin diseases and cosmetic procedures.</p>
+        <h6 class="fw-bold">Education</h6>
+        <p>MBBS, MD - Dermatology, Osmania Medical College</p>
+        <h6 class="fw-bold">Consultation Details</h6>
+        <p>💰 Fees: ₹800 per session</p>
+        <p>🕒 Available: 11 AM - 7 PM (Mon-Sat)</p>
+        <a href="appointment.html" class="btn btn-primary rounded-pill">📅 Book Appointment</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="doctorModal4" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Dr. Vikram Singh - Oncology Specialist</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="images/doctor-4.avif" width="150" class="rounded-circle">
+        <p class="mt-3 text-muted">Pune, India | 10+ Years of Experience</p>
+        <p class="text-muted">💼 Patients Treated: <b>7,800+</b> via TeleMed</p>
+        <hr>
+        <h6 class="fw-bold">About</h6>
+        <p>Expert oncologist with 10+ years of experience in cancer treatment and chemotherapy.</p>
+        <h6 class="fw-bold">Education</h6>
+        <p>MBBS, MD - Oncology, Tata Memorial Hospital</p>
+        <h6 class="fw-bold">Consultation Details</h6>
+        <p>💰 Fees: ₹1,200 per session</p>
+        <p>🕒 Available: 9 AM - 5 PM (Mon-Fri)</p>
+        <a href="appointment.html" class="btn btn-primary rounded-pill">📅 Book Appointment</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="doctorModal5" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Dr. Sunita Reddy - Gynecology Specialist</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="images/doctor-5.png" width="150" class="rounded-circle">
+        <p class="mt-3 text-muted">Kolkata, India | 13+ Years of Experience</p>
+        <p class="text-muted">💼 Patients Treated: <b>13,200+</b> via TeleMed</p>
+        <hr>
+        <h6 class="fw-bold">About</h6>
+        <p>Expert gynecologist with 13+ years of experience in women's health and pregnancy care.</p>
+        <h6 class="fw-bold">Education</h6>
+        <p>MBBS, MD - Gynecology, PGIMER</p>
+        <h6 class="fw-bold">Consultation Details</h6>
+        <p>💰 Fees: ₹900 per session</p>
+        <p>🕒 Available: 10 AM - 6 PM (Mon-Sat)</p>
+        <a href="appointment.html" class="btn btn-primary rounded-pill">📅 Book Appointment</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="doctorModal6" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Dr. Arjun Patel - Psychiatry Specialist</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="images/doctor-6.png" width="150" class="rounded-circle">
+        <p class="mt-3 text-muted">Ahmedabad, India | 9+ Years of Experience</p>
+        <p class="text-muted">💼 Patients Treated: <b>8,300+</b> via TeleMed</p>
+        <hr>
+        <h6 class="fw-bold">About</h6>
+        <p>Expert psychiatrist with 9+ years of experience in treating anxiety, depression, and mental health disorders.</p>
+        <h6 class="fw-bold">Education</h6>
+        <p>MBBS, MD - Psychiatry, NIMHANS</p>
+        <h6 class="fw-bold">Consultation Details</h6>
+        <p>💰 Fees: ₹1,000 per session</p>
+        <p>🕒 Available: 11 AM - 7 PM (Mon-Fri)</p>
+        <a href="appointment.html" class="btn btn-primary rounded-pill">📅 Book Appointment</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+   
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <!-- <section class="py-5">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/people.png);background-position:top center;background-size:contain;">
+              </div>
+              /.bg-holder
+
+              <h1 class="text-center"><a href="appointment.html" class="text-decoration-none text-primary"></a>APPOINTMENT</a></h1>
+
+            </div>
+          </div>
+        </div>
+   
+
+      </section>
+   
+
+
+      <section class="py-8">
+        <div class="container">
+          <div class="row">
+            <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/dot-bg.png);background-position:bottom right;background-size:auto;">
+            </div>
+            
+
+            <div class="col-lg-6 z-index-2 mb-5"><img class="w-100" src="assets/img/gallery/appointment.png" alt="..." /></div>
+            <div class="col-lg-6 z-index-2">
+              <form class="row g-3">
+                <div class="col-md-6">
+                  <label class="visually-hidden" for="inputName">Name</label>
+                  <input class="form-control form-livedoc-control" id="inputName" type="text" placeholder="Name" />
+                </div>
+                <div class="col-md-6">
+                  <label class="visually-hidden" for="inputPhone">Phone</label>
+                  <input class="form-control form-livedoc-control" id="inputPhone" type="text" placeholder="Phone" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label visually-hidden" for="inputCategory">Category</label>
+                  <select class="form-select" id="inputCategory">
+                    <option selected="selected">Category</option>
+                    <option> Category One</option>
+                    <option> Category Two</option>
+                    <option> Category Three</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label visually-hidden" for="inputEmail">Email</label>
+                  <input class="form-control form-livedoc-control" id="inputEmail" type="email" placeholder="Email" />
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label visually-hidden" for="validationTextarea">Message</label>
+                  <textarea class="form-control form-livedoc-control" id="validationTextarea" placeholder="Message" style="height: 250px;" required="required"></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="d-grid">
+                    <button class="btn btn-primary rounded-pill" type="submit">Sign in</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-5">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/blog-post.png);background-position:top center;background-size:contain;">
+              </div>
+              <!--/.bg-holder-->
+
+              <h1 class="text-center">RECENT BLOGPOSTS</h1>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+
+
+
+
+
+
+      
+      
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+
+
+
+
+
+
+      <section>
+
+
+
+
+
+
+        
+        <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/dot-bg.png);background-position:top left;background-size:auto;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-lg-3 mb-4">
+              <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3" src="assets/img/gallery/covid-19.png" alt="news" />
+                <div class="card-body"><span class="fs--1 text-primary me-3">Health</span>
+                  <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"> </path>
+                  </svg><span class="fs--1 text-900">Mar 15, 2025</span><span class="fs--1"></span>
+                  <h5 class="font-base fs-lg-0 fs-xl-1 my-3">COVID-19: The Most Up-to-Date Information</h5><a class="stretched-link" href="#!">read full article</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 mb-4">
+              <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3" src="assets/img/gallery/laboratories.png" alt="news" />
+                <div class="card-body"><span class="fs--1 text-primary me-3">Lifestyle</span>
+                  <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"> </path>
+                  </svg><span class="fs--1 text-900">Mar 15, 2025</span><span class="fs--1"></span>
+                  <h5 class="font-base fs-lg-0 fs-xl-1 my-3">Importance of Accreditation for Laboratories</h5><a class="stretched-link" href="#!">read full article</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 mb-4">
+              <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3" src="assets/img/gallery/nicotine.png" alt="news" />
+                <div class="card-body"><span class="fs--1 text-primary me-3">Health</span>
+                  <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"> </path>
+                  </svg><span class="fs--1 text-900">Mar 15, 2025</span><span class="fs--1"></span>
+                  <h5 class="font-base fs-lg-0 fs-xl-1 my-3">The dangers of nicotine are addressed in depth</h5><a class="stretched-link" href="#!">read full article</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 mb-4">
+              <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3" src="assets/img/gallery/treatment.png" alt="news" />
+                <div class="card-body"><span class="fs--1 text-primary me-3">Health</span>
+                  <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"> </path>
+                  </svg><span class="fs--1 text-900">Mar 15, 2025</span><span class="fs--1"></span>
+                  <h5 class="font-base fs-lg-0 fs-xl-1 my-3">Treatment of patients with diabetes during COVID-19</h5><a class="stretched-link" href="#!">read full article</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Telemedicine Services</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+          <style>
+              body {
+                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                  margin: 0;
+                  padding: 0;
+                  color: #333;
+                  line-height: 1.6;
+              }
+      
+              .container {
+                  max-width: 1200px;
+                  margin: 0 auto;
+                  padding: 0 20px;
+              }
+      
+              /* Pricing Section Styles */
+              #pricing {
+                  padding: 60px 20px;
+                  background-color: #f9f9f9;
+                  text-align: center;
+              }
+      
+              .pricing-scroll-container {
+                  overflow-x: auto;
+                  padding-bottom: 20px;
+                  -webkit-overflow-scrolling: touch;
+              }
+      
+              .pricing-scroll {
+                  display: flex;
+                  gap: 20px;
+                  padding: 10px;
+                  width: max-content;
+                  margin: 0 auto;
+              }
+      
+              .pricing-item {
+                  position: relative;
+                  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+                  border-radius: 10px;
+                  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+                  padding: 20px;
+                  min-width: 280px;
+                  max-width: 320px;
+                  transition: transform 0.3s ease, box-shadow 0.3s ease;
+                  border: 1px solid #e0e0e0;
+              }
+      
+              .pricing-item.popular {
+                  border: 2px solid #007bff;
+                  background: linear-gradient(135deg, #f8faff, #e7f1ff);
+              }
+      
+              .pricing-item:hover {
+                  transform: translateY(-10px);
+                  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+              }
+      
+              /* Improved Popular Badge */
+              .popular-badge {
+                  position: absolute;
+                  top: -10px;
+                  right: 20px;
+                  background: linear-gradient(135deg, #007bff, #00a8ff);
+                  color: #fff;
+                  padding: 5px 20px;
+                  font-size: 0.8rem;
+                  border-radius: 20px;
+                  font-weight: bold;
+                  box-shadow: 0 4px 8px rgba(0, 120, 255, 0.2);
+                  z-index: 1;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+              }
+      
+              .popular-badge:after {
+                  content: '';
+                  position: absolute;
+                  bottom: -5px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 0;
+                  height: 0;
+                  border-left: 5px solid transparent;
+                  border-right: 5px solid transparent;
+                  border-top: 5px solid #007bff;
+              }
+      
+              /* Payment Page Styles */
+              #payment-page {
+                  display: none;
+                  padding: 60px 20px;
+                  background-color: #f5f7fa;
+                  animation: fadeIn 0.5s ease;
+              }
+      
+              @keyframes fadeIn {
+                  from { opacity: 0; }
+                  to { opacity: 1; }
+              }
+      
+              .payment-container {
+                  max-width: 600px;
+                  margin: 0 auto;
+                  background: white;
+                  padding: 30px;
+                  border-radius: 10px;
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  transition: all 0.3s ease;
+              }
+      
+              .payment-methods {
+                  margin-top: 30px;
+              }
+      
+              .payment-method {
+                  display: flex;
+                  align-items: center;
+                  padding: 15px;
+                  border: 1px solid #ddd;
+                  border-radius: 8px;
+                  margin-bottom: 15px;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+              }
+      
+              .payment-method:hover {
+                  border-color: #007bff;
+                  background-color: #f8f9fa;
+              }
+      
+              .payment-method.selected {
+                  border-color: #007bff;
+                  background-color: #e7f1ff;
+              }
+      
+              .payment-method i {
+                  font-size: 2rem;
+                  margin-right: 15px;
+                  color: #555;
+              }
+      
+              .btn-pay {
+                  background-color: #007bff;
+                  color: white;
+                  border: none;
+                  padding: 12px 24px;
+                  font-size: 1rem;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  transition: background-color 0.3s ease;
+                  width: 100%;
+                  margin-top: 20px;
+                  font-weight: 600;
+              }
+      
+              .btn-pay:hover {
+                  background-color: #0056b3;
+              }
+      
+              /* Payment Processing Animation */
+              .payment-processing {
+                  display: none;
+                  text-align: center;
+                  padding: 30px;
+                  max-width: 500px;
+                  margin: 0 auto;
+                  background: white;
+                  border-radius: 10px;
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+              }
+      
+              .progress-container {
+                  width: 100%;
+                  height: 10px;
+                  background: #f0f0f0;
+                  border-radius: 5px;
+                  margin: 40px 0;
+                  position: relative;
+                  overflow: hidden;
+              }
+      
+              .progress-bar {
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  height: 100%;
+                  width: 0%;
+                  background: linear-gradient(90deg, #007bff, #00a8ff);
+                  border-radius: 5px;
+                  transition: width 0.3s ease;
+              }
+      
+              .doctor-icon {
+                  position: absolute;
+                  top: -25px;
+                  left: 0;
+                  font-size: 30px;
+                  color: #007bff;
+                  transform: translateX(-50%);
+                  transition: left 4s linear;
+              }
+      
+              .payment-status {
+                  font-size: 18px;
+                  margin-top: 20px;
+                  font-weight: 600;
+                  color: #555;
+              }
+      
+              .payment-success {
+                  display: none;
+                  text-align: center;
+                  padding: 20px;
+                  max-width: 500px;
+                  margin: 0 auto;
+                  background: white;
+                  border-radius: 10px;
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  animation: fadeIn 0.5s ease;
+              }
+      
+              .payment-success i {
+                  font-size: 60px;
+                  color: #28a745;
+                  margin-bottom: 20px;
+                  animation: bounce 1s ease;
+              }
+      
+              @keyframes bounce {
+                  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+                  40% {transform: translateY(-20px);}
+                  60% {transform: translateY(-10px);}
+              }
+      
+              .payment-success h3 {
+                  color: #28a745;
+                  margin-bottom: 10px;
+                  font-size: 24px;
+              }
+      
+              /* Responsive adjustments */
+              @media (max-width: 768px) {
+                  .pricing-scroll {
+                      justify-content: flex-start;
+                  }
+                  
+                  .pricing-item {
+                      min-width: 260px;
+                  }
+                  
+                  .payment-container {
+                      padding: 20px;
+                  }
+                  
+                  #pricing {
+                      padding: 30px 10px;
+                  }
+                  
+                  .payment-method {
+                      flex-direction: column;
+                      text-align: center;
+                  }
+                  
+                  .payment-method i {
+                      margin-right: 0;
+                      margin-bottom: 10px;
+                  }
+              }
+      
+              /* Button styles */
+              .btn-toggle {
+                  background-color: #f1f1f1;
+                  color: #333;
+                  border: none;
+                  padding: 8px 16px;
+                  font-size: 0.9rem;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+              }
+      
+              .btn-toggle.active {
+                  background-color: #007bff;
+                  color: #fff;
+              }
+      
+              .cta-button {
+                  background-color: #007bff;
+                  color: #fff;
+                  border: none;
+                  padding: 12px 24px;
+                  font-size: 1rem;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  transition: background-color 0.3s ease;
+                  width: 100%;
+                  font-weight: 600;
+              }
+      
+              .cta-button:hover {
+                  background-color: #0056b3;
+              }
+      
+              /* Payment Modal Styles */
+              .payment-modal {
+                  display: none;
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba(0,0,0,0.7);
+                  z-index: 1000;
+                  justify-content: center;
+                  align-items: center;
+              }
+      
+              .payment-modal-content {
+                  background: white;
+                  border-radius: 10px;
+                  width: 400px;
+                  max-width: 90%;
+                  max-height: 90vh;
+                  overflow-y: auto;
+                  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                  animation: modalFadeIn 0.3s ease;
+              }
+      
+              @keyframes modalFadeIn {
+                  from {
+                      opacity: 0;
+                      transform: translateY(-20px);
+                  }
+                  to {
+                      opacity: 1;
+                      transform: translateY(0);
+                  }
+              }
+      
+              .payment-modal-header {
+                  padding: 15px 20px;
+                  background: #007bff;
+                  color: white;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  position: sticky;
+                  top: 0;
+                  z-index: 1;
+              }
+      
+              .payment-modal-body {
+                  padding: 20px;
+              }
+      
+              .payment-step {
+                  display: none;
+              }
+      
+              .payment-step.active {
+                  display: block;
+                  animation: fadeIn 0.3s ease;
+              }
+      
+              .qr-code-container {
+                  text-align: center;
+                  margin: 20px 0;
+              }
+      
+              .qr-code {
+                  width: 200px;
+                  height: 200px;
+                  margin: 0 auto;
+                  background-color: #f5f5f5;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  border: 1px dashed #ccc;
+                  border-radius: 8px;
+                  overflow: hidden;
+              }
+      
+              .qr-code img {
+                  max-width: 100%;
+                  max-height: 100%;
+              }
+      
+              .otp-input-container {
+                  display: flex;
+                  justify-content: center;
+                  margin: 20px 0;
+              }
+      
+              .otp-input {
+                  width: 40px;
+                  height: 50px;
+                  margin: 0 5px;
+                  text-align: center;
+                  font-size: 20px;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  transition: border-color 0.3s;
+              }
+      
+              .otp-input:focus {
+                  border-color: #007bff;
+                  outline: none;
+                  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+              }
+      
+              .timer {
+                  text-align: center;
+                  color: #666;
+                  margin: 10px 0;
+                  font-size: 14px;
+              }
+      
+              .payment-actions {
+                  display: flex;
+                  justify-content: space-between;
+                  margin-top: 20px;
+                  gap: 10px;
+              }
+      
+              .btn {
+                  padding: 10px 15px;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  border: none;
+                  font-weight: 600;
+                  transition: all 0.2s ease;
+                  flex: 1;
+              }
+      
+              .btn-primary {
+                  background-color: #007bff;
+                  color: white;
+              }
+      
+              .btn-primary:hover {
+                  background-color: #0069d9;
+              }
+      
+              .btn-secondary {
+                  background-color: #6c757d;
+                  color: white;
+              }
+      
+              .btn-secondary:hover {
+                  background-color: #5a6268;
+              }
+      
+              .btn-danger {
+                  background-color: #dc3545;
+                  color: white;
+              }
+      
+              .btn-success {
+                  background-color: #28a745;
+                  color: white;
+              }
+      
+              .hidden {
+                  display: none;
+              }
+      
+              /* Countdown animation */
+              @keyframes countdown {
+                  from {
+                      width: 100%;
+                  }
+                  to {
+                      width: 0%;
+                  }
+              }
+      
+              /* Doctor walking animation */
+              @keyframes doctorWalk {
+                  0% {
+                      left: 0;
+                      transform: translateX(-50%) scaleX(1);
+                  }
+                  49% {
+                      transform: translateX(-50%) scaleX(1);
+                  }
+                  50% {
+                      left: 100%;
+                      transform: translateX(-50%) scaleX(-1);
+                  }
+                  99% {
+                      transform: translateX(-50%) scaleX(-1);
+                  }
+                  100% {
+                      left: 0;
+                      transform: translateX(-50%) scaleX(1);
+                  }
+              }
+      
+              /* Form input styles */
+              .form-group {
+                  margin-bottom: 15px;
+              }
+      
+              .form-label {
+                  display: block;
+                  margin-bottom: 5px;
+                  font-weight: 500;
+                  color: #555;
+              }
+      
+              .form-control {
+                  width: 100%;
+                  padding: 10px;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  font-size: 16px;
+                  transition: border-color 0.3s;
+              }
+      
+              .form-control:focus {
+                  border-color: #007bff;
+                  outline: none;
+                  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+              }
+      
+              .form-row {
+                  display: flex;
+                  gap: 15px;
+              }
+      
+              .form-col {
+                  flex: 1;
+              }
+      
+              /* Error message */
+              .error-message {
+                  color: #dc3545;
+                  font-size: 14px;
+                  margin-top: 5px;
+                  display: none;
+              }
+      
+              /* Loading spinner */
+              .spinner {
+                  display: inline-block;
+                  width: 20px;
+                  height: 20px;
+                  border: 3px solid rgba(255,255,255,0.3);
+                  border-radius: 50%;
+                  border-top-color: white;
+                  animation: spin 1s ease-in-out infinite;
+                  margin-right: 10px;
+                  vertical-align: middle;
+              }
+      
+              @keyframes spin {
+                  to { transform: rotate(360deg); }
+              }
+      
+              /* Confirmation dialog */
+              .confirmation-dialog {
+                  display: none;
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba(0,0,0,0.5);
+                  z-index: 1001;
+                  justify-content: center;
+                  align-items: center;
+              }
+      
+              .confirmation-content {
+                  background: white;
+                  border-radius: 10px;
+                  padding: 20px;
+                  max-width: 400px;
+                  width: 90%;
+                  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                  text-align: center;
+              }
+      
+              .confirmation-buttons {
+                  display: flex;
+                  justify-content: center;
+                  gap: 10px;
+                  margin-top: 20px;
+              }
+      
+              /* Enhanced card payment UI */
+              .card-preview {
+                  width: 100%;
+                  height: 180px;
+                  background: linear-gradient(135deg, #434343, #000000);
+                  border-radius: 10px;
+                  padding: 15px;
+                  color: white;
+                  margin-bottom: 20px;
+                  position: relative;
+                  overflow: hidden;
+                  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+              }
+      
+              .card-logo {
+                  text-align: right;
+                  margin-bottom: 20px;
+              }
+      
+              .card-number {
+                  font-family: monospace;
+                  font-size: 18px;
+                  letter-spacing: 2px;
+                  margin-bottom: 20px;
+              }
+      
+              .card-details {
+                  display: flex;
+                  justify-content: space-between;
+              }
+      
+              .card-name, .card-expiry {
+                  font-size: 14px;
+              }
+      
+              .card-chip {
+                  position: absolute;
+                  left: 15px;
+                  top: 50px;
+                  width: 40px;
+                  height: 30px;
+                  background: #ffd700;
+                  border-radius: 5px;
+              }
+      
+              /* Payment method icons */
+              .payment-icon {
+                  width: 40px;
+                  height: 40px;
+                  object-fit: contain;
+                  margin-right: 15px;
+              }
+      
+              /* Smooth scroll for pricing cards */
+              .pricing-scroll-container {
+                  scroll-behavior: smooth;
+              }
+      
+              /* Scrollbar styling */
+              .pricing-scroll-container::-webkit-scrollbar {
+                  height: 8px;
+              }
+      
+              .pricing-scroll-container::-webkit-scrollbar-track {
+                  background: #f1f1f1;
+                  border-radius: 10px;
+              }
+      
+              .pricing-scroll-container::-webkit-scrollbar-thumb {
+                  background: #007bff;
+                  border-radius: 10px;
+              }
+      
+              .pricing-scroll-container::-webkit-scrollbar-thumb:hover {
+                  background: #0056b3;
+              }
+      
+              /* Plan feature list */
+              .feature-list {
+                  list-style: none;
+                  padding: 0;
+                  margin-bottom: 20px;
+                  text-align: left;
+              }
+      
+              .feature-list li {
+                  padding: 8px 0;
+                  border-bottom: 1px solid #eee;
+                  display: flex;
+                  align-items: center;
+              }
+      
+              .feature-list i {
+                  margin-right: 8px;
+                  min-width: 20px;
+              }
+      
+              /* Plan price display */
+              .plan-price {
+                  font-size: 2rem;
+                  color: #333;
+                  font-weight: bold;
+                  margin: 10px 0;
+              }
+      
+              .plan-period {
+                  font-size: 1rem;
+                  color: #666;
+                  font-weight: normal;
+              }
+      
+              /* Plan savings badge */
+              .savings-badge {
+                  display: inline-block;
+                  background-color: #28a745;
+                  color: white;
+                  padding: 3px 10px;
+                  border-radius: 20px;
+                  font-size: 0.8rem;
+                  margin-left: 5px;
+                  vertical-align: middle;
+              }
+          </style>
+      </head>
+      <body>
+          <!-- Payment Processing Screen -->
+          <div class="payment-processing">
+              <h3>Processing Your Payment</h3>
+              <p>Please wait while we process your transaction...</p>
+              <div class="progress-container">
+                  <div class="progress-bar"></div>
+                  <div class="doctor-icon">👨‍⚕️</div>
+              </div>
+              <div class="payment-status">Verifying payment details...</div>
+          </div>
+          
+          <!-- Payment Success Screen -->
+          <div class="payment-success">
+              <i class="fas fa-check-circle"></i>
+              <h3>Payment Successful!</h3>
+              <p>Your telemedicine subscription has been activated.</p>
+              <p>You will be redirected to your consultation shortly.</p>
+              <div class="spinner"></div>
+          </div>
+      
+          <!-- Confirmation Dialog -->
+          <div class="confirmation-dialog">
+              <div class="confirmation-content">
+                  <h3>Confirm Payment</h3>
+                  <p>You are about to pay <span id="confirm-amount">₹499</span> for the <span id="confirm-plan">Premium Plan</span>.</p>
+                  <p>Do you want to proceed?</p>
+                  <div class="confirmation-buttons">
+                      <button id="confirm-cancel" class="btn btn-secondary">Cancel</button>
+                      <button id="confirm-proceed" class="btn btn-primary">Proceed</button>
+                  </div>
+              </div>
+          </div>
+      
+          <!-- Pricing Section -->
+          <section id="pricing" style="display: block;">
+              <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+                  <h2 style="font-size: 2.5rem; color: #333; margin-bottom: 20px;">Telemedicine Pricing Plans</h2>
+                  <p style="font-size: 1.1rem; color: #666; margin-bottom: 40px;">
+                      Experience the convenience of telemedicine with our flexible pricing options. Choose a plan that suits your needs and enjoy seamless healthcare from the comfort of your home.
+                  </p>
+              
+                  <!-- Toggle for Annual/Monthly Pricing -->
+                  <div style="margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+                      <label style="font-size: 1rem; color: #666; margin-right: 10px;">Billing:</label>
+                      <div style="background: #f1f1f1; border-radius: 30px; padding: 5px; display: inline-flex;">
+                          <button id="monthly-btn" style="padding: 8px 20px; background-color: #007bff; color: white; border: none; border-radius: 20px; cursor: pointer; margin-right: 5px; transition: all 0.3s;" class="active">Monthly</button>
+                          <button id="annual-btn" style="padding: 8px 20px; background-color: transparent; color: #333; border: none; border-radius: 20px; cursor: pointer; transition: all 0.3s;">Annual (Save 15%)</button>
+                      </div>
+                  </div>
+              
+                  <!-- Horizontal Scroll Container -->
+                  <div class="pricing-scroll-container">
+                      <div style="display: inline-block; white-space: nowrap; padding: 10px 0;">
+                          <!-- Free Trial Plan -->
+                          <div style="display: inline-block; width: 280px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-right: 20px; vertical-align: top; padding: 20px; position: relative;">
+                              <div>
+                                  <h3 style="font-size: 1.5rem; color: #007bff; margin-bottom: 10px;">Free Trial</h3>
+                                  <p class="plan-price">₹0 <span class="plan-period">/ 7 days</span></p>
+                              </div>
+                              <ul class="feature-list">
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Access to basic health tips</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Limited to one specialty</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> No commitment, cancel anytime</li>
+                                  <li class="not-available"><i class="fas fa-times-circle" style="color: #999;"></i> Advanced health monitoring tools</li>
+                                  <li class="not-available"><i class="fas fa-times-circle" style="color: #999;"></i> 24/7 priority support</li>
+                                  <li class="not-available"><i class="fas fa-times-circle" style="color: #999;"></i> Personalized health plans</li>
+                              </ul>
+                              <div style="text-align: center;">
+                                  <button onclick="selectPlan('Free Trial', '₹0', '7 days')" class="cta-button">Start Free Trial</button>
+                                  <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">No credit card required</p>
+                              </div>
+                          </div>
+              
+                          <!-- Basic Plan -->
+                          <div style="display: inline-block; width: 280px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-right: 20px; vertical-align: top; padding: 20px;">
+                              <div>
+                                  <h3 style="font-size: 1.5rem; color: #007bff; margin-bottom: 10px;">Basic Plan</h3>
+                                  <p class="plan-price" data-monthly="₹239" data-annual="₹2,400">₹239 <span class="plan-period">/ month</span></p>
+                              </div>
+                              <ul class="feature-list">
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Access to general practitioners</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Basic health monitoring tools</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Email support</li>
+                                  <li class="not-available"><i class="fas fa-times-circle" style="color: #999;"></i> Advanced health monitoring tools</li>
+                                  <li class="not-available"><i class="fas fa-times-circle" style="color: #999;"></i> 24/7 priority support</li>
+                                  <li class="not-available"><i class="fas fa-times-circle" style="color: #999;"></i> Personalized health plans</li>
+                              </ul>
+                              <div style="text-align: center;">
+                                <button class="cta-button" data-plan="Basic Plan" data-price="₹239" data-cycle="month"> Choose Basic Plan</button>
+                                 <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Billed monthly</p>
+                              </div>
+                          </div>
+              
+                          <!-- Premium Plan (Most Popular) -->
+                          <div style="display: inline-block; width: 280px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-right: 20px; vertical-align: top; padding: 20px; position: relative; border: 2px solid #007bff;">
+                              <div class="popular-badge">Most Popular</div>
+                              <div>
+                                  <h3 style="font-size: 1.5rem; color: #007bff; margin-bottom: 10px;">Premium Plan</h3>
+                                  <p class="plan-price" data-monthly="₹499" data-annual="₹4,900">₹499 <span class="plan-period">/ month</span></p>
+                              </div>
+                              <ul class="feature-list">
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Access to all specialties</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Advanced health monitoring tools</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> 24/7 priority support</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Personalized health plans</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Health record storage</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Family sharing (up to 3 members)</li>
+                              </ul>
+                              <div style="text-align: center;">
+                                  <button onclick="selectPlan('Premium Plan', '₹499', 'month')" class="cta-button">Choose Premium Plan</button>
+                                  <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Best value for individuals</p>
+                              </div>
+                          </div>
+              
+                          <!-- AI Pharmacy Plan -->
+                          <div style="display: inline-block; width: 280px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-right: 20px; vertical-align: top; padding: 20px;">
+                              <div>
+                                  <h3 style="font-size: 1.5rem; color: #007bff; margin-bottom: 10px;">AI Pharmacy Plan</h3>
+                                  <p class="plan-price" data-monthly="₹699" data-annual="₹6,500">₹699 <span class="plan-period">/ month</span> <span class="savings-badge">Save 15%</span></p>
+                              </div>
+                              <ul class="feature-list">
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Includes all Premium Plan features</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> AI-powered pharmacy recommendations</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Discounted medication delivery</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Automated prescription refills</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Personalized medication reminders</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Drug interaction alerts</li>
+                              </ul>
+                              <div style="text-align: center;">
+                                  <button onclick="selectPlan('AI Pharmacy Plan', '₹699', 'month')" class="cta-button">Choose AI Pharmacy Plan</button>
+                                  <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Save ₹1,588 annually</p>
+                              </div>
+                          </div>
+              
+                          <!-- Doctor Care + AI Pharmacy Plan -->
+                          <div style="display: inline-block; width: 280px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-right: 20px; vertical-align: top; padding: 20px;">
+                              <div>
+                                  <h3 style="font-size: 1.5rem; color: #007bff; margin-bottom: 10px;">Doctor Care + AI Pharmacy</h3>
+                                  <p class="plan-price" data-monthly="₹899" data-annual="₹8,200">₹899 <span class="plan-period">/ month</span> <span class="savings-badge">Save 20%</span></p>
+                              </div>
+                              <ul class="feature-list">
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Includes all AI Pharmacy Plan features</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Dedicated doctor for personalized care</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Priority scheduling for consultations</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Advanced diagnostic tools</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Comprehensive health reports</li>
+                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Annual health checkup included</li>
+                              </ul>
+                              <div style="text-align: center;">
+                                  <button onclick="selectPlan('Doctor Care + AI Pharmacy', '₹899', 'month')" class="cta-button">Choose Doctor Care + AI Pharmacy</button>
+                                  <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Best for families</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      
+          <!-- Payment Page (initially hidden) -->
+          <section id="payment-page" style="display: none;">
+              <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+                  <div class="payment-container">
+                      <h2 style="font-size: 2rem; color: #333; margin-bottom: 10px;">Complete Your Purchase</h2>
+                      <p style="font-size: 1.1rem; color: #666; margin-bottom: 30px;">You're subscribing to: <strong id="selected-plan">Premium Plan</strong></p>
+                      
+                      <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+                          <h3 style="font-size: 1.2rem; color: #333; margin-bottom: 15px;">Order Summary</h3>
+                          <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                              <span style="font-size: 1rem; color: #555;">Plan:</span>
+                              <span style="font-size: 1rem; color: #333; font-weight: 500;" id="summary-plan">Premium Plan</span>
+                          </div>
+                          <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                              <span style="font-size: 1rem; color: #555;">Billing Cycle:</span>
+                              <span style="font-size: 1rem; color: #333; font-weight: 500;" id="summary-cycle">Monthly</span>
+                          </div>
+                          <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                              <span style="font-size: 1rem; color: #555;">Price:</span>
+                              <span style="font-size: 1rem; color: #333; font-weight: 500;" id="summary-price">₹499/month</span>
+                          </div>
+                          <div style="display: flex; justify-content: space-between; margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                              <span style="font-size: 1.1rem; color: #333; font-weight: 600;">Total:</span>
+                              <span style="font-size: 1.1rem; color: #007bff; font-weight: 600;" id="summary-total">₹499</span>
+                          </div>
+                      </div>
+                      
+                      <div>
+                          <h3 style="font-size: 1.2rem; color: #333; margin-bottom: 15px;">Select Payment Method</h3>
+                          
+                          <div onclick="selectPaymentMethod('razorpay')" style="cursor: pointer; padding: 15px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center;">
+                              <img src="https://razorpay.com/assets/razorpay-glyph.svg" alt="Razorpay" class="payment-icon">
+                              <div>
+                                  <h4 style="margin: 0; font-size: 1rem; color: #333;">Secure Payment via Razorpay</h4>
+                                  <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">Pay using UPI, Cards, Net Banking, or Wallets</p>
+                              </div>
+                          </div>
+                          
+                          <div onclick="selectPaymentMethod('paypal')" style="cursor: pointer; padding: 15px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center;">
+                              <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal" class="payment-icon">
+                              <div>
+                                  <h4 style="margin: 0; font-size: 1rem; color: #333;">Pay with PayPal</h4>
+                                  <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">Pay using your PayPal account</p>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <button id="pay-button" onclick="showConfirmation()" class="btn-pay">
+                          <span id="pay-button-text">Proceed to Pay ₹499</span>
+                          <span id="pay-button-loader" class="spinner" style="display: none;"></span>
+                      </button>
+                      <button onclick="goBackToPricing()" style="padding: 12px 24px; background-color: #f8f9fa; color: #333; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-size: 1rem; width: 100%; margin-top: 15px;">Back to Plans</button>
+                  </div>
+              </div>
+          </section>
+      
+          <!-- Razorpay Payment Modal -->
+          <div id="razorpay-modal" class="payment-modal">
+              <div class="payment-modal-content">
+                  <div class="payment-modal-header">
+                      <h3>Complete Payment</h3>
+                      <span onclick="closeRazorpayModal()" style="cursor: pointer;">×</span>
+                  </div>
+                  <div class="payment-modal-body">
+                      <!-- Step 1: Payment Method Selection -->
+                      <div id="payment-method-step" class="payment-step active">
+                          <h4>Choose Payment Method</h4>
+                          <div style="margin-top: 20px;">
+                              <button onclick="showUPIPayment()" class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">
+                                  <i class="fas fa-mobile-alt"></i> UPI Payment
+                              </button>
+                              <button onclick="showCardPayment()" class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">
+                                  <i class="far fa-credit-card"></i> Credit/Debit Card
+                              </button>
+                              <button onclick="showNetBanking()" class="btn btn-primary" style="width: 100%;">
+                                  <i class="fas fa-university"></i> Net Banking
+                              </button>
+                          </div>
+                      </div>
+      
+                      <!-- Step 2: UPI Payment -->
+                      <div id="upi-payment-step" class="payment-step">
+                          <h4>Pay via UPI</h4>
+                          <div class="qr-code-container">
+                              <p>Scan this QR code with any UPI app to pay</p>
+                              <div class="qr-code">
+                                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=telemedicine@razorpay&pn=Telemedicine%20Services&am=499&cu=INR" alt="UPI QR Code">
+                              </div>
+                              <p>OR</p>
+                              <div style="background: #f5f5f5; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                                  <p style="margin: 0; font-weight: bold;">telemedicine@razorpay</p>
+                              </div>
+                              <button onclick="openUPIApp()" class="btn btn-primary" style="width: 100%;">
+                                  Open UPI App
+                              </button>
+                          </div>
+                          <div class="timer" id="upi-timer">Time remaining: 10:00</div>
+                          <div class="payment-actions">
+                              <button onclick="backToPaymentMethods()" class="btn btn-secondary">Back</button>
+                              <button onclick="upiPaymentSuccess()" class="btn btn-success">Payment Done</button>
+                          </div>
+                      </div>
+      
+                      <!-- Step 3: Card Payment -->
+                      <div id="card-payment-step" class="payment-step">
+                          <h4>Pay via Card</h4>
+                          <div class="card-preview">
+                              <div class="card-logo">
+                                  <i class="fab fa-cc-visa" style="font-size: 30px;"></i>
+                              </div>
+                              <div class="card-chip"></div>
+                              <div class="card-number" id="card-number-preview">•••• •••• •••• ••••</div>
+                              <div class="card-details">
+                                  <div class="card-name" id="card-name-preview">YOUR NAME</div>
+                                  <div class="card-expiry" id="card-expiry-preview">••/••</div>
+                              </div>
+                          </div>
+                          
+                          <div class="form-group">
+                              <label class="form-label">Card Number</label>
+                              <input type="text" id="card-number" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this)">
+                              <div class="error-message" id="card-number-error">Please enter a valid card number</div>
+                          </div>
+                          
+                          <div class="form-row">
+                              <div class="form-col">
+                                  <label class="form-label">Expiry Date</label>
+                                  <input type="text" id="card-expiry" class="form-control" placeholder="MM/YY" maxlength="5" oninput="formatExpiryDate(this)">
+                                  <div class="error-message" id="card-expiry-error">Please enter a valid expiry date</div>
+                              </div>
+                              <div class="form-col">
+                                  <label class="form-label">CVV</label>
+                                  <input type="text" id="card-cvv" class="form-control" placeholder="123" maxlength="3">
+                                  <div class="error-message" id="card-cvv-error">Please enter a valid CVV</div>
+                              </div>
+                          </div>
+                          
+                          <div class="form-group">
+                              <label class="form-label">Name on Card</label>
+                              <input type="text" id="card-name" class="form-control" placeholder="John Doe" oninput="updateCardPreview()">
+                              <div class="error-message" id="card-name-error">Please enter the name on card</div>
+                          </div>
+                          
+                          <div class="payment-actions">
+                              <button onclick="backToPaymentMethods()" class="btn btn-secondary">Back</button>
+                              <button onclick="validateCardPayment()" class="btn btn-primary">Pay Now</button>
+                          </div>
+                      </div>
+      
+                      <!-- Step 4: OTP Verification -->
+                      <div id="otp-verification-step" class="payment-step">
+                          <h4>Verify Payment</h4>
+                          <p>Enter OTP sent to your mobile number ending with 7890</p>
+                          <div class="otp-input-container">
+                              <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
+                              <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
+                              <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
+                              <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
+                              <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
+                              <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
+                          </div>
+                          <div style="text-align: center; margin: 15px 0;">
+                              <a href="#" onclick="resendOTP()" style="color: #007bff; text-decoration: none;">Resend OTP</a>
+                          </div>
+                          <div class="payment-actions">
+                              <button onclick="backToCardPayment()" class="btn btn-secondary">Back</button>
+                              <button onclick="verifyOTP()" class="btn btn-primary">Verify & Pay</button>
+                          </div>
+                      </div>
+      
+                      <!-- Step 5: Payment Status -->
+                      <div id="payment-status-step" class="payment-step">
+                          <div class="payment-status">
+                              <div id="payment-success" class="payment-success">
+                                  <i class="fas fa-check-circle"></i>
+                                  <h3>Payment Successful!</h3>
+                                  <p id="success-message">Your subscription has been activated.</p>
+                                  <button onclick="closeRazorpayModal()" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Continue</button>
+                              </div>
+                              <div id="payment-failure" class="payment-failure hidden">
+                                  <i class="fas fa-times-circle"></i>
+                                  <h3>Payment Failed</h3>
+                                  <p id="failure-message">Your payment could not be processed. Please try again.</p>
+                                  <button onclick="backToPaymentMethods()" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Try Again</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      
+          <script>
+              // Global variables
+              let currentPlan = {
+                  name: 'Premium Plan',
+                  price: '₹499',
+                  cycle: 'month'
+              };
+              let upiTimerInterval;
+              let upiTimeLeft = 600; // 10 minutes in seconds
+              let selectedPaymentMethod = null;
+      
+              // Function to toggle between monthly and annual pricing
+              function togglePricing(period) {
+                  const monthlyBtn = document.getElementById('monthly-btn');
+                  const annualBtn = document.getElementById('annual-btn');
+                  const prices = document.querySelectorAll('.plan-price');
+                  const periods = document.querySelectorAll('.plan-period');
+                  
+                  if (period === 'monthly') {
+                      monthlyBtn.style.backgroundColor = '#007bff';
+                      monthlyBtn.style.color = 'white';
+                      annualBtn.style.backgroundColor = 'transparent';
+                      annualBtn.style.color = '#333';
+                      
+                      prices.forEach(price => {
+                          const monthlyPrice = price.getAttribute('data-monthly');
+                          if (monthlyPrice) {
+                              price.textContent = monthlyPrice;
+                          }
+                      });
+                      
+                      periods.forEach(period => {
+                          period.textContent = '/ month';
+                      });
+                      
+                      // Update current plan cycle if on payment page
+                      if (currentPlan.cycle === 'year') {
+                          currentPlan.cycle = 'month';
+                          updatePaymentSummary();
+                      }
+                  } else {
+                      monthlyBtn.style.backgroundColor = 'transparent';
+                      monthlyBtn.style.color = '#333';
+                      annualBtn.style.backgroundColor = '#007bff';
+                      annualBtn.style.color = 'white';
+                      
+                      prices.forEach(price => {
+                          const annualPrice = price.getAttribute('data-annual');
+                          if (annualPrice) {
+                              price.textContent = annualPrice;
+                          }
+                      });
+                      
+                      periods.forEach(period => {
+                          period.textContent = '/ year';
+                      });
+                      
+                      // Update current plan cycle if on payment page
+                      if (currentPlan.cycle === 'month') {
+                          currentPlan.cycle = 'year';
+                          updatePaymentSummary();
+                      }
+                  }
+              }
+              
+              // Initialize event listeners
+              document.addEventListener('DOMContentLoaded', function() {
+                  // Monthly/Annual toggle buttons
+                  document.getElementById('monthly-btn').addEventListener('click', function() {
+                      togglePricing('monthly');
+                  });
+                  
+                  document.getElementById('annual-btn').addEventListener('click', function() {
+                      togglePricing('annual');
+                  });
+      
+                  // OTP input auto-focus
+                  const otpInputs = document.querySelectorAll('.otp-input');
+                  otpInputs.forEach((input, index) => {
+                      input.addEventListener('input', () => {
+                          if (input.value.length === 1 && index < otpInputs.length - 1) {
+                              otpInputs[index + 1].focus();
+                          }
+                      });
+                      
+                      input.addEventListener('keydown', (e) => {
+                          if (e.key === 'Backspace' && input.value.length === 0 && index > 0) {
+                              otpInputs[index - 1].focus();
+                          }
+                      });
+                  });
+                  
+                  // Confirmation dialog buttons
+                  document.getElementById('confirm-cancel').addEventListener('click', closeConfirmation);
+                  document.getElementById('confirm-proceed').addEventListener('click', proceedWithPayment);
+                  
+                  // Initialize the page
+                  togglePricing('monthly');
+                  history.pushState(null, null, window.location.pathname);
+              });
+              
+              // Function to handle plan selection
+              function selectPlan(planName, price, cycle) {
+                  // Get the current billing period
+                  const isAnnual = document.getElementById('annual-btn').style.backgroundColor === 'rgb(0, 123, 255)';
+                  
+                  // Determine the actual price based on billing cycle
+                  let actualPrice = price;
+                  let actualCycle = cycle;
+                  let displayPrice = price;
+                  
+                  if (isAnnual) {
+                      // Convert monthly price to annual (simple multiplication for demo)
+                      if (planName === 'Basic Plan') actualPrice = '₹2,400';
+                      else if (planName === 'Premium Plan') actualPrice = '₹4,900';
+                      else if (planName === 'AI Pharmacy Plan') actualPrice = '₹6,500';
+                      else if (planName === 'Doctor Care + AI Pharmacy') actualPrice = '₹8,200';
+                      
+                      actualCycle = 'year';
+                      displayPrice = actualPrice + '/year';
+                  } else {
+                      displayPrice = price + '/month';
+                  }
+                  
+                  // Update current plan
+                  currentPlan = {
+                      name: planName,
+                      price: actualPrice,
+                      cycle: isAnnual ? 'year' : 'month'
+                  };
+                  
+                  // Update payment page details
+                  updatePaymentSummary();
+                  
+                  // Show payment page and hide pricing section
+                  document.getElementById('pricing').style.display = 'none';
+                  document.getElementById('payment-page').style.display = 'block';
+                  
+                  // Scroll to top
+                  window.scrollTo(0, 0);
+              }
+              
+              // Update payment summary on payment page
+              function updatePaymentSummary() {
+                  document.getElementById('selected-plan').textContent = currentPlan.name;
+                  document.getElementById('summary-plan').textContent = currentPlan.name;
+                  document.getElementById('summary-cycle').textContent = currentPlan.cycle === 'year' ? 'Yearly' : 'Monthly';
+                  document.getElementById('summary-price').textContent = `${currentPlan.price}/${currentPlan.cycle === 'year' ? 'year' : 'month'}`;
+                  document.getElementById('summary-total').textContent = currentPlan.price;
+                  document.getElementById('pay-button-text').textContent = `Proceed to Pay ${currentPlan.price}`;
+              }
+              
+              // Payment functions
+              function showConfirmation() {
+                  document.getElementById('confirm-amount').textContent = currentPlan.price;
+                  document.getElementById('confirm-plan').textContent = currentPlan.name;
+                  document.querySelector('.confirmation-dialog').style.display = 'flex';
+              }
+              
+              function closeConfirmation() {
+                  document.querySelector('.confirmation-dialog').style.display = 'none';
+              }
+              
+              function proceedWithPayment() {
+                  closeConfirmation();
+                  initiateRazorpayPayment();
+              }
+              
+              function initiateRazorpayPayment() {
+                  // Show loading state on pay button
+                  const payButton = document.getElementById('pay-button');
+                  const payButtonText = document.getElementById('pay-button-text');
+                  const payButtonLoader = document.getElementById('pay-button-loader');
+                  
+                  payButtonText.style.display = 'none';
+                  payButtonLoader.style.display = 'inline-block';
+                  payButton.disabled = true;
+                  
+                  // Simulate API call delay
+                  setTimeout(() => {
+                      // Show Razorpay payment modal
+                      document.getElementById('razorpay-modal').style.display = 'flex';
+                      resetPaymentSteps();
+                      
+                      // Reset pay button
+                      payButtonText.style.display = 'inline-block';
+                      payButtonLoader.style.display = 'none';
+                      payButton.disabled = false;
+                  }, 1000);
+              }
+              
+              function closeRazorpayModal() {
+                  document.getElementById('razorpay-modal').style.display = 'none';
+                  clearInterval(upiTimerInterval);
+                  
+                  // If payment was successful, show processing animation
+                  if (document.getElementById('payment-success').classList.contains('hidden') === false) {
+                      startPaymentProcessing();
+                  }
+              }
+              
+              function resetPaymentSteps() {
+                  // Hide all steps
+                  document.querySelectorAll('.payment-step').forEach(step => {
+                      step.classList.remove('active');
+                  });
+                  // Show payment method selection
+                  document.getElementById('payment-method-step').classList.add('active');
+                  // Reset success/failure messages
+                  document.getElementById('payment-success').classList.add('hidden');
+                  document.getElementById('payment-failure').classList.add('hidden');
+                  // Clear any errors
+                  document.querySelectorAll('.error-message').forEach(error => {
+                      error.style.display = 'none';
+                  });
+              }
+              
+              function selectPaymentMethod(method) {
+                  selectedPaymentMethod = method;
+                  const paymentMethods = document.querySelectorAll('.payment-method');
+                  paymentMethods.forEach(pm => {
+                      pm.classList.remove('selected');
+                  });
+                  event.currentTarget.classList.add('selected');
+              }
+              
+              function showUPIPayment() {
+                  // Hide current step and show UPI payment step
+                  document.getElementById('payment-method-step').classList.remove('active');
+                  document.getElementById('upi-payment-step').classList.add('active');
+                  
+                  // Start UPI timer
+                  upiTimeLeft = 600;
+                  updateUPITimer();
+                  clearInterval(upiTimerInterval);
+                  upiTimerInterval = setInterval(updateUPITimer, 1000);
+              }
+              
+              function updateUPITimer() {
+                  const minutes = Math.floor(upiTimeLeft / 60);
+                  const seconds = upiTimeLeft % 60;
+                  document.getElementById('upi-timer').textContent = `Time remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                  
+                  if (upiTimeLeft <= 0) {
+                      clearInterval(upiTimerInterval);
+                      upiPaymentFailure();
+                  } else {
+                      upiTimeLeft--;
+                  }
+              }
+              
+              function showCardPayment() {
+                  document.getElementById('payment-method-step').classList.remove('active');
+                  document.getElementById('card-payment-step').classList.add('active');
+                  // Clear any previous inputs
+                  document.getElementById('card-number').value = '';
+                  document.getElementById('card-expiry').value = '';
+                  document.getElementById('card-cvv').value = '';
+                  document.getElementById('card-name').value = '';
+                  // Reset card preview
+                  document.getElementById('card-number-preview').textContent = '•••• •••• •••• ••••';
+                  document.getElementById('card-name-preview').textContent = 'YOUR NAME';
+                  document.getElementById('card-expiry-preview').textContent = '••/••';
+              }
+              
+              function showNetBanking() {
+                  // For demo purposes, we'll simulate a net banking payment
+                  document.getElementById('payment-method-step').classList.remove('active');
+                  document.getElementById('payment-status-step').classList.add('active');
+                  document.getElementById('payment-success').classList.remove('hidden');
+                  document.getElementById('success-message').textContent = "Net banking payment successful! Your subscription has been activated.";
+              }
+              
+              function backToPaymentMethods() {
+                  document.querySelector('.payment-step.active').classList.remove('active');
+                  document.getElementById('payment-method-step').classList.add('active');
+                  clearInterval(upiTimerInterval);
+              }
+              
+              function showOTPScreen() {
+                  document.getElementById('card-payment-step').classList.remove('active');
+                  document.getElementById('otp-verification-step').classList.add('active');
+                  // Focus on first OTP input
+                  document.querySelector('.otp-input').focus();
+              }
+              
+              function backToCardPayment() {
+                  document.getElementById('otp-verification-step').classList.remove('active');
+                  document.getElementById('card-payment-step').classList.add('active');
+              }
+              
+              function verifyOTP() {
+                  // For demo purposes, we'll consider any 6-digit OTP as valid
+                  const otpInputs = document.querySelectorAll('.otp-input');
+                  let otp = '';
+                  otpInputs.forEach(input => {
+                      otp += input.value;
+                  });
+                  
+                  if (otp.length === 6 && /^\d+$/.test(otp)) {
+                      // Show success
+                      document.getElementById('otp-verification-step').classList.remove('active');
+                      document.getElementById('payment-status-step').classList.add('active');
+                      document.getElementById('payment-success').classList.remove('hidden');
+                      document.getElementById('success-message').textContent = "Payment successful! Your subscription has been activated.";
+                  } else {
+                      // Show error
+                      alert('Please enter a valid 6-digit OTP');
+                  }
+              }
+              
+              function resendOTP() {
+                  alert('OTP has been resent to your mobile number');
+                  // Focus on first OTP input
+                  document.querySelector('.otp-input').focus();
+              }
+              
+              function upiPaymentSuccess() {
+                  clearInterval(upiTimerInterval);
+                  document.getElementById('upi-payment-step').classList.remove('active');
+                  document.getElementById('payment-status-step').classList.add('active');
+                  document.getElementById('payment-success').classList.remove('hidden');
+                  document.getElementById('success-message').textContent = "UPI payment successful! Your subscription has been activated.";
+              }
+              
+              function upiPaymentFailure() {
+                  document.getElementById('upi-payment-step').classList.remove('active');
+                  document.getElementById('payment-status-step').classList.add('active');
+                  document.getElementById('payment-failure').classList.remove('hidden');
+                  document.getElementById('failure-message').textContent = "Payment timed out. Please try again.";
+              }
+              
+              function openUPIApp() {
+                  // This would normally deep link to a UPI app
+                  alert('Opening UPI app... (demo only)');
+              }
+              
+              function goBackToPricing() {
+                  document.getElementById('payment-page').style.display = 'none';
+                  document.getElementById('pricing').style.display = 'block';
+                  closeRazorpayModal();
+                  // Scroll to top
+                  window.scrollTo(0, 0);
+              }
+              
+              // Handle back button to go back to pricing from payment page
+              window.addEventListener('popstate', function(event) {
+                  if (document.getElementById('payment-page').style.display === 'block') {
+                      goBackToPricing();
+                      history.pushState(null, null, window.location.pathname);
+                  }
+              });
+              
+              // Card payment validation
+              function validateCardPayment() {
+                  let isValid = true;
+                  
+                  // Validate card number
+                  const cardNumber = document.getElementById('card-number').value.replace(/\s/g, '');
+                  if (cardNumber.length < 16 || !/^\d+$/.test(cardNumber)) {
+                      document.getElementById('card-number-error').style.display = 'block';
+                      isValid = false;
+                  } else {
+                      document.getElementById('card-number-error').style.display = 'none';
+                  }
+                  
+                  // Validate expiry date
+                  const expiryDate = document.getElementById('card-expiry').value;
+                  if (!/^\d{2}\/\d{2}$/.test(expiryDate)) {
+                      document.getElementById('card-expiry-error').style.display = 'block';
+                      isValid = false;
+                  } else {
+                      document.getElementById('card-expiry-error').style.display = 'none';
+                  }
+                  
+                  // Validate CVV
+                  const cvv = document.getElementById('card-cvv').value;
+                  if (cvv.length < 3 || !/^\d+$/.test(cvv)) {
+                      document.getElementById('card-cvv-error').style.display = 'block';
+                      isValid = false;
+                  } else {
+                      document.getElementById('card-cvv-error').style.display = 'none';
+                  }
+                  
+                  // Validate card name
+                  const cardName = document.getElementById('card-name').value.trim();
+                  if (cardName.length < 3) {
+                      document.getElementById('card-name-error').style.display = 'block';
+                      isValid = false;
+                  } else {
+                      document.getElementById('card-name-error').style.display = 'none';
+                  }
+                  
+                  if (isValid) {
+                      showOTPScreen();
+                  }
+              }
+              
+              // Format card number with spaces
+              function formatCardNumber(input) {
+                  let value = input.value.replace(/\s/g, '').replace(/\D/g, '');
+                  let formatted = '';
+                  
+                  for (let i = 0; i < value.length; i++) {
+                      if (i > 0 && i % 4 === 0) {
+                          formatted += ' ';
+                      }
+                      formatted += value[i];
+                  }
+                  
+                  input.value = formatted.substring(0, 19);
+                  updateCardPreview();
+              }
+              
+              // Format expiry date with slash
+              function formatExpiryDate(input) {
+                  let value = input.value.replace(/\D/g, '');
+                  
+                  if (value.length > 2) {
+                      value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                  }
+                  
+                  input.value = value.substring(0, 5);
+                  updateCardPreview();
+              }
+              
+              // Update card preview
+              function updateCardPreview() {
+                  const cardNumber = document.getElementById('card-number').value;
+                  const cardName = document.getElementById('card-name').value;
+                  const expiryDate = document.getElementById('card-expiry').value;
+                  
+                  if (cardNumber) {
+                      document.getElementById('card-number-preview').textContent = cardNumber || '•••• •••• •••• ••••';
+                  }
+                  
+                  if (cardName) {
+                      document.getElementById('card-name-preview').textContent = cardName.toUpperCase() || 'YOUR NAME';
+                  }
+                  
+                  if (expiryDate) {
+                      document.getElementById('card-expiry-preview').textContent = expiryDate || '••/••';
+                  }
+              }
+              
+              // Move to next OTP input
+              function moveToNextInput(input) {
+                  if (input.value.length === 1) {
+                      const nextInput = input.nextElementSibling;
+                      if (nextInput) {
+                          nextInput.focus();
+                      }
+                  }
+              }
+              
+              // Start payment processing animation
+              function startPaymentProcessing() {
+                  const processing = document.querySelector('.payment-processing');
+                  const success = document.querySelector('.payment-success');
+                  const progressBar = document.querySelector('.progress-bar');
+                  const doctorIcon = document.querySelector('.doctor-icon');
+                  const statusText = document.querySelector('.payment-status');
+                  
+                  // Hide payment page and show processing screen
+                  document.getElementById('payment-page').style.display = 'none';
+                  processing.style.display = 'block';
+                  
+                  // Animate progress bar
+                  let progress = 0;
+                  const progressInterval = setInterval(() => {
+                      progress += 1;
+                      progressBar.style.width = `${progress}%`;
+                      
+                      if (progress >= 100) {
+                          clearInterval(progressInterval);
+                          processing.style.display = 'none';
+                          success.style.display = 'block';
+                          
+                          // Redirect after 3 seconds
+                          setTimeout(() => {
+                              window.location.href = 'consultation.html';
+                          }, 3000);
+                      } else if (progress % 20 === 0) {
+                          // Update status text at different stages
+                          const statusMessages = [
+                              'Verifying payment details...',
+                              'Processing transaction...',
+                              'Setting up your account...',
+                              'Almost done...',
+                              'Completing your subscription...'
+                          ];
+                          statusText.textContent = statusMessages[progress / 20 - 1];
+                      }
+                  }, 50);
+                  
+                  // Animate doctor icon
+                  let position = 0;
+                  const animation = setInterval(() => {
+                      position += 1;
+                      doctorIcon.style.left = `${position}%`;
+                      
+                      if (position >= 100) {
+                          clearInterval(animation);
+                      }
+                  }, 30);
+              }
+          </script>
+      </body>
+      </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <style>
+          .chatbase-powered-by, .cb-footer {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+}
+
+        </style>
+        <script>
+          (function() {
+              if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+                  window.chatbase = (...arguments) => {
+                      if (!window.chatbase.q) {
+                          window.chatbase.q = [];
+                      }
+                      window.chatbase.q.push(arguments);
+                  };
+                  window.chatbase = new Proxy(window.chatbase, {
+                      get(target, prop) {
+                          if (prop === "q") {
+                              return target.q;
+                          }
+                          return (...args) => target(prop, ...args);
+                      }
+                  });
+              }
+          
+              const onLoad = function() {
+                  const script = document.createElement("script");
+                  script.src = "https://www.chatbase.co/embed.min.js";
+                  script.id = "eb6-eUJhb9Jj7p8NA4al9";
+                  script.domain = "www.chatbase.co";
+                  document.body.appendChild(script);
+          
+                  script.onload = function() {
+                      // Mutation Observer to detect and remove branding dynamically
+                      const observer = new MutationObserver(() => {
+                          let branding = document.querySelector(".chatbase-powered-by, .cb-footer");
+                          if (branding) {
+                              branding.style.display = "none";
+                          }
+                      });
+          
+                      observer.observe(document.body, { childList: true, subtree: true });
+          
+                      // Also try manually hiding after a delay
+                      setTimeout(() => {
+                          let branding = document.querySelector(".chatbase-powered-by, .cb-footer");
+                          if (branding) {
+                              branding.style.display = "none";
+                          }
+                      }, 2000);
+                  };
+              };
+          
+              if (document.readyState === "complete") {
+                  onLoad();
+              } else {
+                  window.addEventListener("load", onLoad);
+              }
+          })();
+          </script>
+          
+    <!-- JavaScript for Toggle Pricing -->
+    <script>
+        function togglePricing(plan) {
+            const prices = document.querySelectorAll('.price');
+            prices.forEach(price => {
+                if (plan === 'monthly') {
+                    price.innerHTML = price.getAttribute('data-monthly');
+                } else {
+                    price.innerHTML = price.getAttribute('data-annual');
+                }
+            });
+        }
+    </script>
+
+
+
+
+  <!-- ============================================-->
+<!-- <section> begin ============================-->
+  <section class="py-5">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 py-3">
+          <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/people.png);background-position:top center;background-size:contain;">
+          </div>
+          <!--/.bg-holder-->
+          <h1 class="text-center">PEOPLE WHO LOVE TELEMED</h1>
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+  
+  </section>
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
+  
+  <section class="py-8">
+    <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/people-bg-1.png);background-position:center;background-size:cover;">
+    </div>
+    <!--/.bg-holder-->
+  
+    <div class="container">
+      <div class="row align-items-center offset-sm-1">
+        <div class="carousel slide" id="carouselPeople" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <!-- First Carousel Item -->
+            <div class="carousel-item active" data-bs-interval="10000">
+              <div class="row h-100">
+                <div class="col-sm-3 text-center">
+                  <img src="assets/img/gallery/people-who-loves.png" width="100" alt="" />
+                  <h5 class="mt-3 fw-medium text-secondary">Ravi Sharma</h5>
+                  <p class="fw-normal mb-0">Founder, Tech Ventures</p>
+                </div>
+                <div class="col-sm-9 text-center text-sm-start pt-3 pt-sm-0">
+                  <h2>Fantastic Response!</h2>
+                  <div class="my-2">
+                    <i class="fas fa-star me-2"></i>
+                    <i class="fas fa-star me-2"></i>
+                    <i class="fas fa-star me-2"></i>
+                    <i class="fas fa-star-half-alt me-2"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <p>
+                    TeleMed is exceptional, offering state-of-the-art medical services powered by advanced technology. Both the mobile app and website make scheduling appointments, receiving online consultations, and connecting with doctors incredibly easy. The prescriptions, medications, and all other services provided are 100% genuine, medically verified, and reliable. The TeleMed team is doing an amazing job. I highly recommend their services to anyone looking for quality healthcare.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Second Carousel Item -->
+            <div class="carousel-item" data-bs-interval="2000">
+              <div class="row h-100">
+                <div class="col-sm-3 text-center">
+                  <img src="assets/img/gallery/people-who-loves.png" width="100" alt="" />
+                  <h5 class="mt-3 fw-medium text-secondary">Priya Kapoor</h5>
+                  <p class="fw-normal mb-0">UI/UX Designer</p>
+                </div>
+                <div class="col-sm-9 text-center text-sm-start pt-3 pt-sm-0">
+                  <h2>Fantastic Response!</h2>
+                  <div class="my-2">
+                    <i class="fas fa-star me-2"></i>
+                    <i class="fas fa-star me-2"></i>
+                    <i class="fas fa-star me-2"></i>
+                    <i class="fas fa-star-half-alt me-2"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <p>
+                    TeleMed stands out by offering advanced, technology-driven services. With the easy-to-use mobile app and website, I can schedule appointments, get consultations, and connect with doctors without hassle. Everything is medically verified, and I feel confident about the care I'm receiving. The TeleMed team is truly outstanding. I would recommend them to anyone in need of top-notch healthcare.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Third Carousel Item -->
+            <div class="carousel-item">
+              <div class="row h-100">
+                <div class="col-sm-3 text-center">
+                  <img src="images/download (1).jfif" width="100" alt="" />
+                  <h5 class="mt-3 fw-medium text-secondary">Anjali Reddy</h5>
+                  <p class="fw-normal mb-0">Web Developer</p>
+                </div>
+                <div class="col-sm-9 text-center text-sm-start pt-3 pt-sm-0">
+                  <h2>Fantastic Response!</h2>
+                  <div class="my-2">
+                    <i class="fas fa-star me-2"></i>
+                    <i class="fas fa-star me-2"></i>
+                    <i class="fas fa-star me-2"></i>
+                    <i class="fas fa-star-half-alt me-2"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <p>
+                    TeleMed has redefined the way healthcare should be delivered. With their mobile app and website, it's easy to book appointments and consult with the best doctors. I trust their prescriptions and medical advice because they are always accurate and reliable. The team at TeleMed is doing an incredible job in offering high-quality healthcare.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Carousel Indicators -->
+          <div class="row">
+            <div class="position-relative z-index-2 mt-5">
+              <ol class="carousel-indicators">
+                <li class="active" data-bs-target="#carouselPeople" data-bs-slide-to="0"></li>
+                <li data-bs-target="#carouselPeople" data-bs-slide-to="1"></li>
+                <li data-bs-target="#carouselPeople" data-bs-slide-to="2"></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      <section class="bg-primary">
+        <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/cta-bg.png);background-position:center right;margin-top:-8.125rem;background-size:contain;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <h2 class="fw-bold text-light">Get an update every week</h2>
+<p class="text-soft-primary">TeleMed was created in order to improve the patient experience. <br />Providing world-class tests, and a wide range of other services through TeleMed.</p>
+
+            </div>
+            <div class="col-lg-6">
+              <h5 class="mb-3 text-soft-primary">SUBSCRIBE TO NEWSLETTER </h5>
+              <form class="row gx-2 gy-2 align-items-center">
+                <div class="col">
+                  <div class="input-group-icon">
+                    <label class="visually-hidden" for="inputEmailCta">Address</label>
+                    <input class="form-control form-livedoc-control form-cta-control text-soft-primary" id="inputEmailCta" type="email" placeholder="Email" />
+                  </div>
+                </div>
+                <div class="d-grid gap-3 col-sm-auto">
+                  <button class="btn btn-lg btn-light rounded-3 px-5 py-3" type="submit">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-0 bg-secondary">
+        <div class="bg-holder opacity-25" style="background-image:url(assets/img/gallery/dot-bg.png);background-position:top left;margin-top:-3.125rem;background-size:auto;">
+        </div>
+
+
+     <!--/.bg-holder-->
+
+<div class="container">
+  <div class="row py-8">
+    <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0">
+      <a class="text-decoration-none" href="#"><img src="assets/img/gallery/footer-logo.png" height="51" alt="" /></a>
+      <p class="text-light my-4">The world's most trusted <br />telehealth company.</p>
+    </div>
+    <div class="col-6 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
+      <h5 class="lh-lg fw-bold mb-4 text-light font-sans-serif">Departments</h5>
+      <ul class="list-unstyled mb-md-4 mb-lg-0">
+        <li class="lh-lg"><a class="footer-link" href="#!">Eye care</a></li>
+        <li class="lh-lg"><a class="footer-link" href="#!">Cardiac care</a></li>
+        <li class="lh-lg"><a class="footer-link" href="#!">Heart care</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+      <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif">Membership</h5>
+      <ul class="list-unstyled mb-md-4 mb-lg-0">
+        <li class="lh-lg"><a class="footer-link" href="#!">Free trial</a></li>
+        <li class="lh-lg"><a class="footer-link" href="#!">Silver</a></li>
+        <li class="lh-lg"><a class="footer-link" href="#!">Premium</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+      <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif">Customer Care</h5>
+      <ul class="list-unstyled mb-md-4 mb-lg-0">
+        <li class="lh-lg"><a class="footer-link" href="#!">About Us</a></li>
+        <li class="lh-lg"><a class="footer-link" href="#!">Contact Us</a></li>
+        <li class="lh-lg"><a class="footer-link" href="#!">Get Update</a></li>
+      </ul>
+    </div>
+
+    <!-- TeleMed Pricing Plan Section (Replaced) -->
+ 
+  </div>
+</div>
+
+
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="py-0 bg-primary">
+
+          <div class="container">
+            <div class="row justify-content-md-between justify-content-evenly py-4">
+              <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
+                <p class="fs--1 my-2 fw-bold text-200">All rights Reserved &copy; Telemed, 2024</p>
+              </div>
+ 
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- end of .container-->
+
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+      </section>
+    </main>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desktop Payment Popup</title>
+  <style>
+    /* Base Styles for Desktop */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+    }
+    
+    /* Payment Popup Container */
+    .payment-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 30px;
+      z-index: 1001;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    /* Popup Overlay */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+    }
+    
+    /* Close Button */
+    .close-popup {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #777;
+      transition: color 0.2s;
+    }
+    
+    .close-popup:hover {
+      color: #333;
+    }
+    
+    /* Popup Content */
+    .popup-content {
+      padding: 10px;
+    }
+    
+    .popup-content h2 {
+      margin-bottom: 25px;
+      color: #2c3e50;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    /* Order Summary */
+    .order-summary {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      border: 1px solid #eee;
+    }
+    
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .order-item:last-child {
+      border-bottom: none;
+    }
+    
+    .order-total {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 2px solid #ddd;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    /* Payment Methods */
+    .payment-methods {
+      margin-top: 30px;
+    }
+    
+    .payment-option {
+      display: flex;
+      align-items: center;
+      padding: 18px 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: white;
+    }
+    
+    .payment-option:hover {
+      background: #f8f8f8;
+      border-color: #bbb;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    
+    .payment-option.active {
+      border-color: #4CAF50;
+      background: #f0fff0;
+    }
+    
+    .payment-option img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      margin-right: 20px;
+    }
+    
+    .payment-option span {
+      font-weight: 600;
+      color: #444;
+      font-size: 1.1rem;
+    }
+    
+    /* Error Message */
+    .payment-error {
+      display: none;
+      color: #e74c3c;
+      margin-top: 20px;
+      padding: 15px;
+      background: #fde8e8;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+    }
+    
+    /* Loading State */
+    .payment-loading {
+      display: none;
+      text-align: center;
+      margin: 30px 0;
+    }
+    
+    .spinner {
+      border: 5px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top: 5px solid #3498db;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 15px;
+    }
+    
+    .payment-loading p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    
+    /* Animations */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Focus styles for accessibility */
+    .payment-option:focus, .close-popup:focus {
+      outline: 2px solid #3498db;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Payment Popup Container -->
+<div id="payment-popup" class="payment-popup" role="dialog" aria-labelledby="payment-heading" aria-modal="true">
+  <span class="close-popup" role="button" aria-label="Close payment dialog" tabindex="0">&times;</span>
+  <div class="popup-content">
+    <h2 id="payment-heading">Complete Your Purchase</h2>
+    
+    <div class="order-summary">
+      <!-- Order summary will be filled by JavaScript -->
+    </div>
+    
+    <!-- Payment method selection -->
+    <div class="payment-methods">
+      <div class="payment-option" data-method="razorpay" tabindex="0">
+        <img src="https://razorpay.com/assets/razorpay-glyph.svg" alt="Razorpay">
+        <span>Pay with Razorpay</span>
+      </div>
+      <div class="payment-option" data-method="paypal" tabindex="0">
+        <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal">
+        <span>Pay with PayPal</span>
+      </div>
+    </div>
+    
+    <!-- Payment status elements -->
+    <div class="payment-error"></div>
+    <div class="payment-loading">
+      <div class="spinner"></div>
+      <p>Processing your payment...</p>
+    </div>
+  </div>
+</div>
+
+<div class="popup-overlay"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get elements
+    const paymentPopup = document.getElementById('payment-popup');
+    const closePopup = document.querySelector('.close-popup');
+    const overlay = document.querySelector('.popup-overlay');
+    const paymentOptions = document.querySelectorAll('.payment-option');
+    const errorElement = document.querySelector('.payment-error');
+    const loadingElement = document.querySelector('.payment-loading');
+    
+    // Function to open popup with order details
+    function openPaymentPopup(orderDetails) {
+      const orderSummary = document.querySelector('.order-summary');
+      orderSummary.innerHTML = orderDetails;
+      paymentPopup.style.display = 'block';
+      overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      resetPaymentUI();
+      
+      // Set focus to first payment option for keyboard users
+      setTimeout(() => {
+        paymentOptions[0].focus();
+      }, 100);
+    }
+    
+    // Close popup
+    function closePaymentPopup() {
+      paymentPopup.style.display = 'none';
+      overlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Event listeners for closing
+    closePopup.addEventListener('click', closePaymentPopup);
+    overlay.addEventListener('click', closePaymentPopup);
+    closePopup.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        closePaymentPopup();
+      }
+    });
+    
+    // Handle payment method selection
+    paymentOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        selectPaymentMethod(this);
+      });
+      
+      option.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectPaymentMethod(this);
+        }
+      });
+    });
+    
+    function selectPaymentMethod(option) {
+      // Remove active class from all options
+      paymentOptions.forEach(opt => opt.classList.remove('active'));
+      
+      // Add active class to selected option
+      option.classList.add('active');
+      
+      const method = option.getAttribute('data-method');
+      initiatePayment(method);
+    }
+    
+    // Reset payment UI state
+    function resetPaymentUI() {
+      paymentOptions.forEach(opt => opt.classList.remove('active'));
+      errorElement.style.display = 'none';
+      loadingElement.style.display = 'none';
+    }
+    
+    // Show loading state
+    function showLoading() {
+      loadingElement.style.display = 'block';
+      errorElement.style.display = 'none';
+    }
+    
+    // Show error message
+    function showPaymentError(message) {
+      errorElement.textContent = message;
+      errorElement.style.display = 'block';
+      loadingElement.style.display = 'none';
+    }
+    
+    // Payment processing function
+    function initiatePayment(method) {
+      showLoading();
+      
+      // Simulate payment processing (replace with actual payment gateway integration)
+      setTimeout(() => {
+        // For demo purposes, randomly succeed or fail
+        const isSuccess = Math.random() > 0.3;
+        
+        if (isSuccess) {
+          // Payment success
+          alert(`Payment successful via ${method}!`);
+          closePaymentPopup();
+        } else {
+          // Payment failed
+          showPaymentError(`Payment failed. Please try again or use a different payment method.`);
+        }
+      }, 2000);
+    }
+    
+    // Close popup when pressing Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && paymentPopup.style.display === 'block') {
+        closePaymentPopup();
+      }
+    });
+    
+    // Demo: Call this function when payment is needed
+    window.showPayment = function() {
+      const orderDetails = `
+        <div class="order-item">
+          <span>Premium Subscription</span>
+          <span>$19.99/month</span>
+        </div>
+        <div class="order-item">
+          <span>Tax</span>
+          <span>$2.00</span>
+        </div>
+        <div class="order-total">
+          <span>Total</span>
+          <span>$21.99</span>
+        </div>
+      `;
+      openPaymentPopup(orderDetails);
+    };
+  });
+</script>
+
+</body>
+</html>
+
+    
+    
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="vendors/@popperjs/popper.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="https://scripts.sirv.com/sirvjs/v3/sirv.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="vendors/fontawesome/all.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="shauryaPayment.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&amp;display=swap" rel="stylesheet">
+
+  </body>
+
+</html>

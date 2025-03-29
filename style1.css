@@ -1,0 +1,1232 @@
+/* General Reset */
+body, h1, h2, h3, p, ul, li, header, footer {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Header Styling */
+header {
+    background: linear-gradient(135deg, #0056b3, #009688);
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-container .logo h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.header-container nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.header-container nav ul li {
+    margin: 0 15px;
+}
+
+.header-container nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+}
+
+.header-container nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Referral Icon and Pop-Up */
+.referral-icon {
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.referral-popup {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.referral-popup h2 {
+    color: #4a90e2;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.referral-popup .referral-content {
+    text-align: center;
+}
+
+.referral-popup #referralLink {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.referral-popup #copyReferralLink {
+    background-color: #4a90e2;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.referral-popup #copyReferralLink:hover {
+    background-color: #357ABD;
+}
+
+.referral-popup .social-share {
+    margin-top: 10px;
+}
+
+.referral-popup .social-share a {
+    margin: 5px;
+    display: inline-block;
+    color: #fff;
+    background-color: #4a90e2;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.referral-popup .social-share a:hover {
+    background-color: #357ABD;
+}
+
+/* Main Content */
+main {
+    padding: 40px 20px;
+}
+
+/* Welcome Section */
+.welcome-content {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+    border-radius: 15px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.welcome-content:hover {
+    transform: scale(1.02);
+}
+
+.welcome-content h1 {
+    font-size: 38px;
+    color: #004d40;
+    margin-bottom: 15px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.welcome-content p {
+    font-size: 20px;
+    color: #00796b;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Disease Containers */
+.disease-container,
+.disease-container1,
+.disease-container2,
+.disease-container3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0;
+    perspective: 1200px; /* 3D Effect */
+    transition: transform 0.3s ease-in-out;
+}
+
+.disease-container img,
+.disease-container1 img,
+.disease-container2 img,
+.disease-container3 img {
+    width: 220px;
+    height: auto;
+    margin: 0 80px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 12px;
+    animation: float 4s ease-in-out infinite; /* Floating effect */
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Hover Effects */
+.disease-container:hover img,
+.disease-container1:hover img,
+.disease-container2:hover img,
+.disease-container3:hover img {
+    transform: scale(1.12) rotateY(12deg); /* More depth on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.disease-name {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #00796b;
+    margin-top: 12px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+.disease-container:hover .disease-name,
+.disease-container1:hover .disease-name,
+.disease-container2:hover .disease-name,
+.disease-container3:hover .disease-name {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+/* Footer Styling */
+footer {
+    background: linear-gradient(135deg, #0056b3, #009688);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 -6px 10px rgba(0, 0, 0, 0.15);
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .disease-container,
+    .disease-container1,
+    .disease-container2,
+    .disease-container3 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .disease-container img,
+    .disease-container1 img,
+    .disease-container2 img,
+    .disease-container3 img {
+        width: 180px;
+        margin: 15px 0;
+    }
+
+    .welcome-content h1 {
+        font-size: 32px;
+    }
+
+    .welcome-content p {
+        font-size: 18px;
+    }
+
+    footer {
+        padding: 20px;
+    }
+}
+
+/* Health Dashboard */
+.health-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    background: radial-gradient(circle at center, #002b36, #00151c);
+    border-radius: 0%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Health Card */
+.health-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+}
+
+/* Hover Effect */
+.health-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 255, 255, 0.5);
+}
+
+/* Circular Progress Container */
+.progress-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+/* SVG Styling */
+svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.bg-circle,
+.progress-circle {
+    fill: none;
+    stroke-width: 8;
+    cx: 50;
+    cy: 50;
+    r: 40;
+}
+
+.bg-circle {
+    stroke: rgba(255, 255, 255, 0.2);
+}
+
+.progress-circle {
+    stroke: #00e5ff;
+    stroke-dasharray: 251.2; /* Full circumference of the circle */
+    stroke-dashoffset: 251.2; /* Initially hidden */
+    transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+/* Progress Text */
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Text Styling */
+.details h2 {
+    font-size: 18px;
+    color: #00e5ff;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.details p {
+    font-size: 16px;
+    color: #80deea;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Medical Icons */
+.medical-icon {
+    font-size: 40px;
+    color: #00e5ff;
+    margin-bottom: 10px;
+}
+
+/* Medical Colors */
+.medical-primary {
+    color: #00e5ff;
+}
+
+.medical-secondary {
+    color: #80deea;
+}
+
+.medical-background {
+    background-color: #002b36;
+}
+
+/* Medical Buttons */
+.medical-button {
+    background-color: #00e5ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.medical-button:hover {
+    background-color: #00bcd4;
+}
+
+/* Medical Cards */
+.medical-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+}
+
+.medical-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 255, 255, 0.5);
+}
+
+/* Medical Progress Bars */
+.medical-progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.medical-progress-bar .progress {
+    height: 100%;
+    background-color: #00e5ff;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Medical Charts */
+.medical-chart {
+    width: 100%;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+}
+
+/* Medical Tables */
+.medical-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+}
+
+.medical-table th,
+.medical-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.medical-table th {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #00e5ff;
+}
+
+.medical-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Medical Forms */
+.medical-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+}
+
+.medical-form input,
+.medical-form select,
+.medical-form textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.medical-form input:focus,
+.medical-form select:focus,
+.medical-form textarea:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.medical-form button {
+    background-color: #00e5ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.medical-form button:hover {
+    background-color: #00bcd4;
+}
+
+
+
+
+
+/* Appointments Section */
+
+#appointments {
+    margin: 40px 0; 
+    padding: 20px;
+   
+    text-align: center; 
+}
+
+.appointment-button {
+    background-color: #00796b; 
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px; 
+    display: inline-block; 
+    font-size: 1.3em;
+}
+
+
+.appointment-form {
+    display: none;
+    background-color: lightblue;
+    width: 50%;
+    max-width: 600px; 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; 
+    position: relative;
+    top: 10px; 
+}
+
+
+.appointment-button:hover {
+    background-color: #004d40; 
+}
+
+
+
+.appointment-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.appointment-form label {
+    margin-bottom: 3px;
+    font-size: 0.9em;
+}
+
+.appointment-form input, .appointment-form select, .appointment-form textarea {
+    margin-bottom: 10px;
+    padding: 6px;
+    font-size: 0.9em;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+.appointment-form button {
+    background-color: #00796b; 
+    color: white;
+    padding: 10px;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.appointment-form button:hover {
+    background-color: #004d40;
+}
+
+
+/* Modal container */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.modal-content {
+    background-color: #f9f9f9; 
+    margin: 10% auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    width: 40%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.5s ease-out; 
+}
+
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Close button */
+.close {
+    color: #bbbbbb;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #ff5e5e;
+    text-decoration: none;
+}
+
+/* Form labels */
+.modal-content label {
+    display: block;
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* Form inputs */
+.modal-content input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+    color: #555;
+    transition: border-color 0.3s ease;
+}
+
+.modal-content input:focus {
+    border-color: #00aaff; /* Light blue on focus */
+    outline: none;
+}
+
+/* Submit button */
+.modal-content button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00aaff; /* Light blue background */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #008ecc; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.modal-content button:active {
+    background-color: #0077aa; /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click */
+}
+
+/* Payment section title */
+.modal-content h3 {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* Adding a subtle box shadow effect on input focus */
+.modal-content input:focus {
+    box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+}
+
+
+/* Footer */
+footer {
+    background-color: #004d40; /* Dark teal */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    margin: 10px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section p, .footer-section ul {
+    margin: 5px 0;
+}
+
+.footer-section a {
+    color: #000000; /* Light teal */
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #4db6ac; /* Light teal */
+}
+
+
+
+
+
+
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Center the modal content */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Adjust as needed */
+    max-width: 500px; /* Max width */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Popup Styles */
+/* Popup Styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+
+
+.popup-content {
+    background-color: #fff;
+    margin: 15% auto; /* Center the popup content */
+    padding: 40px;
+    border-radius: 12px; /* Rounded corners */
+    width: 80%; /* Adjust as needed */
+    max-width: 500px; /* Max width */
+    text-align: center; /* Center the text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    font-family: 'Arial', sans-serif; /* Font family */
+}
+
+.popup-content h2 {
+    font-size: 2em; /* Larger font size for the heading */
+    color: #2c3e50; /* Darker color for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.popup-content p {
+    font-size: 1.2em; /* Slightly larger font size for the text */
+    color: #34495e; /* A softer color for the text */
+    line-height: 1.6; /* Increased line height for readability */
+}
+
+.close {
+    color: #e74c3c; /* Red color for the close button */
+    font-size: 30px; /* Larger font size for the close button */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #c0392b; /* Darker red on hover */
+}
+
+/* Pharmacy Section Styles */
+#pharmacy {
+    padding: 50px 20px;
+    background-color: #e0ffff;
+}
+
+#pharmacy h2 {
+    text-align: center;
+    color: #333;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+#pharmacy p {
+    text-align: center;
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.pharmacy-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pharmacy-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.pharmacy-content form label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.pharmacy-content form input[type="file"],
+.pharmacy-content form select {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.pharmacy-content form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pharmacy-content form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#deliveryStatus {
+    margin-top: 40px;
+}
+
+#deliveryStatus h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#deliveryUpdates {
+    list-style: none;
+    padding: 0;
+}
+
+#deliveryUpdates li {
+    background-color: #e9ecef;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+}
+
+
+/* Lab Tests Section Styling */
+#lab-tests {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+#lab-tests h2 {
+    font-size: 28px;
+    color: #1565c0;
+    margin-bottom: 10px;
+}
+
+#lab-tests p {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Lab Test Form */
+.lab-test-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#labTestBookingForm {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+}
+
+#labTestBookingForm label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-top: 10px;
+}
+
+#labTestBookingForm input,
+#labTestBookingForm select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+#labTestBookingForm input:focus,
+#labTestBookingForm select:focus {
+    border-color: #1976d2;
+    outline: none;
+}
+
+button[type="submit"] {
+    background: #1976d2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background: #0d47a1;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    #lab-tests {
+        padding: 30px 15px;
+    }
+
+    #labTestBookingForm {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
+
+/* Interactive Symptom Maps Section */
+#symptom-maps {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+}
+
+#mapImage {
+    width: 100%;
+    height: auto;
+}
+
+.map-controls {
+    margin-top: 10px;
+}
+
+.map-controls button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.map-controls button:hover {
+    background-color: #0056b3;
+}
+
+.symptom-info {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    max-width: 200px;
+}
+
+#headache-info {
+    top: 20%;
+    left: 40%;
+}
+
+#fever-info {
+    top: 50%;
+    left: 50%;
+}
+
+#cough-info {
+    top: 70%;
+    left: 30%;
+}
+
+/* Make the symptom info visible */
+.symptom-info.active {
+    display: block;
+}
+
+
+/* Emergency Section Button Hover Effect */
+#callEmergencyBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Data Security Features List Item Hover Effect */
+.security-features li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Keyframes for 3D-like Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Apply Floating Animation to Emergency Section */
+#emergency {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Apply Floating Animation to Data Security Section */
+#data-security {
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 1.5s; /* Delay to create a staggered effect */
+}
+
+
+/* Reviews Section Styles */
+#reviews {
+    /* background-color: #e0ffff; */
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#reviews h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #343a40;
+}
+
+.review-slider {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.review {
+    display: none;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease-in-out;
+}
+
+.review.active {
+    display: block;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.review h4 {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #007bff;
+}
+
+.slider-controls {
+    margin-top: 20px;
+}
+
+.slider-controls button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.slider-controls button:hover {
+    background-color: #0056b3;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

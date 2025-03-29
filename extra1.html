@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Dashboard</title>
+    <!-- FontAwesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --bg: #fbf7f4;
+            --clr: #aee1cd;
+        }
+
+        body {
+            display: grid;
+            place-content: center;
+            margin: 0;
+            min-height: 100vh;
+            background-color: var(--bg);
+            perspective: 50vmin;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            display: flex;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 80px;
+            height: 100vh;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            padding-top: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 24px;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .sidebar a i {
+            font-size: 26px;
+        }
+
+        /* Sidebar Indicator */
+        .sidebar a::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            width: 5px;
+            height: 0;
+            background-color: white;
+            transition: height 0.3s ease-in-out;
+            border-radius: 5px;
+        }
+
+        .sidebar a.active::after {
+            height: 100%;
+        }
+
+        /* Main content area */
+        .main-content {
+            margin-left: 100px;
+            padding: 40px;
+            width: calc(100% - 100px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .main-content h1 {
+            font-size: 36px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .main-content p {
+            font-size: 18px;
+            color: #555;
+            max-width: 800px;
+        }
+
+        /* Nucleus Animation */
+        .nucl {
+            position: relative;
+            width: 10vmin;
+            height: 10vmin;
+            background: radial-gradient(circle, #3cf 50%, #0000 0) 50% 50%/60% 60% space, radial-gradient(circle, #3fc 50%, #0000 0) 50% 15%/60% 40% space, radial-gradient(circle, #f9c 50%, #0000 0) 50% 50%/50% 90% space, radial-gradient(circle, #3cf 50%, #0000 0) 0 0/45% 45% space;
+        }
+
+        .nucl .cont {
+            position: relative;
+            width: 50vmin;
+            height: 50vmin;
+            translate: -20vmin -20vmin;
+            animation: turn 60s linear infinite forwards;
+        }
+
+        .nucl .ele {
+            width: 50vmin;
+            height: 50vmin;
+            top: 0;
+            left: 0;
+            border-radius: 100%;
+            border: 1px dashed color-mix(in lab, var(--clr), #0003 30%);
+            position: absolute;
+            z-index: 1;
+            transform: rotatez(calc(var(--r) * 180deg / var(--t))) rotatex(calc(var(--r) * 180deg / var(--t))) rotatey(calc(var(--r) * 180deg / var(--t)));
+        }
+
+        .nucl .ele .dot {
+            position: absolute;
+            width: 3vmin;
+            height: 3vmin;
+            top: 0;
+            left: 0;
+            background-color: var(--clr);
+            border-radius: 100%;
+            offset-path: border-box;
+            offset-distance: 0%;
+            offset-rotate: 90deg;
+            animation: rot linear 4s infinite forwards calc(var(--r) * -1s);
+            z-index: 5;
+        }
+
+        .nucl .ele .dot::before, .nucl .ele .dot::after {
+            content: "";
+            position: absolute;
+            width: 3vmin;
+            height: 3vmin;
+            top: 0;
+            left: 0;
+            background-color: var(--clr);
+            border-radius: 100%;
+            transform: rotatex(90deg);
+        }
+
+        .nucl .ele .dot::after {
+            transform: rotatey(90deg);
+        }
+
+        .nucl .ele .dot .fill {
+            position: absolute;
+            width: 3vmin;
+            height: 3vmin;
+            top: 0;
+            left: 0;
+            background-color: var(--clr);
+            border-radius: 100%;
+            transform: rotatex(45deg) rotatey(45deg);
+        }
+
+        .nucl .ele .dot .fill::before, .nucl .ele .dot .fill::after {
+            content: "";
+            position: absolute;
+            width: 3vmin;
+            height: 3vmin;
+            top: 0;
+            left: 0;
+            background-color: var(--clr);
+            border-radius: 100%;
+            transform: rotatex(90deg);
+        }
+
+        .nucl .ele .dot .fill::after {
+            transform: rotatey(90deg);
+        }
+
+        .nucl:hover .ele {
+            border-color: color-mix(in lab, var(--clr), #000 50%);
+        }
+
+        @keyframes turn {
+            to {
+                transform: rotatex(360deg) rotatey(360deg) rotatez(360deg);
+            }
+        }
+
+        @keyframes rot {
+            to {
+                offset-distance: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar with icons -->
+    <div class="sidebar">
+        <a href="#" class="active"><i class="fas fa-heart"></i></a>
+        <a href="#"><i class="fas fa-comments"></i></a>
+        <a href="#"><i class="fas fa-file-alt"></i></a>
+        <a href="#"><i class="fas fa-user-md"></i></a>
+        <a href="#"><i class="fas fa-cog"></i></a>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <h1>Welcome to Medical Dashboard</h1>
+        <p>Track health metrics, consult doctors, and manage medical records in a single place.</p>
+
+        <!-- Nucleus animation -->
+        <div class="nucl">
+            <div class="cont">
+                <div class="ele">
+                    <div class="dot"><div class="fill"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

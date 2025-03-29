@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Tracker Dashboard</title>
+    <link rel="stylesheet" href="sumit.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <button class="sidebar-btn active"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828791.png" alt="Home"></button>
+            <button class="sidebar-btn"><img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="Chat"></button>
+            <button class="sidebar-btn"><img src="https://cdn-icons-png.flaticon.com/512/1250/1250615.png" alt="Messages"></button>
+            <button class="sidebar-btn"><img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" alt="Settings"></button>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header>
+                <div class="header-container">
+                    <div class="logo">
+                        <h1>TeleMed</h1>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#appointments" id="appointmentToggle">Appointments</a></li>
+                            <li><a href="pharmacy.html">AI-Pharmacy</a></li>
+                            <li><a href="#" id="videoConsultationLink">Consultation</a></li>
+                            <li><a href="http://127.0.0.1:5501/index.html#home" target="_blank">Logout</a></li>
+                            <li>
+                                <a href="#profile" class="profile-icon">
+                                    <img src="images/demn.jpeg" alt="Profile" class="profile-image">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- Health Overview Section -->
+            <div class="health-dashboard">
+                <div class="health-card">
+                    <div class="progress-container">
+                        <svg>
+                            <circle class="bg-circle"></circle>
+                            <circle class="progress-circle" data-value="78"></circle>
+                        </svg>
+                        <p class="progress-text">78%</p>
+                    </div>
+                    <div class="details">
+                        <h2>Heart Rate</h2>
+                        <p><span class="count" data-value="78">73~84</span> BPM</p>
+                    </div>
+                </div>
+                <div class="health-card">
+                    <div class="progress-container">
+                        <svg>
+                            <circle class="bg-circle"></circle>
+                            <circle class="progress-circle" data-value="65"></circle>
+                        </svg>
+                        <p class="progress-text">65%</p>
+                    </div>
+                    <div class="details">
+                        <h2>Daily Activity</h2>
+                        <p><span class="count" data-value="5432">7594</span> Steps</p>
+                    </div>
+                </div>
+                <div class="health-card">
+                    <div class="progress-container">
+                        <svg>
+                            <circle class="bg-circle"></circle>
+                            <circle class="progress-circle" data-value="55"></circle>
+                        </svg>
+                        <p class="progress-text">55%</p>
+                    </div>
+                    <div class="details">
+                        <h2>Weight</h2>
+                        <p><span class="count" data-value="72">74</span> kg</p>
+                    </div>
+                </div>
+                <div class="health-card">
+                    <div class="progress-container">
+                        <svg>
+                            <circle class="bg-circle"></circle>
+                            <circle class="progress-circle" data-value="90"></circle>
+                        </svg>
+                        <p class="progress-text">90%</p>
+                    </div>
+                    <div class="details">
+                        <h2>Health Status</h2>
+                        <p>✅ <strong>Stable</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body Parts Section -->
+            <div class="body-parts">
+                <h3>Body Parts</h3>
+                <div class="parts-container">
+                    <div class="part active">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1818/1818145.png" alt="Heart">
+                        <p>Heart</p>
+                    </div>
+                    <div class="part">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1818/1818146.png" alt="Liver">
+                        <p>Liver</p>
+                    </div>
+                    <div class="part">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1818/1818147.png" alt="Lungs">
+                        <p>Lungs</p>
+                    </div>
+                    <div class="part">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1818/1818148.png" alt="Kidneys">
+                        <p>Kidneys</p>
+                    </div>
+                    <div class="part">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1818/1818149.png" alt="Blood Cells">
+                        <p>Blood Cells</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heart Container Section -->
+            <div class="heart-container">
+                <div class="heart-model">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1818/1818145.png" alt="Heart 3D Model">
+                </div>
+                <div class="heart-rate">
+                    <h3>Heart Rate</h3>
+                    <p>124 bpm</p>
+                    <canvas id="heartbeat"></canvas>
+                </div>
+            </div>
+
+            <!-- Appointments Section -->
+            <section id="appointments">
+                <button class="appointment-button" onclick="toggleAppointmentForm()">Book an Appointment</button>
+                <div class="appointment-form" id="appointmentForm">
+                    <h3>Upcoming Appointments</h3>
+                    <ul id="upcomingAppointments">
+                        <!-- List of upcoming appointments will be inserted here -->
+                    </ul>
+                    <h3>Book a New Appointment</h3>
+                    <form id="appointmentBookingForm">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required><br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required><br>
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" required><br>
+                        <label for="time">Time:</label>
+                        <input type="time" id="time" name="time" required><br>
+                        <label for="doctor">Select Doctor:</label>
+                        <select id="doctor" name="doctor" required>
+                            <option value="dr_sharma">Dr. Sharma</option>
+                            <option value="dr_kapoor">Dr. Kapoor</option>
+                            <option value="dr_manzer">Dr. Manzer</option>
+                            <option value="dr_sumit">Dr. Sumit</option>
+                            <option value="dr_varshney">Dr. Varshney</option>
+                        </select><br>
+                        <label for="reason">Reason for Appointment:</label>
+                        <textarea id="reason" name="reason" required></textarea><br>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="appointments-list">
+                    <ul id="pastAppointments">
+                        <!-- List of past appointments will be inserted here -->
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Lab Tests Section -->
+            <section id="lab-tests">
+                <h2>Lab Test Booking</h2>
+                <p>Book your lab tests with ease.</p>
+                <div class="lab-test-content">
+                    <form id="labTestBookingForm">
+                        <label for="testName">Lab Test Name:</label>
+                        <input type="text" id="testName" name="testName" required><br>
+                        <label for="testDate">Preferred Date:</label>
+                        <input type="date" id="testDate" name="testDate" required><br>
+                        <label for="testTime">Preferred Time:</label>
+                        <input type="time" id="testTime" name="testTime" required><br>
+                        <label for="lab">Select Lab:</label>
+                        <select id="lab" name="lab" required>
+                            <option value="lab1">Lab 1</option>
+                            <option value="lab2">Lab 2</option>
+                            <option value="lab3">Lab 3</option>
+                            <option value="lab4">Lab 4</option>
+                            <option value="lab5">Lab 5</option>
+                        </select><br>
+                        <button type="submit">Book Test</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Emergency Section -->
+            <section id="emergency">
+                <h2>Emergency</h2>
+                <div class="emergency-content">
+                    <p>If you are experiencing a medical emergency, please dial your local emergency number immediately.</p>
+                    <p>For other urgent health concerns, you can contact the following services:</p>
+                    <ul class="emergency-contacts">
+                        <li><strong>Emergency Medical Services:</strong> 911</li>
+                        <li><strong>Poison Control:</strong> 1-800-222-1222</li>
+                        <li><strong>Suicide Prevention Hotline:</strong> 1-800-273-8255</li>
+                    </ul>
+                    <button id="callEmergencyBtn">Call Emergency Services</button>
+                </div>
+            </section>
+
+            <!-- Data Security Section -->
+            <section id="data-security">
+                <h2>Data Security</h2>
+                <div class="security-content">
+                    <p>Your privacy and security are our top priorities. We have implemented the following measures to ensure your data is protected:</p>
+                    <ul class="security-features">
+                        <li><strong>End-to-End Encryption:</strong> All your communications, including video consultations, are encrypted.</li>
+                        <li><strong>Secure Authentication:</strong> Multi-factor authentication (MFA) is required to access your account.</li>
+                        <li><strong>Data Privacy:</strong> We adhere to strict data privacy regulations (e.g., HIPAA, GDPR) to protect your personal information.</li>
+                        <li><strong>Regular Security Audits:</strong> We conduct regular audits to identify and fix vulnerabilities.</li>
+                        <li><strong>Data Backup:</strong> Your data is regularly backed up to secure servers to prevent loss.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Reviews Section -->
+            <section id="reviews">
+                <h2>What Our Users Say</h2>
+                <div class="review-slider" id="reviewSlider">
+                    <div class="review active">
+                        <p>“TeleMed has transformed the way I manage my health. The video consultations are incredibly convenient.”</p>
+                        <h4>- Aditi Sharma</h4>
+                    </div>
+                    <div class="review">
+                        <p>“Booking appointments and getting medicines delivered has never been this easy. I highly recommend TeleMed.”</p>
+                        <h4>- Rohan Verma</h4>
+                    </div>
+                    <div class="review">
+                        <p>“TeleMed’s service is exceptional! The platform is user-friendly and the support team is always helpful.”</p>
+                        <h4>- Sneha Patel</h4>
+                    </div>
+                    <div class="review">
+                        <p>“I love how TeleMed allows me to consult with top doctors from the comfort of my home.”</p>
+                        <h4>- Arjun Singh</h4>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button onclick="prevReview()">&#10094;</button>
+                    <button onclick="nextReview()">&#10095;</button>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <div class="footer-container">
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <p>Email: <a href="mailto:contact@website.com">contact@website.com</a></p>
+                        <p>Tel: <a href="tel:+0029129102320">0029129102320</a></p>
+                        <p>Mobile: <a href="tel:+0029129102320">0029129102320</a></p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Our Services</h3>
+                        <ul>
+                            <li><a href="#appointments">Book Appointments</a></li>
+                            <li><a href="#pharmacy">Pharmacy</a></li>
+                            <li><a href="#consultation-dashboard">Video Consultation</a></li>
+                            <li><a href="#payment">Make Payments</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-icon" id="chatbotIcon">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            Chatbot
+            <span class="close-chatbot" id="closeChatbot">&times;</span>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <p>Hi! Feel free to ask me anything related to the platform. I'll do my best to help!</p>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Ask a question..." />
+        </div>
+    </div>
+
+    <script src="smt.js"></script>
+</body>
+</html>
