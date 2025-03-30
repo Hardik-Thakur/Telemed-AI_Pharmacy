@@ -1,6 +1,7 @@
 # 🌐 **Telemed+AI_Pharmacy – AI-Powered Teleconsultation Platform**  
 
-![alt text](<Screenshot 2025-03-30 at 12.06.07.png>)
+
+https://drive.google.com/file/d/1h9xZcslbu8auLblY1DrhpITAX2RIvHks/view
 
 🚀 **A state-of-the-art AI-powered telemedicine platform** designed for **remote healthcare consultations, real-time diagnostics, and efficient patient management** with seamless connectivity and intelligent automation.
 
