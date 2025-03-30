@@ -703,14 +703,6 @@
       </section>
 
 
-
-
-
-
-
-
-
-
       <!DOCTYPE html>
       <html lang="en">
       <head>
@@ -719,183 +711,444 @@
           <title>Telemedicine Services</title>
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
           <style>
-              body {
-                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              :root {
+                  --primary-color: #2563eb;
+                  --primary-hover: #1d4ed8;
+                  --success-color: #10b981;
+                  --error-color: #ef4444;
+                  --warning-color: #f59e0b;
+                  --text-color: #1f2937;
+                  --text-light: #6b7280;
+                  --bg-light: #f9fafb;
+                  --border-color: #e5e7eb;
+                  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                  --radius-sm: 0.25rem;
+                  --radius: 0.375rem;
+                  --radius-lg: 0.5rem;
+              }
+      
+              * {
+                  box-sizing: border-box;
                   margin: 0;
                   padding: 0;
-                  color: #333;
+              }
+      
+              body {
+                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                   line-height: 1.6;
+                  color: var(--text-color);
+                  background-color: #ffffff;
               }
       
               .container {
                   max-width: 1200px;
                   margin: 0 auto;
-                  padding: 0 20px;
+                  padding: 0 1.5rem;
               }
       
-              /* Pricing Section Styles */
-              #pricing {
-                  padding: 60px 20px;
-                  background-color: #f9f9f9;
+              /* Typography */
+              h1, h2, h3, h4 {
+                  font-weight: 600;
+                  line-height: 1.25;
+                  margin-bottom: 1rem;
+                  color: var(--text-color);
+              }
+      
+              h2 {
+                  font-size: 2rem;
+              }
+      
+              h3 {
+                  font-size: 1.5rem;
+              }
+      
+              p {
+                  margin-bottom: 1rem;
+                  color: var(--text-light);
+              }
+      
+              /* Buttons */
+              .btn {
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 0.75rem 1.5rem;
+                  border-radius: var(--radius);
+                  font-weight: 600;
                   text-align: center;
+                  cursor: pointer;
+                  transition: all 0.2s ease;
+                  border: none;
+                  outline: none;
+                  user-select: none;
               }
       
-              .pricing-scroll-container {
+              .btn:focus {
+                  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+              }
+      
+              .btn-primary {
+                  background-color: var(--primary-color);
+                  color: white;
+              }
+      
+              .btn-primary:hover {
+                  background-color: var(--primary-hover);
+              }
+      
+              .btn-secondary {
+                  background-color: #f3f4f6;
+                  color: var(--text-color);
+              }
+      
+              .btn-secondary:hover {
+                  background-color: #e5e7eb;
+              }
+      
+              .btn-success {
+                  background-color: var(--success-color);
+                  color: white;
+              }
+      
+              .btn-danger {
+                  background-color: var(--error-color);
+                  color: white;
+              }
+      
+              .btn-lg {
+                  padding: 1rem 2rem;
+                  font-size: 1.125rem;
+              }
+      
+              .btn-block {
+                  display: block;
+                  width: 100%;
+              }
+      
+              /* Pricing Section */
+              .section-pricing {
+                  padding: 4rem 0;
+                  background-color: var(--bg-light);
+              }
+      
+              .section-title {
+                  text-align: center;
+                  margin-bottom: 2rem;
+              }
+      
+              .section-title h2 {
+                  font-size: 2.25rem;
+                  margin-bottom: 1rem;
+              }
+      
+              .section-title p {
+                  max-width: 700px;
+                  margin-left: auto;
+                  margin-right: auto;
+                  font-size: 1.125rem;
+              }
+      
+              /* Pricing Toggle */
+              .pricing-toggle {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 3rem;
+              }
+      
+              .toggle-label {
+                  margin-right: 1rem;
+                  font-weight: 500;
+                  color: var(--text-light);
+              }
+      
+              .toggle-container {
+                  display: flex;
+                  background-color: #e5e7eb;
+                  border-radius: 2rem;
+                  padding: 0.25rem;
+              }
+      
+              .toggle-btn {
+                  padding: 0.5rem 1.5rem;
+                  border-radius: 2rem;
+                  font-weight: 600;
+                  cursor: pointer;
+                  transition: all 0.2s ease;
+                  border: none;
+                  background-color: transparent;
+                  color: var(--text-light);
+              }
+      
+              .toggle-btn.active {
+                  background-color: white;
+                  color: var(--primary-color);
+                  box-shadow: var(--shadow-sm);
+              }
+      
+              /* Pricing Cards */
+              .pricing-cards {
+                  display: flex;
+                  gap: 1.5rem;
                   overflow-x: auto;
-                  padding-bottom: 20px;
+                  padding-bottom: 1rem;
+                  scrollbar-width: thin;
+                  scrollbar-color: var(--primary-color) #f3f4f6;
                   -webkit-overflow-scrolling: touch;
               }
       
-              .pricing-scroll {
-                  display: flex;
-                  gap: 20px;
-                  padding: 10px;
-                  width: max-content;
-                  margin: 0 auto;
+              .pricing-cards::-webkit-scrollbar {
+                  height: 8px;
               }
       
-              .pricing-item {
-                  position: relative;
-                  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+              .pricing-cards::-webkit-scrollbar-track {
+                  background: #f3f4f6;
                   border-radius: 10px;
-                  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  min-width: 280px;
-                  max-width: 320px;
+              }
+      
+              .pricing-cards::-webkit-scrollbar-thumb {
+                  background-color: var(--primary-color);
+                  border-radius: 10px;
+              }
+      
+              .pricing-card {
+                  flex: 0 0 300px;
+                  background-color: white;
+                  border-radius: var(--radius-lg);
+                  box-shadow: var(--shadow);
+                  padding: 2rem;
                   transition: transform 0.3s ease, box-shadow 0.3s ease;
-                  border: 1px solid #e0e0e0;
+                  position: relative;
+                  border: 1px solid var(--border-color);
               }
       
-              .pricing-item.popular {
-                  border: 2px solid #007bff;
-                  background: linear-gradient(135deg, #f8faff, #e7f1ff);
+              .pricing-card:hover {
+                  transform: translateY(-5px);
+                  box-shadow: var(--shadow-md);
               }
       
-              .pricing-item:hover {
-                  transform: translateY(-10px);
-                  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+              .pricing-card.popular {
+                  border: 2px solid var(--primary-color);
+                  background-color: #f8fafc;
               }
       
-              /* Improved Popular Badge */
               .popular-badge {
                   position: absolute;
-                  top: -10px;
-                  right: 20px;
-                  background: linear-gradient(135deg, #007bff, #00a8ff);
-                  color: #fff;
-                  padding: 5px 20px;
-                  font-size: 0.8rem;
-                  border-radius: 20px;
-                  font-weight: bold;
-                  box-shadow: 0 4px 8px rgba(0, 120, 255, 0.2);
-                  z-index: 1;
+                  top: -0.75rem;
+                  right: 1.5rem;
+                  background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+                  color: white;
+                  padding: 0.25rem 1rem;
+                  font-size: 0.75rem;
+                  border-radius: 1rem;
+                  font-weight: 700;
+                  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
                   text-transform: uppercase;
-                  letter-spacing: 1px;
+                  letter-spacing: 0.05em;
               }
       
-              .popular-badge:after {
+              .popular-badge::after {
                   content: '';
                   position: absolute;
-                  bottom: -5px;
+                  bottom: -0.25rem;
                   left: 50%;
                   transform: translateX(-50%);
                   width: 0;
                   height: 0;
-                  border-left: 5px solid transparent;
-                  border-right: 5px solid transparent;
-                  border-top: 5px solid #007bff;
+                  border-left: 0.5rem solid transparent;
+                  border-right: 0.5rem solid transparent;
+                  border-top: 0.5rem solid var(--primary-color);
               }
       
-              /* Payment Page Styles */
-              #payment-page {
+              .plan-header {
+                  margin-bottom: 1.5rem;
+                  text-align: center;
+              }
+      
+              .plan-name {
+                  font-size: 1.25rem;
+                  font-weight: 700;
+                  color: var(--primary-color);
+                  margin-bottom: 0.5rem;
+              }
+      
+              .plan-price {
+                  font-size: 2.5rem;
+                  font-weight: 800;
+                  color: var(--text-color);
+                  margin-bottom: 0.25rem;
+              }
+      
+              .plan-period {
+                  font-size: 1rem;
+                  color: var(--text-light);
+                  font-weight: 500;
+              }
+      
+              .savings-badge {
+                  display: inline-block;
+                  background-color: var(--success-color);
+                  color: white;
+                  padding: 0.25rem 0.75rem;
+                  border-radius: 1rem;
+                  font-size: 0.75rem;
+                  font-weight: 600;
+                  margin-left: 0.5rem;
+              }
+      
+              .feature-list {
+                  list-style: none;
+                  margin-bottom: 2rem;
+              }
+      
+              .feature-item {
+                  display: flex;
+                  align-items: flex-start;
+                  padding: 0.75rem 0;
+                  border-bottom: 1px solid var(--border-color);
+              }
+      
+              .feature-item:last-child {
+                  border-bottom: none;
+              }
+      
+              .feature-icon {
+                  margin-right: 0.75rem;
+                  color: var(--primary-color);
+                  flex-shrink: 0;
+              }
+      
+              .feature-icon.not-available {
+                  color: #9ca3af;
+              }
+      
+              /* Payment Page */
+              .section-payment {
                   display: none;
-                  padding: 60px 20px;
-                  background-color: #f5f7fa;
-                  animation: fadeIn 0.5s ease;
-              }
-      
-              @keyframes fadeIn {
-                  from { opacity: 0; }
-                  to { opacity: 1; }
+                  padding: 4rem 0;
+                  background-color: var(--bg-light);
               }
       
               .payment-container {
                   max-width: 600px;
                   margin: 0 auto;
-                  background: white;
-                  padding: 30px;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                  transition: all 0.3s ease;
+                  background-color: white;
+                  border-radius: var(--radius-lg);
+                  box-shadow: var(--shadow);
+                  overflow: hidden;
+              }
+      
+              .payment-header {
+                  padding: 1.5rem;
+                  border-bottom: 1px solid var(--border-color);
+              }
+      
+              .payment-header h2 {
+                  margin-bottom: 0.5rem;
+              }
+      
+              .payment-body {
+                  padding: 1.5rem;
+              }
+      
+              .order-summary {
+                  background-color: var(--bg-light);
+                  border-radius: var(--radius);
+                  padding: 1.5rem;
+                  margin-bottom: 1.5rem;
+              }
+      
+              .summary-item {
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 0.75rem;
+              }
+      
+              .summary-total {
+                  display: flex;
+                  justify-content: space-between;
+                  margin-top: 1rem;
+                  padding-top: 1rem;
+                  border-top: 2px solid var(--border-color);
+                  font-weight: 700;
               }
       
               .payment-methods {
-                  margin-top: 30px;
+                  margin-top: 2rem;
               }
       
               .payment-method {
                   display: flex;
                   align-items: center;
-                  padding: 15px;
-                  border: 1px solid #ddd;
-                  border-radius: 8px;
-                  margin-bottom: 15px;
+                  padding: 1rem;
+                  border: 1px solid var(--border-color);
+                  border-radius: var(--radius);
+                  margin-bottom: 1rem;
                   cursor: pointer;
-                  transition: all 0.3s ease;
+                  transition: all 0.2s ease;
               }
       
               .payment-method:hover {
-                  border-color: #007bff;
-                  background-color: #f8f9fa;
+                  border-color: var(--primary-color);
+                  background-color: #f8fafc;
               }
       
               .payment-method.selected {
-                  border-color: #007bff;
-                  background-color: #e7f1ff;
+                  border-color: var(--primary-color);
+                  background-color: #eff6ff;
               }
       
-              .payment-method i {
-                  font-size: 2rem;
-                  margin-right: 15px;
-                  color: #555;
+              .payment-icon {
+                  width: 40px;
+                  height: 40px;
+                  object-fit: contain;
+                  margin-right: 1rem;
               }
       
-              .btn-pay {
-                  background-color: #007bff;
-                  color: white;
-                  border: none;
-                  padding: 12px 24px;
+              .payment-method-details h4 {
+                  margin-bottom: 0.25rem;
                   font-size: 1rem;
-                  border-radius: 5px;
-                  cursor: pointer;
-                  transition: background-color 0.3s ease;
-                  width: 100%;
-                  margin-top: 20px;
+              }
+      
+              .payment-method-details p {
+                  font-size: 0.875rem;
+                  color: var(--text-light);
+                  margin-bottom: 0;
+              }
+      
+              .payment-actions {
+                  margin-top: 2rem;
+              }
+      
+              .btn-back {
+                  margin-top: 1rem;
+                  display: block;
+                  text-align: center;
+                  color: var(--primary-color);
                   font-weight: 600;
+                  text-decoration: none;
               }
       
-              .btn-pay:hover {
-                  background-color: #0056b3;
-              }
-      
-              /* Payment Processing Animation */
+              /* Payment Processing */
               .payment-processing {
                   display: none;
                   text-align: center;
-                  padding: 30px;
+                  padding: 3rem 2rem;
                   max-width: 500px;
                   margin: 0 auto;
-                  background: white;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  background-color: white;
+                  border-radius: var(--radius-lg);
+                  box-shadow: var(--shadow);
               }
       
               .progress-container {
                   width: 100%;
-                  height: 10px;
-                  background: #f0f0f0;
-                  border-radius: 5px;
-                  margin: 40px 0;
+                  height: 8px;
+                  background-color: #e5e7eb;
+                  border-radius: 4px;
+                  margin: 2rem 0;
                   position: relative;
                   overflow: hidden;
               }
@@ -905,124 +1158,61 @@
                   left: 0;
                   top: 0;
                   height: 100%;
-                  width: 0%;
-                  background: linear-gradient(90deg, #007bff, #00a8ff);
-                  border-radius: 5px;
+                  width: 0;
+                  background: linear-gradient(90deg, var(--primary-color), #3b82f6);
+                  border-radius: 4px;
                   transition: width 0.3s ease;
               }
       
               .doctor-icon {
                   position: absolute;
-                  top: -25px;
+                  top: -20px;
                   left: 0;
-                  font-size: 30px;
-                  color: #007bff;
+                  font-size: 24px;
+                  color: var(--primary-color);
                   transform: translateX(-50%);
-                  transition: left 4s linear;
+                  transition: left 0.1s linear;
               }
       
               .payment-status {
-                  font-size: 18px;
-                  margin-top: 20px;
+                  font-size: 1.125rem;
                   font-weight: 600;
-                  color: #555;
+                  color: var(--text-color);
+                  margin-top: 1rem;
               }
       
+              /* Payment Success */
               .payment-success {
                   display: none;
                   text-align: center;
-                  padding: 20px;
+                  padding: 3rem 2rem;
                   max-width: 500px;
                   margin: 0 auto;
-                  background: white;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  background-color: white;
+                  border-radius: var(--radius-lg);
+                  box-shadow: var(--shadow);
                   animation: fadeIn 0.5s ease;
               }
       
-              .payment-success i {
-                  font-size: 60px;
-                  color: #28a745;
-                  margin-bottom: 20px;
+              .success-icon {
+                  font-size: 4rem;
+                  color: var(--success-color);
+                  margin-bottom: 1.5rem;
                   animation: bounce 1s ease;
               }
       
               @keyframes bounce {
-                  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-                  40% {transform: translateY(-20px);}
-                  60% {transform: translateY(-10px);}
+                  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+                  40% { transform: translateY(-20px); }
+                  60% { transform: translateY(-10px); }
               }
       
               .payment-success h3 {
-                  color: #28a745;
-                  margin-bottom: 10px;
-                  font-size: 24px;
+                  color: var(--success-color);
+                  margin-bottom: 1rem;
               }
       
-              /* Responsive adjustments */
-              @media (max-width: 768px) {
-                  .pricing-scroll {
-                      justify-content: flex-start;
-                  }
-                  
-                  .pricing-item {
-                      min-width: 260px;
-                  }
-                  
-                  .payment-container {
-                      padding: 20px;
-                  }
-                  
-                  #pricing {
-                      padding: 30px 10px;
-                  }
-                  
-                  .payment-method {
-                      flex-direction: column;
-                      text-align: center;
-                  }
-                  
-                  .payment-method i {
-                      margin-right: 0;
-                      margin-bottom: 10px;
-                  }
-              }
-      
-              /* Button styles */
-              .btn-toggle {
-                  background-color: #f1f1f1;
-                  color: #333;
-                  border: none;
-                  padding: 8px 16px;
-                  font-size: 0.9rem;
-                  border-radius: 5px;
-                  cursor: pointer;
-                  transition: all 0.3s ease;
-              }
-      
-              .btn-toggle.active {
-                  background-color: #007bff;
-                  color: #fff;
-              }
-      
-              .cta-button {
-                  background-color: #007bff;
-                  color: #fff;
-                  border: none;
-                  padding: 12px 24px;
-                  font-size: 1rem;
-                  border-radius: 5px;
-                  cursor: pointer;
-                  transition: background-color 0.3s ease;
-                  width: 100%;
-                  font-weight: 600;
-              }
-      
-              .cta-button:hover {
-                  background-color: #0056b3;
-              }
-      
-              /* Payment Modal Styles */
+              /* Payment Modal */
               .payment-modal {
                   display: none;
                   position: fixed;
@@ -1030,27 +1220,28 @@
                   left: 0;
                   width: 100%;
                   height: 100%;
-                  background-color: rgba(0,0,0,0.7);
+                  background-color: rgba(0, 0, 0, 0.5);
                   z-index: 1000;
                   justify-content: center;
                   align-items: center;
+                  animation: fadeIn 0.3s ease;
               }
       
               .payment-modal-content {
-                  background: white;
-                  border-radius: 10px;
-                  width: 400px;
-                  max-width: 90%;
+                  background-color: white;
+                  border-radius: var(--radius-lg);
+                  width: 100%;
+                  max-width: 400px;
                   max-height: 90vh;
                   overflow-y: auto;
-                  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-                  animation: modalFadeIn 0.3s ease;
+                  box-shadow: var(--shadow-md);
+                  animation: modalSlideIn 0.3s ease;
               }
       
-              @keyframes modalFadeIn {
+              @keyframes modalSlideIn {
                   from {
                       opacity: 0;
-                      transform: translateY(-20px);
+                      transform: translateY(20px);
                   }
                   to {
                       opacity: 1;
@@ -1058,20 +1249,35 @@
                   }
               }
       
-              .payment-modal-header {
-                  padding: 15px 20px;
-                  background: #007bff;
+              .modal-header {
+                  padding: 1.25rem 1.5rem;
+                  background-color: var(--primary-color);
                   color: white;
                   display: flex;
                   justify-content: space-between;
                   align-items: center;
                   position: sticky;
                   top: 0;
-                  z-index: 1;
+                  z-index: 10;
               }
       
-              .payment-modal-body {
-                  padding: 20px;
+              .modal-header h3 {
+                  margin-bottom: 0;
+                  color: white;
+              }
+      
+              .modal-close {
+                  background: none;
+                  border: none;
+                  color: white;
+                  font-size: 1.5rem;
+                  cursor: pointer;
+                  padding: 0.25rem;
+                  line-height: 1;
+              }
+      
+              .modal-body {
+                  padding: 1.5rem;
               }
       
               .payment-step {
@@ -1083,22 +1289,23 @@
                   animation: fadeIn 0.3s ease;
               }
       
-              .qr-code-container {
+              /* UPI Payment */
+              .upi-container {
                   text-align: center;
-                  margin: 20px 0;
+                  margin: 1.5rem 0;
               }
       
               .qr-code {
                   width: 200px;
                   height: 200px;
-                  margin: 0 auto;
-                  background-color: #f5f5f5;
+                  margin: 0 auto 1rem;
+                  background-color: white;
+                  border: 1px dashed #d1d5db;
+                  border-radius: var(--radius);
                   display: flex;
                   justify-content: center;
                   align-items: center;
-                  border: 1px dashed #ccc;
-                  border-radius: 8px;
-                  overflow: hidden;
+                  padding: 1rem;
               }
       
               .qr-code img {
@@ -1106,179 +1313,151 @@
                   max-height: 100%;
               }
       
-              .otp-input-container {
-                  display: flex;
-                  justify-content: center;
-                  margin: 20px 0;
-              }
-      
-              .otp-input {
-                  width: 40px;
-                  height: 50px;
-                  margin: 0 5px;
-                  text-align: center;
-                  font-size: 20px;
-                  border: 1px solid #ddd;
-                  border-radius: 5px;
-                  transition: border-color 0.3s;
-              }
-      
-              .otp-input:focus {
-                  border-color: #007bff;
-                  outline: none;
-                  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+              .upi-id {
+                  background-color: var(--bg-light);
+                  padding: 0.75rem;
+                  border-radius: var(--radius);
+                  margin: 1rem 0;
+                  font-weight: 600;
+                  font-family: monospace;
               }
       
               .timer {
                   text-align: center;
-                  color: #666;
-                  margin: 10px 0;
-                  font-size: 14px;
+                  color: var(--text-light);
+                  margin: 1rem 0;
+                  font-size: 0.875rem;
               }
       
-              .payment-actions {
+              /* Card Payment */
+              .card-preview {
+                  width: 100%;
+                  height: 180px;
+                  background: linear-gradient(135deg, #4b5563, #1f2937);
+                  border-radius: var(--radius);
+                  padding: 1.25rem;
+                  color: white;
+                  margin-bottom: 1.5rem;
+                  position: relative;
+                  overflow: hidden;
+                  box-shadow: var(--shadow);
+              }
+      
+              .card-logo {
+                  text-align: right;
+                  margin-bottom: 1.5rem;
+              }
+      
+              .card-chip {
+                  position: absolute;
+                  left: 1.25rem;
+                  top: 3.5rem;
+                  width: 40px;
+                  height: 30px;
+                  background: #fbbf24;
+                  border-radius: 5px;
+              }
+      
+              .card-number {
+                  font-family: monospace;
+                  font-size: 1.125rem;
+                  letter-spacing: 1px;
+                  margin-bottom: 1.5rem;
+              }
+      
+              .card-details {
                   display: flex;
                   justify-content: space-between;
-                  margin-top: 20px;
-                  gap: 10px;
+                  font-size: 0.875rem;
               }
       
-              .btn {
-                  padding: 10px 15px;
-                  border-radius: 5px;
-                  cursor: pointer;
-                  border: none;
-                  font-weight: 600;
-                  transition: all 0.2s ease;
-                  flex: 1;
-              }
-      
-              .btn-primary {
-                  background-color: #007bff;
-                  color: white;
-              }
-      
-              .btn-primary:hover {
-                  background-color: #0069d9;
-              }
-      
-              .btn-secondary {
-                  background-color: #6c757d;
-                  color: white;
-              }
-      
-              .btn-secondary:hover {
-                  background-color: #5a6268;
-              }
-      
-              .btn-danger {
-                  background-color: #dc3545;
-                  color: white;
-              }
-      
-              .btn-success {
-                  background-color: #28a745;
-                  color: white;
-              }
-      
-              .hidden {
-                  display: none;
-              }
-      
-              /* Countdown animation */
-              @keyframes countdown {
-                  from {
-                      width: 100%;
-                  }
-                  to {
-                      width: 0%;
-                  }
-              }
-      
-              /* Doctor walking animation */
-              @keyframes doctorWalk {
-                  0% {
-                      left: 0;
-                      transform: translateX(-50%) scaleX(1);
-                  }
-                  49% {
-                      transform: translateX(-50%) scaleX(1);
-                  }
-                  50% {
-                      left: 100%;
-                      transform: translateX(-50%) scaleX(-1);
-                  }
-                  99% {
-                      transform: translateX(-50%) scaleX(-1);
-                  }
-                  100% {
-                      left: 0;
-                      transform: translateX(-50%) scaleX(1);
-                  }
-              }
-      
-              /* Form input styles */
+              /* Form Elements */
               .form-group {
-                  margin-bottom: 15px;
+                  margin-bottom: 1rem;
               }
       
               .form-label {
                   display: block;
-                  margin-bottom: 5px;
+                  margin-bottom: 0.5rem;
                   font-weight: 500;
-                  color: #555;
+                  color: var(--text-color);
               }
       
               .form-control {
                   width: 100%;
-                  padding: 10px;
-                  border: 1px solid #ddd;
-                  border-radius: 5px;
-                  font-size: 16px;
-                  transition: border-color 0.3s;
+                  padding: 0.75rem;
+                  border: 1px solid var(--border-color);
+                  border-radius: var(--radius);
+                  font-size: 1rem;
+                  transition: border-color 0.2s, box-shadow 0.2s;
               }
       
               .form-control:focus {
-                  border-color: #007bff;
+                  border-color: var(--primary-color);
                   outline: none;
-                  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+                  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
               }
       
               .form-row {
                   display: flex;
-                  gap: 15px;
+                  gap: 1rem;
               }
       
               .form-col {
                   flex: 1;
               }
       
-              /* Error message */
               .error-message {
-                  color: #dc3545;
-                  font-size: 14px;
-                  margin-top: 5px;
+                  color: var(--error-color);
+                  font-size: 0.875rem;
+                  margin-top: 0.25rem;
                   display: none;
               }
       
-              /* Loading spinner */
-              .spinner {
-                  display: inline-block;
-                  width: 20px;
-                  height: 20px;
-                  border: 3px solid rgba(255,255,255,0.3);
-                  border-radius: 50%;
-                  border-top-color: white;
-                  animation: spin 1s ease-in-out infinite;
-                  margin-right: 10px;
-                  vertical-align: middle;
+              /* OTP Input */
+              .otp-container {
+                  text-align: center;
+                  margin: 1.5rem 0;
               }
       
-              @keyframes spin {
-                  to { transform: rotate(360deg); }
+              .otp-inputs {
+                  display: flex;
+                  justify-content: center;
+                  gap: 0.5rem;
+                  margin: 1rem 0;
               }
       
-              /* Confirmation dialog */
+              .otp-input {
+                  width: 3rem;
+                  height: 3.5rem;
+                  text-align: center;
+                  font-size: 1.25rem;
+                  border: 1px solid var(--border-color);
+                  border-radius: var(--radius);
+                  transition: border-color 0.2s;
+              }
+      
+              .otp-input:focus {
+                  border-color: var(--primary-color);
+                  outline: none;
+                  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+              }
+      
+              .resend-otp {
+                  color: var(--primary-color);
+                  font-weight: 600;
+                  text-decoration: none;
+                  cursor: pointer;
+              }
+      
+              /* Payment Actions */
+              .payment-actions {
+                  display: flex;
+                  gap: 1rem;
+                  margin-top: 1.5rem;
+              }
+      
+              /* Confirmation Dialog */
               .confirmation-dialog {
                   display: none;
                   position: fixed;
@@ -1286,154 +1465,400 @@
                   left: 0;
                   width: 100%;
                   height: 100%;
-                  background-color: rgba(0,0,0,0.5);
+                  background-color: rgba(0, 0, 0, 0.5);
                   z-index: 1001;
                   justify-content: center;
                   align-items: center;
+                  animation: fadeIn 0.3s ease;
               }
       
               .confirmation-content {
-                  background: white;
-                  border-radius: 10px;
-                  padding: 20px;
+                  background-color: white;
+                  border-radius: var(--radius-lg);
+                  padding: 1.5rem;
                   max-width: 400px;
                   width: 90%;
-                  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                  box-shadow: var(--shadow-md);
                   text-align: center;
+                  animation: modalSlideIn 0.3s ease;
+              }
+      
+              .confirmation-content h3 {
+                  margin-bottom: 1rem;
               }
       
               .confirmation-buttons {
                   display: flex;
                   justify-content: center;
-                  gap: 10px;
-                  margin-top: 20px;
+                  gap: 1rem;
+                  margin-top: 1.5rem;
               }
       
-              /* Enhanced card payment UI */
-              .card-preview {
-                  width: 100%;
-                  height: 180px;
-                  background: linear-gradient(135deg, #434343, #000000);
-                  border-radius: 10px;
-                  padding: 15px;
-                  color: white;
-                  margin-bottom: 20px;
-                  position: relative;
-                  overflow: hidden;
-                  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-              }
-      
-              .card-logo {
-                  text-align: right;
-                  margin-bottom: 20px;
-              }
-      
-              .card-number {
-                  font-family: monospace;
-                  font-size: 18px;
-                  letter-spacing: 2px;
-                  margin-bottom: 20px;
-              }
-      
-              .card-details {
-                  display: flex;
-                  justify-content: space-between;
-              }
-      
-              .card-name, .card-expiry {
-                  font-size: 14px;
-              }
-      
-              .card-chip {
-                  position: absolute;
-                  left: 15px;
-                  top: 50px;
-                  width: 40px;
-                  height: 30px;
-                  background: #ffd700;
-                  border-radius: 5px;
-              }
-      
-              /* Payment method icons */
-              .payment-icon {
-                  width: 40px;
-                  height: 40px;
-                  object-fit: contain;
-                  margin-right: 15px;
-              }
-      
-              /* Smooth scroll for pricing cards */
-              .pricing-scroll-container {
-                  scroll-behavior: smooth;
-              }
-      
-              /* Scrollbar styling */
-              .pricing-scroll-container::-webkit-scrollbar {
-                  height: 8px;
-              }
-      
-              .pricing-scroll-container::-webkit-scrollbar-track {
-                  background: #f1f1f1;
-                  border-radius: 10px;
-              }
-      
-              .pricing-scroll-container::-webkit-scrollbar-thumb {
-                  background: #007bff;
-                  border-radius: 10px;
-              }
-      
-              .pricing-scroll-container::-webkit-scrollbar-thumb:hover {
-                  background: #0056b3;
-              }
-      
-              /* Plan feature list */
-              .feature-list {
-                  list-style: none;
-                  padding: 0;
-                  margin-bottom: 20px;
-                  text-align: left;
-              }
-      
-              .feature-list li {
-                  padding: 8px 0;
-                  border-bottom: 1px solid #eee;
-                  display: flex;
-                  align-items: center;
-              }
-      
-              .feature-list i {
-                  margin-right: 8px;
-                  min-width: 20px;
-              }
-      
-              /* Plan price display */
-              .plan-price {
-                  font-size: 2rem;
-                  color: #333;
-                  font-weight: bold;
-                  margin: 10px 0;
-              }
-      
-              .plan-period {
-                  font-size: 1rem;
-                  color: #666;
-                  font-weight: normal;
-              }
-      
-              /* Plan savings badge */
-              .savings-badge {
+              /* Spinner */
+              .spinner {
                   display: inline-block;
-                  background-color: #28a745;
-                  color: white;
-                  padding: 3px 10px;
-                  border-radius: 20px;
-                  font-size: 0.8rem;
-                  margin-left: 5px;
+                  width: 20px;
+                  height: 20px;
+                  border: 3px solid rgba(255, 255, 255, 0.3);
+                  border-radius: 50%;
+                  border-top-color: white;
+                  animation: spin 1s ease-in-out infinite;
+                  margin-right: 0.5rem;
                   vertical-align: middle;
+              }
+      
+              @keyframes spin {
+                  to { transform: rotate(360deg); }
+              }
+      
+              /* Animations */
+              @keyframes fadeIn {
+                  from { opacity: 0; }
+                  to { opacity: 1; }
+              }
+      
+              /* Responsive Adjustments */
+              @media (max-width: 768px) {
+                  .section-title h2 {
+                      font-size: 1.75rem;
+                  }
+      
+                  .pricing-card {
+                      flex: 0 0 280px;
+                      padding: 1.5rem;
+                  }
+      
+                  .payment-method {
+                      flex-direction: column;
+                      text-align: center;
+                  }
+      
+                  .payment-icon {
+                      margin-right: 0;
+                      margin-bottom: 0.75rem;
+                  }
+      
+                  .modal-body {
+                      padding: 1.25rem;
+                  }
+      
+                  .otp-input {
+                      width: 2.5rem;
+                      height: 3rem;
+                      font-size: 1rem;
+                  }
+              }
+      
+              @media (max-width: 480px) {
+                  .toggle-container {
+                      width: 100%;
+                  }
+      
+                  .toggle-btn {
+                      flex: 1;
+                      padding: 0.5rem;
+                      font-size: 0.875rem;
+                  }
+      
+                  .pricing-card {
+                      flex: 0 0 260px;
+                  }
+      
+                  .form-row {
+                      flex-direction: column;
+                      gap: 0;
+                  }
+      
+                  .payment-actions {
+                      flex-direction: column;
+                  }
+      
+                  .btn {
+                      width: 100%;
+                  }
               }
           </style>
       </head>
       <body>
+          <!-- Pricing Section -->
+          <section class="section-pricing" id="pricing">
+              <div class="container">
+                  <div class="section-title">
+                      <h2>Telemedicine Pricing Plans</h2>
+                      <p>Experience the convenience of telemedicine with our flexible pricing options. Choose a plan that suits your needs and enjoy seamless healthcare from the comfort of your home.</p>
+                  </div>
+      
+                  <!-- Pricing Toggle -->
+                  <div class="pricing-toggle">
+                      <span class="toggle-label">Billing:</span>
+                      <div class="toggle-container">
+                          <button id="monthly-btn" class="toggle-btn active">Monthly</button>
+                          <button id="annual-btn" class="toggle-btn">Annual (Save 15%)</button>
+                      </div>
+                  </div>
+      
+                  <!-- Pricing Cards -->
+                  <div class="pricing-cards">
+                      <!-- Free Trial Plan -->
+                      <div class="pricing-card">
+                          <div class="plan-header">
+                              <h3 class="plan-name">Free Trial</h3>
+                              <div class="plan-price">₹0</div>
+                              <div class="plan-period">/ 7 days</div>
+                          </div>
+                          <ul class="feature-list">
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Access to basic health tips</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Limited to one specialty</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>No commitment, cancel anytime</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-times-circle feature-icon not-available"></i>
+                                  <span>Advanced health monitoring tools</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-times-circle feature-icon not-available"></i>
+                                  <span>24/7 priority support</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-times-circle feature-icon not-available"></i>
+                                  <span>Personalized health plans</span>
+                              </li>
+                          </ul>
+                          <button onclick="selectPlan('Free Trial', '₹0', '7 days')" class="btn btn-primary btn-block">
+                              Start Free Trial
+                          </button>
+                          <p style="text-align: center; font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">No credit card required</p>
+                      </div>
+      
+                      <!-- Basic Plan -->
+                      <div class="pricing-card">
+                          <div class="plan-header">
+                              <h3 class="plan-name">Basic Plan</h3>
+                              <div class="plan-price" data-monthly="₹239" data-annual="₹2,400">₹239</div>
+                              <div class="plan-period">/ month</div>
+                          </div>
+                          <ul class="feature-list">
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Access to general practitioners</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Basic health monitoring tools</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Email support</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-times-circle feature-icon not-available"></i>
+                                  <span>Advanced health monitoring tools</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-times-circle feature-icon not-available"></i>
+                                  <span>24/7 priority support</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-times-circle feature-icon not-available"></i>
+                                  <span>Personalized health plans</span>
+                              </li>
+                          </ul>
+                          <button onclick="selectPlan('Basic Plan', '₹239', 'month')" class="btn btn-primary btn-block">
+                              Choose Basic Plan
+                          </button>
+                          <p style="text-align: center; font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">Billed monthly</p>
+                      </div>
+      
+                      <!-- Premium Plan (Most Popular) -->
+                      <div class="pricing-card popular">
+                          <div class="popular-badge">Most Popular</div>
+                          <div class="plan-header">
+                              <h3 class="plan-name">Premium Plan</h3>
+                              <div class="plan-price" data-monthly="₹499" data-annual="₹4,900">₹499</div>
+                              <div class="plan-period">/ month</div>
+                          </div>
+                          <ul class="feature-list">
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Access to all specialties</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Advanced health monitoring tools</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>24/7 priority support</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Personalized health plans</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Health record storage</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Family sharing (up to 3 members)</span>
+                              </li>
+                          </ul>
+                          <button onclick="selectPlan('Premium Plan', '₹499', 'month')" class="btn btn-primary btn-block">
+                              Choose Premium Plan
+                          </button>
+                          <p style="text-align: center; font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">Best value for individuals</p>
+                      </div>
+      
+                      <!-- AI Pharmacy Plan -->
+                      <div class="pricing-card">
+                          <div class="plan-header">
+                              <h3 class="plan-name">AI Pharmacy Plan</h3>
+                              <div class="plan-price" data-monthly="₹699" data-annual="₹6,500">₹699 <span class="savings-badge">Save 15%</span></div>
+                              <div class="plan-period">/ month</div>
+                          </div>
+                          <ul class="feature-list">
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Includes all Premium Plan features</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>AI-powered pharmacy recommendations</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Discounted medication delivery</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Automated prescription refills</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Personalized medication reminders</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Drug interaction alerts</span>
+                              </li>
+                          </ul>
+                          <button onclick="selectPlan('AI Pharmacy Plan', '₹699', 'month')" class="btn btn-primary btn-block">
+                              Choose AI Pharmacy Plan
+                          </button>
+                          <p style="text-align: center; font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">Save ₹1,588 annually</p>
+                      </div>
+      
+                      <!-- Doctor Care + AI Pharmacy Plan -->
+                      <div class="pricing-card">
+                          <div class="plan-header">
+                              <h3 class="plan-name">Doctor Care + AI Pharmacy</h3>
+                              <div class="plan-price" data-monthly="₹899" data-annual="₹8,200">₹899 <span class="savings-badge">Save 20%</span></div>
+                              <div class="plan-period">/ month</div>
+                          </div>
+                          <ul class="feature-list">
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Includes all AI Pharmacy Plan features</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Dedicated doctor for personalized care</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Priority scheduling for consultations</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Advanced diagnostic tools</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Comprehensive health reports</span>
+                              </li>
+                              <li class="feature-item">
+                                  <i class="fas fa-check-circle feature-icon"></i>
+                                  <span>Annual health checkup included</span>
+                              </li>
+                          </ul>
+                          <button onclick="selectPlan('Doctor Care + AI Pharmacy', '₹899', 'month')" class="btn btn-primary btn-block">
+                              Choose Doctor Care + AI Pharmacy
+                          </button>
+                          <p style="text-align: center; font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">Best for families</p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      
+          <!-- Payment Page -->
+          <section class="section-payment" id="payment-page">
+              <div class="container">
+                  <div class="payment-container">
+                      <div class="payment-header">
+                          <h2>Complete Your Purchase</h2>
+                          <p>You're subscribing to: <strong id="selected-plan">Premium Plan</strong></p>
+                      </div>
+                      <div class="payment-body">
+                          <div class="order-summary">
+                              <h3>Order Summary</h3>
+                              <div class="summary-item">
+                                  <span>Plan:</span>
+                                  <span id="summary-plan">Premium Plan</span>
+                              </div>
+                              <div class="summary-item">
+                                  <span>Billing Cycle:</span>
+                                  <span id="summary-cycle">Monthly</span>
+                              </div>
+                              <div class="summary-item">
+                                  <span>Price:</span>
+                                  <span id="summary-price">₹499/month</span>
+                              </div>
+                              <div class="summary-total">
+                                  <span>Total:</span>
+                                  <span id="summary-total">₹499</span>
+                              </div>
+                          </div>
+      
+                          <div class="payment-methods">
+                              <h3>Select Payment Method</h3>
+                              
+                              <div class="payment-method" onclick="selectPaymentMethod('razorpay')">
+                                  <img src="https://razorpay.com/assets/razorpay-glyph.svg" alt="Razorpay" class="payment-icon">
+                                  <div class="payment-method-details">
+                                      <h4>Secure Payment via Razorpay</h4>
+                                      <p>Pay using UPI, Cards, Net Banking, or Wallets</p>
+                                  </div>
+                              </div>
+                              
+                              <div class="payment-method" onclick="selectPaymentMethod('paypal')">
+                                  <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal" class="payment-icon">
+                                  <div class="payment-method-details">
+                                      <h4>Pay with PayPal</h4>
+                                      <p>Pay using your PayPal account</p>
+                                  </div>
+                              </div>
+                          </div>
+      
+                          <div class="payment-actions">
+                              <button id="pay-button" onclick="showConfirmation()" class="btn btn-primary btn-block">
+                                  <span id="pay-button-text">Proceed to Pay ₹499</span>
+                                  <span id="pay-button-loader" class="spinner" style="display: none;"></span>
+                              </button>
+                              <a href="#" onclick="goBackToPricing()" class="btn-back">Back to Plans</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      
           <!-- Payment Processing Screen -->
           <div class="payment-processing">
               <h3>Processing Your Payment</h3>
@@ -1447,7 +1872,7 @@
           
           <!-- Payment Success Screen -->
           <div class="payment-success">
-              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-check-circle success-icon"></i>
               <h3>Payment Successful!</h3>
               <p>Your telemedicine subscription has been activated.</p>
               <p>You will be redirected to your consultation shortly.</p>
@@ -1467,207 +1892,26 @@
               </div>
           </div>
       
-          <!-- Pricing Section -->
-          <section id="pricing" style="display: block;">
-              <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-                  <h2 style="font-size: 2.5rem; color: #333; margin-bottom: 20px;">Telemedicine Pricing Plans</h2>
-                  <p style="font-size: 1.1rem; color: #666; margin-bottom: 40px;">
-                      Experience the convenience of telemedicine with our flexible pricing options. Choose a plan that suits your needs and enjoy seamless healthcare from the comfort of your home.
-                  </p>
-              
-                  <!-- Toggle for Annual/Monthly Pricing -->
-                  <div style="margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
-                      <label style="font-size: 1rem; color: #666; margin-right: 10px;">Billing:</label>
-                      <div style="background: #f1f1f1; border-radius: 30px; padding: 5px; display: inline-flex;">
-                          <button id="monthly-btn" style="padding: 8px 20px; background-color: #007bff; color: white; border: none; border-radius: 20px; cursor: pointer; margin-right: 5px; transition: all 0.3s;" class="active">Monthly</button>
-                          <button id="annual-btn" style="padding: 8px 20px; background-color: transparent; color: #333; border: none; border-radius: 20px; cursor: pointer; transition: all 0.3s;">Annual (Save 15%)</button>
-                      </div>
-                  </div>
-              
-                  <!-- Horizontal Scroll Container -->
-                  <div class="pricing-scroll-container">
-                      <div style="display: inline-block; white-space: nowrap; padding: 10px 0;">
-                          <!-- Free Trial Plan -->
-                          <div style="display: inline-block; width: 280px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-right: 20px; vertical-align: top; padding: 20px; position: relative;">
-                              <div>
-                                  <h3 style="font-size: 1.5rem; color: #007bff; margin-bottom: 10px;">Free Trial</h3>
-                                  <p class="plan-price">₹0 <span class="plan-period">/ 7 days</span></p>
-                              </div>
-                              <ul class="feature-list">
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Access to basic health tips</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Limited to one specialty</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> No commitment, cancel anytime</li>
-                                  <li class="not-available"><i class="fas fa-times-circle" style="color: #999;"></i> Advanced health monitoring tools</li>
-                                  <li class="not-available"><i class="fas fa-times-circle" style="color: #999;"></i> 24/7 priority support</li>
-                                  <li class="not-available"><i class="fas fa-times-circle" style="color: #999;"></i> Personalized health plans</li>
-                              </ul>
-                              <div style="text-align: center;">
-                                  <button onclick="selectPlan('Free Trial', '₹0', '7 days')" class="cta-button">Start Free Trial</button>
-                                  <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">No credit card required</p>
-                              </div>
-                          </div>
-              
-                          <!-- Basic Plan -->
-                          <div style="display: inline-block; width: 280px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-right: 20px; vertical-align: top; padding: 20px;">
-                              <div>
-                                  <h3 style="font-size: 1.5rem; color: #007bff; margin-bottom: 10px;">Basic Plan</h3>
-                                  <p class="plan-price" data-monthly="₹239" data-annual="₹2,400">₹239 <span class="plan-period">/ month</span></p>
-                              </div>
-                              <ul class="feature-list">
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Access to general practitioners</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Basic health monitoring tools</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Email support</li>
-                                  <li class="not-available"><i class="fas fa-times-circle" style="color: #999;"></i> Advanced health monitoring tools</li>
-                                  <li class="not-available"><i class="fas fa-times-circle" style="color: #999;"></i> 24/7 priority support</li>
-                                  <li class="not-available"><i class="fas fa-times-circle" style="color: #999;"></i> Personalized health plans</li>
-                              </ul>
-                              <div style="text-align: center;">
-                                <button class="cta-button" data-plan="Basic Plan" data-price="₹239" data-cycle="month"> Choose Basic Plan</button>
-                                 <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Billed monthly</p>
-                              </div>
-                          </div>
-              
-                          <!-- Premium Plan (Most Popular) -->
-                          <div style="display: inline-block; width: 280px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-right: 20px; vertical-align: top; padding: 20px; position: relative; border: 2px solid #007bff;">
-                              <div class="popular-badge">Most Popular</div>
-                              <div>
-                                  <h3 style="font-size: 1.5rem; color: #007bff; margin-bottom: 10px;">Premium Plan</h3>
-                                  <p class="plan-price" data-monthly="₹499" data-annual="₹4,900">₹499 <span class="plan-period">/ month</span></p>
-                              </div>
-                              <ul class="feature-list">
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Access to all specialties</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Advanced health monitoring tools</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> 24/7 priority support</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Personalized health plans</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Health record storage</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Family sharing (up to 3 members)</li>
-                              </ul>
-                              <div style="text-align: center;">
-                                  <button onclick="selectPlan('Premium Plan', '₹499', 'month')" class="cta-button">Choose Premium Plan</button>
-                                  <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Best value for individuals</p>
-                              </div>
-                          </div>
-              
-                          <!-- AI Pharmacy Plan -->
-                          <div style="display: inline-block; width: 280px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-right: 20px; vertical-align: top; padding: 20px;">
-                              <div>
-                                  <h3 style="font-size: 1.5rem; color: #007bff; margin-bottom: 10px;">AI Pharmacy Plan</h3>
-                                  <p class="plan-price" data-monthly="₹699" data-annual="₹6,500">₹699 <span class="plan-period">/ month</span> <span class="savings-badge">Save 15%</span></p>
-                              </div>
-                              <ul class="feature-list">
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Includes all Premium Plan features</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> AI-powered pharmacy recommendations</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Discounted medication delivery</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Automated prescription refills</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Personalized medication reminders</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Drug interaction alerts</li>
-                              </ul>
-                              <div style="text-align: center;">
-                                  <button onclick="selectPlan('AI Pharmacy Plan', '₹699', 'month')" class="cta-button">Choose AI Pharmacy Plan</button>
-                                  <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Save ₹1,588 annually</p>
-                              </div>
-                          </div>
-              
-                          <!-- Doctor Care + AI Pharmacy Plan -->
-                          <div style="display: inline-block; width: 280px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-right: 20px; vertical-align: top; padding: 20px;">
-                              <div>
-                                  <h3 style="font-size: 1.5rem; color: #007bff; margin-bottom: 10px;">Doctor Care + AI Pharmacy</h3>
-                                  <p class="plan-price" data-monthly="₹899" data-annual="₹8,200">₹899 <span class="plan-period">/ month</span> <span class="savings-badge">Save 20%</span></p>
-                              </div>
-                              <ul class="feature-list">
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Includes all AI Pharmacy Plan features</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Dedicated doctor for personalized care</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Priority scheduling for consultations</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Advanced diagnostic tools</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Comprehensive health reports</li>
-                                  <li><i class="fas fa-check-circle" style="color: #007bff;"></i> Annual health checkup included</li>
-                              </ul>
-                              <div style="text-align: center;">
-                                  <button onclick="selectPlan('Doctor Care + AI Pharmacy', '₹899', 'month')" class="cta-button">Choose Doctor Care + AI Pharmacy</button>
-                                  <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Best for families</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </section>
-      
-          <!-- Payment Page (initially hidden) -->
-          <section id="payment-page" style="display: none;">
-              <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-                  <div class="payment-container">
-                      <h2 style="font-size: 2rem; color: #333; margin-bottom: 10px;">Complete Your Purchase</h2>
-                      <p style="font-size: 1.1rem; color: #666; margin-bottom: 30px;">You're subscribing to: <strong id="selected-plan">Premium Plan</strong></p>
-                      
-                      <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-                          <h3 style="font-size: 1.2rem; color: #333; margin-bottom: 15px;">Order Summary</h3>
-                          <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                              <span style="font-size: 1rem; color: #555;">Plan:</span>
-                              <span style="font-size: 1rem; color: #333; font-weight: 500;" id="summary-plan">Premium Plan</span>
-                          </div>
-                          <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                              <span style="font-size: 1rem; color: #555;">Billing Cycle:</span>
-                              <span style="font-size: 1rem; color: #333; font-weight: 500;" id="summary-cycle">Monthly</span>
-                          </div>
-                          <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                              <span style="font-size: 1rem; color: #555;">Price:</span>
-                              <span style="font-size: 1rem; color: #333; font-weight: 500;" id="summary-price">₹499/month</span>
-                          </div>
-                          <div style="display: flex; justify-content: space-between; margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
-                              <span style="font-size: 1.1rem; color: #333; font-weight: 600;">Total:</span>
-                              <span style="font-size: 1.1rem; color: #007bff; font-weight: 600;" id="summary-total">₹499</span>
-                          </div>
-                      </div>
-                      
-                      <div>
-                          <h3 style="font-size: 1.2rem; color: #333; margin-bottom: 15px;">Select Payment Method</h3>
-                          
-                          <div onclick="selectPaymentMethod('razorpay')" style="cursor: pointer; padding: 15px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center;">
-                              <img src="https://razorpay.com/assets/razorpay-glyph.svg" alt="Razorpay" class="payment-icon">
-                              <div>
-                                  <h4 style="margin: 0; font-size: 1rem; color: #333;">Secure Payment via Razorpay</h4>
-                                  <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">Pay using UPI, Cards, Net Banking, or Wallets</p>
-                              </div>
-                          </div>
-                          
-                          <div onclick="selectPaymentMethod('paypal')" style="cursor: pointer; padding: 15px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center;">
-                              <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal" class="payment-icon">
-                              <div>
-                                  <h4 style="margin: 0; font-size: 1rem; color: #333;">Pay with PayPal</h4>
-                                  <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">Pay using your PayPal account</p>
-                              </div>
-                          </div>
-                      </div>
-                      
-                      <button id="pay-button" onclick="showConfirmation()" class="btn-pay">
-                          <span id="pay-button-text">Proceed to Pay ₹499</span>
-                          <span id="pay-button-loader" class="spinner" style="display: none;"></span>
-                      </button>
-                      <button onclick="goBackToPricing()" style="padding: 12px 24px; background-color: #f8f9fa; color: #333; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-size: 1rem; width: 100%; margin-top: 15px;">Back to Plans</button>
-                  </div>
-              </div>
-          </section>
-      
           <!-- Razorpay Payment Modal -->
           <div id="razorpay-modal" class="payment-modal">
               <div class="payment-modal-content">
-                  <div class="payment-modal-header">
+                  <div class="modal-header">
                       <h3>Complete Payment</h3>
-                      <span onclick="closeRazorpayModal()" style="cursor: pointer;">×</span>
+                      <button class="modal-close" onclick="closeRazorpayModal()">×</button>
                   </div>
-                  <div class="payment-modal-body">
+                  <div class="modal-body">
                       <!-- Step 1: Payment Method Selection -->
                       <div id="payment-method-step" class="payment-step active">
                           <h4>Choose Payment Method</h4>
-                          <div style="margin-top: 20px;">
-                              <button onclick="showUPIPayment()" class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">
-                                  <i class="fas fa-mobile-alt"></i> UPI Payment
+                          <div style="margin-top: 1.5rem;">
+                              <button onclick="showUPIPayment()" class="btn btn-primary btn-block" style="margin-bottom: 0.75rem;">
+                                  <i class="fas fa-mobile-alt" style="margin-right: 0.5rem;"></i> UPI Payment
                               </button>
-                              <button onclick="showCardPayment()" class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">
-                                  <i class="far fa-credit-card"></i> Credit/Debit Card
+                              <button onclick="showCardPayment()" class="btn btn-primary btn-block" style="margin-bottom: 0.75rem;">
+                                  <i class="far fa-credit-card" style="margin-right: 0.5rem;"></i> Credit/Debit Card
                               </button>
-                              <button onclick="showNetBanking()" class="btn btn-primary" style="width: 100%;">
-                                  <i class="fas fa-university"></i> Net Banking
+                              <button onclick="showNetBanking()" class="btn btn-primary btn-block">
+                                  <i class="fas fa-university" style="margin-right: 0.5rem;"></i> Net Banking
                               </button>
                           </div>
                       </div>
@@ -1675,16 +1919,14 @@
                       <!-- Step 2: UPI Payment -->
                       <div id="upi-payment-step" class="payment-step">
                           <h4>Pay via UPI</h4>
-                          <div class="qr-code-container">
+                          <div class="upi-container">
                               <p>Scan this QR code with any UPI app to pay</p>
                               <div class="qr-code">
                                   <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=telemedicine@razorpay&pn=Telemedicine%20Services&am=499&cu=INR" alt="UPI QR Code">
                               </div>
                               <p>OR</p>
-                              <div style="background: #f5f5f5; padding: 10px; border-radius: 5px; margin: 10px 0;">
-                                  <p style="margin: 0; font-weight: bold;">telemedicine@razorpay</p>
-                              </div>
-                              <button onclick="openUPIApp()" class="btn btn-primary" style="width: 100%;">
+                              <div class="upi-id">telemedicine@razorpay</div>
+                              <button onclick="openUPIApp()" class="btn btn-primary btn-block">
                                   Open UPI App
                               </button>
                           </div>
@@ -1700,7 +1942,7 @@
                           <h4>Pay via Card</h4>
                           <div class="card-preview">
                               <div class="card-logo">
-                                  <i class="fab fa-cc-visa" style="font-size: 30px;"></i>
+                                  <i class="fab fa-cc-visa" style="font-size: 2rem;"></i>
                               </div>
                               <div class="card-chip"></div>
                               <div class="card-number" id="card-number-preview">•••• •••• •••• ••••</div>
@@ -1745,16 +1987,16 @@
                       <div id="otp-verification-step" class="payment-step">
                           <h4>Verify Payment</h4>
                           <p>Enter OTP sent to your mobile number ending with 7890</p>
-                          <div class="otp-input-container">
-                              <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
-                              <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
-                              <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
-                              <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
-                              <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
-                              <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
-                          </div>
-                          <div style="text-align: center; margin: 15px 0;">
-                              <a href="#" onclick="resendOTP()" style="color: #007bff; text-decoration: none;">Resend OTP</a>
+                          <div class="otp-container">
+                              <div class="otp-inputs">
+                                  <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
+                                  <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
+                                  <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
+                                  <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
+                                  <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
+                                  <input type="text" class="otp-input" maxlength="1" oninput="moveToNextInput(this)">
+                              </div>
+                              <p>Didn't receive OTP? <a href="#" onclick="resendOTP()" class="resend-otp">Resend OTP</a></p>
                           </div>
                           <div class="payment-actions">
                               <button onclick="backToCardPayment()" class="btn btn-secondary">Back</button>
@@ -1764,19 +2006,17 @@
       
                       <!-- Step 5: Payment Status -->
                       <div id="payment-status-step" class="payment-step">
-                          <div class="payment-status">
-                              <div id="payment-success" class="payment-success">
-                                  <i class="fas fa-check-circle"></i>
-                                  <h3>Payment Successful!</h3>
-                                  <p id="success-message">Your subscription has been activated.</p>
-                                  <button onclick="closeRazorpayModal()" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Continue</button>
-                              </div>
-                              <div id="payment-failure" class="payment-failure hidden">
-                                  <i class="fas fa-times-circle"></i>
-                                  <h3>Payment Failed</h3>
-                                  <p id="failure-message">Your payment could not be processed. Please try again.</p>
-                                  <button onclick="backToPaymentMethods()" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Try Again</button>
-                              </div>
+                          <div id="payment-success" class="payment-success" style="max-width: none; box-shadow: none; padding: 0;">
+                              <i class="fas fa-check-circle success-icon"></i>
+                              <h3>Payment Successful!</h3>
+                              <p id="success-message">Your subscription has been activated.</p>
+                              <button onclick="closeRazorpayModal()" class="btn btn-primary btn-block">Continue</button>
+                          </div>
+                          <div id="payment-failure" class="payment-success hidden" style="max-width: none; box-shadow: none; padding: 0;">
+                              <i class="fas fa-times-circle success-icon" style="color: var(--error-color);"></i>
+                              <h3>Payment Failed</h3>
+                              <p id="failure-message">Your payment could not be processed. Please try again.</p>
+                              <button onclick="backToPaymentMethods()" class="btn btn-primary btn-block">Try Again</button>
                           </div>
                       </div>
                   </div>
@@ -1788,67 +2028,15 @@
               let currentPlan = {
                   name: 'Premium Plan',
                   price: '₹499',
-                  cycle: 'month'
+                  cycle: 'month',
+                  type: 'monthly'
               };
+              
               let upiTimerInterval;
               let upiTimeLeft = 600; // 10 minutes in seconds
               let selectedPaymentMethod = null;
       
-              // Function to toggle between monthly and annual pricing
-              function togglePricing(period) {
-                  const monthlyBtn = document.getElementById('monthly-btn');
-                  const annualBtn = document.getElementById('annual-btn');
-                  const prices = document.querySelectorAll('.plan-price');
-                  const periods = document.querySelectorAll('.plan-period');
-                  
-                  if (period === 'monthly') {
-                      monthlyBtn.style.backgroundColor = '#007bff';
-                      monthlyBtn.style.color = 'white';
-                      annualBtn.style.backgroundColor = 'transparent';
-                      annualBtn.style.color = '#333';
-                      
-                      prices.forEach(price => {
-                          const monthlyPrice = price.getAttribute('data-monthly');
-                          if (monthlyPrice) {
-                              price.textContent = monthlyPrice;
-                          }
-                      });
-                      
-                      periods.forEach(period => {
-                          period.textContent = '/ month';
-                      });
-                      
-                      // Update current plan cycle if on payment page
-                      if (currentPlan.cycle === 'year') {
-                          currentPlan.cycle = 'month';
-                          updatePaymentSummary();
-                      }
-                  } else {
-                      monthlyBtn.style.backgroundColor = 'transparent';
-                      monthlyBtn.style.color = '#333';
-                      annualBtn.style.backgroundColor = '#007bff';
-                      annualBtn.style.color = 'white';
-                      
-                      prices.forEach(price => {
-                          const annualPrice = price.getAttribute('data-annual');
-                          if (annualPrice) {
-                              price.textContent = annualPrice;
-                          }
-                      });
-                      
-                      periods.forEach(period => {
-                          period.textContent = '/ year';
-                      });
-                      
-                      // Update current plan cycle if on payment page
-                      if (currentPlan.cycle === 'month') {
-                          currentPlan.cycle = 'year';
-                          updatePaymentSummary();
-                      }
-                  }
-              }
-              
-              // Initialize event listeners
+              // Initialize the application
               document.addEventListener('DOMContentLoaded', function() {
                   // Monthly/Annual toggle buttons
                   document.getElementById('monthly-btn').addEventListener('click', function() {
@@ -1883,11 +2071,61 @@
                   togglePricing('monthly');
                   history.pushState(null, null, window.location.pathname);
               });
+      
+              // Toggle between monthly and annual pricing
+              function togglePricing(period) {
+                  const monthlyBtn = document.getElementById('monthly-btn');
+                  const annualBtn = document.getElementById('annual-btn');
+                  const prices = document.querySelectorAll('.plan-price');
+                  const periods = document.querySelectorAll('.plan-period');
+                  
+                  if (period === 'monthly') {
+                      monthlyBtn.classList.add('active');
+                      annualBtn.classList.remove('active');
+                      
+                      prices.forEach(price => {
+                          const monthlyPrice = price.getAttribute('data-monthly');
+                          if (monthlyPrice) {
+                              price.textContent = monthlyPrice;
+                          }
+                      });
+                      
+                      periods.forEach(period => {
+                          period.textContent = '/ month';
+                      });
+                      
+                      // Update current plan cycle if on payment page
+                      if (currentPlan.type === 'annual') {
+                          currentPlan.type = 'monthly';
+                          updatePaymentSummary();
+                      }
+                  } else {
+                      monthlyBtn.classList.remove('active');
+                      annualBtn.classList.add('active');
+                      
+                      prices.forEach(price => {
+                          const annualPrice = price.getAttribute('data-annual');
+                          if (annualPrice) {
+                              price.textContent = annualPrice;
+                          }
+                      });
+                      
+                      periods.forEach(period => {
+                          period.textContent = '/ year';
+                      });
+                      
+                      // Update current plan cycle if on payment page
+                      if (currentPlan.type === 'monthly') {
+                          currentPlan.type = 'annual';
+                          updatePaymentSummary();
+                      }
+                  }
+              }
               
-              // Function to handle plan selection
+              // Handle plan selection
               function selectPlan(planName, price, cycle) {
                   // Get the current billing period
-                  const isAnnual = document.getElementById('annual-btn').style.backgroundColor === 'rgb(0, 123, 255)';
+                  const isAnnual = document.getElementById('annual-btn').classList.contains('active');
                   
                   // Determine the actual price based on billing cycle
                   let actualPrice = price;
@@ -1911,7 +2149,8 @@
                   currentPlan = {
                       name: planName,
                       price: actualPrice,
-                      cycle: isAnnual ? 'year' : 'month'
+                      cycle: isAnnual ? 'year' : 'month',
+                      type: isAnnual ? 'annual' : 'monthly'
                   };
                   
                   // Update payment page details
@@ -1923,22 +2162,25 @@
                   
                   // Scroll to top
                   window.scrollTo(0, 0);
+                  
+                  // Add to history for back button
+                  history.pushState({ page: 'payment' }, null);
               }
               
               // Update payment summary on payment page
               function updatePaymentSummary() {
                   document.getElementById('selected-plan').textContent = currentPlan.name;
                   document.getElementById('summary-plan').textContent = currentPlan.name;
-                  document.getElementById('summary-cycle').textContent = currentPlan.cycle === 'year' ? 'Yearly' : 'Monthly';
-                  document.getElementById('summary-price').textContent = `${currentPlan.price}/${currentPlan.cycle === 'year' ? 'year' : 'month'}`;
+                  document.getElementById('summary-cycle').textContent = currentPlan.type === 'annual' ? 'Yearly' : 'Monthly';
+                  document.getElementById('summary-price').textContent = `${currentPlan.price}/${currentPlan.type === 'annual' ? 'year' : 'month'}`;
                   document.getElementById('summary-total').textContent = currentPlan.price;
                   document.getElementById('pay-button-text').textContent = `Proceed to Pay ${currentPlan.price}`;
-              }
-              
-              // Payment functions
-              function showConfirmation() {
                   document.getElementById('confirm-amount').textContent = currentPlan.price;
                   document.getElementById('confirm-plan').textContent = currentPlan.name;
+              }
+              
+              // Show confirmation dialog
+              function showConfirmation() {
                   document.querySelector('.confirmation-dialog').style.display = 'flex';
               }
               
@@ -1951,6 +2193,7 @@
                   initiateRazorpayPayment();
               }
               
+              // Initiate Razorpay payment
               function initiateRazorpayPayment() {
                   // Show loading state on pay button
                   const payButton = document.getElementById('pay-button');
@@ -1979,7 +2222,7 @@
                   clearInterval(upiTimerInterval);
                   
                   // If payment was successful, show processing animation
-                  if (document.getElementById('payment-success').classList.contains('hidden') === false) {
+                  if (!document.getElementById('payment-success').classList.contains('hidden')) {
                       startPaymentProcessing();
                   }
               }
@@ -1997,6 +2240,10 @@
                   // Clear any errors
                   document.querySelectorAll('.error-message').forEach(error => {
                       error.style.display = 'none';
+                  });
+                  // Clear OTP inputs
+                  document.querySelectorAll('.otp-input').forEach(input => {
+                      input.value = '';
                   });
               }
               
@@ -2255,6 +2502,7 @@
                   const progressInterval = setInterval(() => {
                       progress += 1;
                       progressBar.style.width = `${progress}%`;
+                      doctorIcon.style.left = `${progress}%`;
                       
                       if (progress >= 100) {
                           clearInterval(progressInterval);
@@ -2277,23 +2525,10 @@
                           statusText.textContent = statusMessages[progress / 20 - 1];
                       }
                   }, 50);
-                  
-                  // Animate doctor icon
-                  let position = 0;
-                  const animation = setInterval(() => {
-                      position += 1;
-                      doctorIcon.style.left = `${position}%`;
-                      
-                      if (position >= 100) {
-                          clearInterval(animation);
-                      }
-                  }, 30);
               }
           </script>
       </body>
       </html>
-
-
 
 
 
@@ -2603,28 +2838,31 @@
       </section>
     </main>
     <!DOCTYPE html>
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desktop Payment Popup</title>
   <style>
-    /* Base Styles for Desktop */
-    * {
+    /* Namespaced styles to prevent collisions */
+    .payment-popup-container * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
     
-    body {
+    .payment-popup-container {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       color: #333;
       background: #f5f5f5;
     }
     
-    /* Payment Popup Container */
-    .payment-popup {
+    /* Payment Popup */
+    .payment-popup-container .payment-popup {
       display: none;
       position: fixed;
       top: 50%;
@@ -2635,13 +2873,14 @@
       z-index: 1001;
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      width: 500px;
+      width: 90%;
+      max-width: 500px;
       max-height: 90vh;
       overflow-y: auto;
     }
     
     /* Popup Overlay */
-    .popup-overlay {
+    .payment-popup-container .popup-overlay {
       display: none;
       position: fixed;
       top: 0;
@@ -2653,7 +2892,7 @@
     }
     
     /* Close Button */
-    .close-popup {
+    .payment-popup-container .close-popup {
       position: absolute;
       top: 20px;
       right: 25px;
@@ -2661,18 +2900,21 @@
       cursor: pointer;
       color: #777;
       transition: color 0.2s;
+      background: none;
+      border: none;
+      padding: 0;
     }
     
-    .close-popup:hover {
+    .payment-popup-container .close-popup:hover {
       color: #333;
     }
     
     /* Popup Content */
-    .popup-content {
+    .payment-popup-container .popup-content {
       padding: 10px;
     }
     
-    .popup-content h2 {
+    .payment-popup-container .popup-content h2 {
       margin-bottom: 25px;
       color: #2c3e50;
       text-align: center;
@@ -2680,7 +2922,7 @@
     }
     
     /* Order Summary */
-    .order-summary {
+    .payment-popup-container .order-summary {
       background: #f9f9f9;
       padding: 20px;
       border-radius: 8px;
@@ -2688,18 +2930,18 @@
       border: 1px solid #eee;
     }
     
-    .order-item {
+    .payment-popup-container .order-item {
       display: flex;
       justify-content: space-between;
       padding: 12px 0;
       border-bottom: 1px solid #eee;
     }
     
-    .order-item:last-child {
+    .payment-popup-container .order-item:last-child {
       border-bottom: none;
     }
     
-    .order-total {
+    .payment-popup-container .order-total {
       margin-top: 15px;
       padding-top: 15px;
       border-top: 2px solid #ddd;
@@ -2708,11 +2950,11 @@
     }
     
     /* Payment Methods */
-    .payment-methods {
+    .payment-popup-container .payment-methods {
       margin-top: 30px;
     }
     
-    .payment-option {
+    .payment-popup-container .payment-option {
       display: flex;
       align-items: center;
       padding: 18px 20px;
@@ -2724,33 +2966,33 @@
       background: white;
     }
     
-    .payment-option:hover {
+    .payment-popup-container .payment-option:hover {
       background: #f8f8f8;
       border-color: #bbb;
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     }
     
-    .payment-option.active {
+    .payment-popup-container .payment-option.active {
       border-color: #4CAF50;
       background: #f0fff0;
     }
     
-    .payment-option img {
+    .payment-popup-container .payment-option img {
       width: 40px;
       height: 40px;
       object-fit: contain;
       margin-right: 20px;
     }
     
-    .payment-option span {
+    .payment-popup-container .payment-option span {
       font-weight: 600;
       color: #444;
       font-size: 1.1rem;
     }
     
     /* Error Message */
-    .payment-error {
+    .payment-popup-container .payment-error {
       display: none;
       color: #e74c3c;
       margin-top: 20px;
@@ -2762,207 +3004,299 @@
     }
     
     /* Loading State */
-    .payment-loading {
+    .payment-popup-container .payment-loading {
       display: none;
       text-align: center;
       margin: 30px 0;
     }
     
-    .spinner {
+    .payment-popup-container .spinner {
       border: 5px solid rgba(0, 0, 0, 0.1);
       border-radius: 50%;
       border-top: 5px solid #3498db;
       width: 40px;
       height: 40px;
-      animation: spin 1s linear infinite;
+      animation: payment-spin 1s linear infinite;
       margin: 0 auto 15px;
     }
     
-    .payment-loading p {
+    .payment-popup-container .payment-loading p {
       font-size: 1.1rem;
       color: #555;
     }
     
+    /* Success State */
+    .payment-popup-container .payment-success {
+      display: none;
+      text-align: center;
+      margin: 30px 0;
+    }
+    
+    .payment-popup-container .payment-success svg {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+      fill: #4CAF50;
+    }
+    
+    .payment-popup-container .payment-success p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    
     /* Animations */
-    @keyframes spin {
+    @keyframes payment-spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
     
     /* Focus styles for accessibility */
-    .payment-option:focus, .close-popup:focus {
+    .payment-popup-container .payment-option:focus, 
+    .payment-popup-container .close-popup:focus {
       outline: 2px solid #3498db;
       outline-offset: 2px;
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      .payment-popup-container .payment-popup {
+        padding: 20px;
+        width: 95%;
+      }
+      
+      .payment-popup-container .popup-content h2 {
+        font-size: 1.5rem;
+      }
+      
+      .payment-popup-container .payment-option {
+        padding: 15px;
+      }
+      
+      .payment-popup-container .payment-option img {
+        width: 30px;
+        height: 30px;
+        margin-right: 15px;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- Payment Popup Container -->
-<div id="payment-popup" class="payment-popup" role="dialog" aria-labelledby="payment-heading" aria-modal="true">
-  <span class="close-popup" role="button" aria-label="Close payment dialog" tabindex="0">&times;</span>
-  <div class="popup-content">
-    <h2 id="payment-heading">Complete Your Purchase</h2>
-    
-    <div class="order-summary">
-      <!-- Order summary will be filled by JavaScript -->
-    </div>
-    
-    <!-- Payment method selection -->
-    <div class="payment-methods">
-      <div class="payment-option" data-method="razorpay" tabindex="0">
-        <img src="https://razorpay.com/assets/razorpay-glyph.svg" alt="Razorpay">
-        <span>Pay with Razorpay</span>
+<!-- Payment Popup Container with namespace class -->
+<div class="payment-popup-container">
+  <div id="payment-popup" class="payment-popup" role="dialog" aria-labelledby="payment-heading" aria-modal="true">
+    <button class="close-popup" aria-label="Close payment dialog" tabindex="0">&times;</button>
+    <div class="popup-content">
+      <h2 id="payment-heading">Complete Your Purchase</h2>
+      
+      <div class="order-summary">
+        <!-- Order summary will be filled by JavaScript -->
       </div>
-      <div class="payment-option" data-method="paypal" tabindex="0">
-        <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal">
-        <span>Pay with PayPal</span>
+      
+      <!-- Payment method selection -->
+      <div class="payment-methods">
+        <div class="payment-option" data-method="razorpay" tabindex="0" role="button">
+          <img src="https://razorpay.com/assets/razorpay-glyph.svg" alt="Razorpay">
+          <span>Pay with Razorpay</span>
+        </div>
+        <div class="payment-option" data-method="paypal" tabindex="0" role="button">
+          <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal">
+          <span>Pay with PayPal</span>
+        </div>
       </div>
-    </div>
-    
-    <!-- Payment status elements -->
-    <div class="payment-error"></div>
-    <div class="payment-loading">
-      <div class="spinner"></div>
-      <p>Processing your payment...</p>
+      
+      <!-- Payment status elements -->
+      <div class="payment-error" role="alert"></div>
+      <div class="payment-loading">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Processing your payment...</p>
+      </div>
+      <div class="payment-success">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+        </svg>
+        <p>Payment Successful!</p>
+        <button class="success-continue" tabindex="0">Continue</button>
+      </div>
     </div>
   </div>
+
+  <div class="popup-overlay"></div>
 </div>
 
-<div class="popup-overlay"></div>
-
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Get elements
-    const paymentPopup = document.getElementById('payment-popup');
-    const closePopup = document.querySelector('.close-popup');
-    const overlay = document.querySelector('.popup-overlay');
-    const paymentOptions = document.querySelectorAll('.payment-option');
-    const errorElement = document.querySelector('.payment-error');
-    const loadingElement = document.querySelector('.payment-loading');
+  // Encapsulate everything in an IIFE to prevent global scope pollution
+  (function() {
+    'use strict';
     
-    // Function to open popup with order details
-    function openPaymentPopup(orderDetails) {
-      const orderSummary = document.querySelector('.order-summary');
-      orderSummary.innerHTML = orderDetails;
-      paymentPopup.style.display = 'block';
-      overlay.style.display = 'block';
-      document.body.style.overflow = 'hidden';
-      resetPaymentUI();
-      
-      // Set focus to first payment option for keyboard users
-      setTimeout(() => {
-        paymentOptions[0].focus();
-      }, 100);
-    }
-    
-    // Close popup
-    function closePaymentPopup() {
-      paymentPopup.style.display = 'none';
-      overlay.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
-    
-    // Event listeners for closing
-    closePopup.addEventListener('click', closePaymentPopup);
-    overlay.addEventListener('click', closePaymentPopup);
-    closePopup.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        closePaymentPopup();
-      }
-    });
-    
-    // Handle payment method selection
-    paymentOptions.forEach(option => {
-      option.addEventListener('click', function() {
-        selectPaymentMethod(this);
-      });
-      
-      option.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          selectPaymentMethod(this);
-        }
-      });
-    });
-    
-    function selectPaymentMethod(option) {
-      // Remove active class from all options
-      paymentOptions.forEach(opt => opt.classList.remove('active'));
-      
-      // Add active class to selected option
-      option.classList.add('active');
-      
-      const method = option.getAttribute('data-method');
-      initiatePayment(method);
-    }
-    
-    // Reset payment UI state
-    function resetPaymentUI() {
-      paymentOptions.forEach(opt => opt.classList.remove('active'));
-      errorElement.style.display = 'none';
-      loadingElement.style.display = 'none';
-    }
-    
-    // Show loading state
-    function showLoading() {
-      loadingElement.style.display = 'block';
-      errorElement.style.display = 'none';
-    }
-    
-    // Show error message
-    function showPaymentError(message) {
-      errorElement.textContent = message;
-      errorElement.style.display = 'block';
-      loadingElement.style.display = 'none';
-    }
-    
-    // Payment processing function
-    function initiatePayment(method) {
-      showLoading();
-      
-      // Simulate payment processing (replace with actual payment gateway integration)
-      setTimeout(() => {
-        // For demo purposes, randomly succeed or fail
-        const isSuccess = Math.random() > 0.3;
+    // Main PaymentPopup class
+    class PaymentPopup {
+      constructor() {
+        // Initialize elements
+        this.paymentPopup = document.getElementById('payment-popup');
+        this.closePopup = document.querySelector('.payment-popup-container .close-popup');
+        this.overlay = document.querySelector('.payment-popup-container .popup-overlay');
+        this.paymentOptions = document.querySelectorAll('.payment-popup-container .payment-option');
+        this.errorElement = document.querySelector('.payment-popup-container .payment-error');
+        this.loadingElement = document.querySelector('.payment-popup-container .payment-loading');
+        this.successElement = document.querySelector('.payment-popup-container .payment-success');
+        this.continueButton = document.querySelector('.payment-popup-container .success-continue');
+        this.orderSummary = document.querySelector('.payment-popup-container .order-summary');
         
-        if (isSuccess) {
-          // Payment success
-          alert(`Payment successful via ${method}!`);
-          closePaymentPopup();
-        } else {
-          // Payment failed
-          showPaymentError(`Payment failed. Please try again or use a different payment method.`);
-        }
-      }, 2000);
+        // Bind event listeners
+        this.bindEvents();
+      }
+      
+      bindEvents() {
+        // Close popup events
+        this.closePopup.addEventListener('click', () => this.close());
+        this.overlay.addEventListener('click', () => this.close());
+        this.closePopup.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            this.close();
+          }
+        });
+        
+        // Continue button on success
+        this.continueButton.addEventListener('click', () => this.close());
+        this.continueButton.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            this.close();
+          }
+        });
+        
+        // Payment method selection
+        this.paymentOptions.forEach(option => {
+          option.addEventListener('click', () => this.selectPaymentMethod(option));
+          option.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              this.selectPaymentMethod(option);
+            }
+          });
+        });
+        
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && this.paymentPopup.style.display === 'block') {
+            this.close();
+          }
+        });
+      }
+      
+      open(orderDetails) {
+        this.orderSummary.innerHTML = orderDetails;
+        this.paymentPopup.style.display = 'block';
+        this.overlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        this.resetUI();
+        
+        // Set focus to first payment option for keyboard users
+        setTimeout(() => {
+          this.paymentOptions[0].focus();
+        }, 100);
+      }
+      
+      close() {
+        this.paymentPopup.style.display = 'none';
+        this.overlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+      
+      selectPaymentMethod(option) {
+        // Remove active class from all options
+        this.paymentOptions.forEach(opt => opt.classList.remove('active'));
+        
+        // Add active class to selected option
+        option.classList.add('active');
+        
+        const method = option.getAttribute('data-method');
+        this.initiatePayment(method);
+      }
+      
+      resetUI() {
+        this.paymentOptions.forEach(opt => opt.classList.remove('active'));
+        this.errorElement.style.display = 'none';
+        this.loadingElement.style.display = 'none';
+        this.successElement.style.display = 'none';
+      }
+      
+      showLoading() {
+        this.loadingElement.style.display = 'block';
+        this.errorElement.style.display = 'none';
+        this.successElement.style.display = 'none';
+      }
+      
+      showError(message) {
+        this.errorElement.textContent = message;
+        this.errorElement.style.display = 'block';
+        this.loadingElement.style.display = 'none';
+        this.successElement.style.display = 'none';
+        
+        // Set focus to error for screen readers
+        setTimeout(() => {
+          this.errorElement.focus();
+        }, 100);
+      }
+      
+      showSuccess() {
+        this.loadingElement.style.display = 'none';
+        this.errorElement.style.display = 'none';
+        this.successElement.style.display = 'block';
+        
+        // Set focus to continue button
+        setTimeout(() => {
+          this.continueButton.focus();
+        }, 100);
+      }
+      
+      initiatePayment(method) {
+        this.showLoading();
+        
+        // Simulate payment processing (replace with actual payment gateway integration)
+        setTimeout(() => {
+          // For demo purposes, randomly succeed or fail
+          const isSuccess = Math.random() > 0.3;
+          
+          if (isSuccess) {
+            this.showSuccess();
+          } else {
+            this.showError(`Payment failed. Please try again or use a different payment method.`);
+          }
+        }, 2000);
+      }
+      
+      // Public method to show payment popup
+      showPayment(orderDetails) {
+        this.open(orderDetails);
+      }
     }
     
-    // Close popup when pressing Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && paymentPopup.style.display === 'block') {
-        closePaymentPopup();
-      }
-    });
+    // Initialize the payment popup
+    const paymentPopup = new PaymentPopup();
     
-    // Demo: Call this function when payment is needed
-    window.showPayment = function() {
-      const orderDetails = `
-        <div class="order-item">
-          <span>Premium Subscription</span>
-          <span>$19.99/month</span>
-        </div>
-        <div class="order-item">
-          <span>Tax</span>
-          <span>$2.00</span>
-        </div>
-        <div class="order-total">
-          <span>Total</span>
-          <span>$21.99</span>
-        </div>
-      `;
-      openPaymentPopup(orderDetails);
+    // Expose only what's needed to the global scope
+    window.PaymentPopup = {
+      show: function(orderDetails) {
+        const defaultOrderDetails = orderDetails || `
+          <div class="order-item">
+            <span>Premium Subscription</span>
+            <span>$19.99/month</span>
+          </div>
+          <div class="order-item">
+            <span>Tax</span>
+            <span>$2.00</span>
+          </div>
+          <div class="order-total">
+            <span>Total</span>
+            <span>$21.99</span>
+          </div>
+        `;
+        paymentPopup.showPayment(defaultOrderDetails);
+      }
     };
-  });
+  })();
 </script>
 
 </body>
